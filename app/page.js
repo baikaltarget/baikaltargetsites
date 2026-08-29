@@ -59,6 +59,22 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="nishi" className="sec-pale">
+        <div className="wrap">
+          <div className="sec-head reveal">
+            <span className="eyebrow">Кому подходит</span>
+            <h2>Сайты под <span className="hl">вашу нишу</span></h2>
+            <p>Под каждую сферу — своя структура и свои страницы, а не шаблон с заменой слова.</p>
+          </div>
+          <div className="niche-links">
+            {site.niches.map((n) => <Link key={n.slug} href={'/nishi/' + n.slug} className="niche-chip">{n.name}</Link>)}
+          </div>
+          <div style={{ marginTop: 26 }}>
+            <Link href="/nishi" className="btn btn-outline">Все ниши →</Link>
+          </div>
+        </div>
+      </section>
+
       <section className="compare on-navy">
         <div className="wrap">
           <div className="sec-head reveal">

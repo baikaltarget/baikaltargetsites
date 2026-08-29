@@ -208,12 +208,31 @@ footer{background:var(--navy);color:var(--muted-d);padding:58px 0 34px;font-size
 .case-link{color:var(--blue);font-weight:700;font-size:15px;align-self:flex-start}
 .case-link.draft-link{color:var(--muted);font-weight:600}
 
+/* Ниши */
+.g2niche{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.niche-block{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;border-top:3px solid var(--blue)}
+.niche-block h3{font-family:'Montserrat';font-weight:700;font-size:18px;color:var(--navy);margin-bottom:8px}
+.niche-block p{color:var(--muted);font-size:15px}
+.faq-item{border-top:1px solid var(--line);padding:20px 0}
+.faq-item:first-of-type{border-top:0}
+.faq-item h3{font-family:'Montserrat';font-weight:700;font-size:18px;color:var(--navy);margin-bottom:6px}
+.faq-item p{color:var(--muted);font-size:16px}
+.niche-links{display:flex;flex-wrap:wrap;gap:10px}
+.niche-chip{background:var(--blue-pale);border:1px solid rgba(32,119,255,.16);color:var(--navy);font-weight:600;font-size:14.5px;padding:10px 18px;border-radius:999px}
+.niche-chip:hover{border-color:var(--blue);color:var(--blue)}
+.niche-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.niche-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.niche-card:hover{transform:translateY(-5px);box-shadow:0 26px 44px -26px rgba(25,42,66,.35)}
+.niche-card h3{font-family:'Montserrat';font-weight:700;font-size:20px;color:var(--navy);margin-bottom:10px}
+.niche-card p{color:var(--muted);font-size:14.5px;flex:1}
+.niche-card .more{margin-top:16px;color:var(--blue);font-weight:700;font-size:14px}
+
 .callbar{display:none}
 #mnav{display:none}
 
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;gap:34px;padding:48px 0 58px}
-  .g3,.tariffs,.cmp,.cta-inner,.foot-grid,.post-grid,.cases{grid-template-columns:1fr}
+  .g3,.tariffs,.cmp,.cta-inner,.foot-grid,.post-grid,.cases,.g2niche,.niche-grid{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
   .nav-links,.nav-phone,.crosslink{display:none}
   .nav-cta .btn{display:none}
