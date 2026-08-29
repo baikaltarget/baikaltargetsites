@@ -20,6 +20,7 @@ export default function Footer() {
             <h4>Разделы</h4>
             <Link href="/#value">Что делаем</Link>
             <Link href="/tarify">Тарифы</Link>
+            <Link href="/primery">Примеры</Link>
             <Link href="/blog">Блог</Link>
             <Link href="/#steps">Как работаем</Link>
             <a href={site.mainSite} target="_blank" rel="noopener">Основной сайт агентства ↗</a>

@@ -79,6 +79,39 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="primery">
+        <div className="wrap">
+          <div className="sec-head reveal">
+            <span className="eyebrow">Примеры работ</span>
+            <h2>Сайты, которые <span className="hl">уже приносят заявки</span></h2>
+            <p>Реальные проекты на нашем стеке — многостраничники с услугами, гео-страницами, ценами и блогом.</p>
+          </div>
+          <div className="cases">
+            {site.cases.map((c, i) => (
+              <div className={'case-card reveal' + (c.placeholder ? ' is-draft' : '')} key={i}>
+                <div className="case-top">
+                  <div>
+                    <div className="case-niche">{c.niche}</div>
+                    <h3>{c.name}</h3>
+                  </div>
+                  {c.city !== '—' && <span className="case-city">{c.city}</span>}
+                </div>
+                <p className="case-sum">{c.summary}</p>
+                <div className="case-tags">
+                  {c.tags.map((t, j) => <span className="case-tag" key={j}>{t}</span>)}
+                </div>
+                {c.placeholder
+                  ? <span className="case-link draft-link">Данные уточняются</span>
+                  : <a className="case-link" href={c.url} target="_blank" rel="noopener">Открыть сайт ↗</a>}
+              </div>
+            ))}
+          </div>
+          <div style={{ marginTop: 30 }}>
+            <Link href="/primery" className="btn btn-outline">Все примеры работ →</Link>
+          </div>
+        </div>
+      </section>
+
       <section id="tariffs" className="sec-pale">
         <div className="wrap">
           <div className="sec-head reveal">

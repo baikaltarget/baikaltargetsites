@@ -194,12 +194,26 @@ footer{background:var(--navy);color:var(--muted-d);padding:58px 0 34px;font-size
 .related h4{font-family:'Montserrat';color:var(--navy);margin-bottom:12px}
 .related a{display:block;color:var(--blue);font-weight:600;margin-bottom:8px}
 
+/* Примеры работ */
+.cases{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.case-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:28px;display:flex;flex-direction:column}
+.case-card.is-draft{border-style:dashed;opacity:.9}
+.case-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:14px}
+.case-niche{font-family:'Montserrat';font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
+.case-card h3{font-family:'Montserrat';font-size:22px;font-weight:800;color:var(--navy)}
+.case-city{font-size:13px;color:var(--muted);font-weight:600;white-space:nowrap;background:var(--blue-pale);padding:5px 12px;border-radius:999px}
+.case-sum{color:var(--muted);font-size:15px;flex:1;margin-bottom:18px}
+.case-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.case-tag{font-size:12.5px;font-weight:600;color:var(--navy);background:var(--blue-pale);border:1px solid rgba(32,119,255,.15);padding:6px 12px;border-radius:999px}
+.case-link{color:var(--blue);font-weight:700;font-size:15px;align-self:flex-start}
+.case-link.draft-link{color:var(--muted);font-weight:600}
+
 .callbar{display:none}
 #mnav{display:none}
 
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;gap:34px;padding:48px 0 58px}
-  .g3,.tariffs,.cmp,.cta-inner,.foot-grid,.post-grid{grid-template-columns:1fr}
+  .g3,.tariffs,.cmp,.cta-inner,.foot-grid,.post-grid,.cases{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
   .nav-links,.nav-phone,.crosslink{display:none}
   .nav-cta .btn{display:none}

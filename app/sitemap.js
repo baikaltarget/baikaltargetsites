@@ -3,7 +3,7 @@ import { getAllSlugs } from '@/lib/blog';
 
 export default function sitemap() {
   const base = site.domain;
-  const stat = ['', '/tarify', '/blog', '/kontakty'].map((p) => ({
+  const stat = ['', '/tarify', '/primery', '/blog', '/kontakty'].map((p) => ({
     url: base + p + (p ? '/' : '/'), lastModified: new Date(), changeFrequency: 'monthly', priority: p === '' ? 1 : 0.8,
   }));
   const posts = getAllSlugs().map((slug) => ({
