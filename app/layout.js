@@ -9,6 +9,10 @@ export const metadata = {
   title: 'Разработка SEO-сайтов под заявки | ' + site.brand,
   description: 'Быстрые многостраничные сайты на Next.js под локальный SEO: гео-страницы, SEO из коробки, формы в Telegram, готовность к рекламе и ИИ. От 25 000 ₽. Иркутск.',
   alternates: { canonical: '/' },
+  // ВРЕМЕННО: сайт закрыт от индексации на время доработки.
+  // Снять перед публикацией: поставить "noindex": false в content/site.json
+  robots: site.noindex ? { index: false, follow: false, nocache: true,
+    googleBot: { index: false, follow: false } } : undefined,
   openGraph: {
     type: 'website', locale: 'ru_RU', siteName: site.brand,
     title: 'Разработка SEO-сайтов под заявки | ' + site.brand,
