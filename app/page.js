@@ -117,10 +117,13 @@ export default function Home() {
           <div className="case-grid">
             {topCases.map((c, i) => (
               <a href={c.url} target="_blank" rel="noopener" className="case2 reveal" key={i}>
-                <div className="case2-top"><span className="case2-niche">{c.niche}</span>{c.city && <span className="case2-city">{c.city}</span>}</div>
-                <h3>{c.name}</h3>
-                <div className="case2-result">{c.result}</div>
-                <span className="case2-link">Открыть сайт ↗</span>
+                {c.img && <span className="case2-img"><Image src={c.img} alt={'Сайт ' + c.name} width={800} height={366} /></span>}
+                <div className="case2-body">
+                  <div className="case2-top"><span className="case2-niche">{c.niche}</span>{c.city && <span className="case2-city">{c.city}</span>}</div>
+                  <h3>{c.name}</h3>
+                  <div className="case2-result">{c.result}</div>
+                  <span className="case2-link">Открыть сайт ↗</span>
+                </div>
               </a>
             ))}
           </div>

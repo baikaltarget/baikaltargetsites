@@ -218,7 +218,8 @@
         "SEO",
         "+1800/квартал"
       ],
-      "top": true
+      "top": true,
+      "img": "/img/cases/dacha38.jpg"
     },
     {
       "name": "Дарасун CO₂",
@@ -232,7 +233,8 @@
         "Переработка",
         "+30% трафика"
       ],
-      "top": true
+      "top": true,
+      "img": "/img/cases/darasun.jpg"
     },
     {
       "name": "LISA Fitness",
@@ -245,7 +247,8 @@
         "Фитнес",
         "+40 заявок/мес"
       ],
-      "top": true
+      "top": true,
+      "img": "/img/cases/lisa.jpg"
     },
     {
       "name": "Золото Камчатки",
@@ -259,7 +262,8 @@
         "Каталог",
         "66+ страниц"
       ],
-      "top": true
+      "top": true,
+      "img": "/img/cases/zoloto.jpg"
     },
     {
       "name": "Energy Fit",
@@ -272,7 +276,8 @@
         "Фитнес",
         "+1100/квартал"
       ],
-      "top": false
+      "top": false,
+      "img": "/img/cases/energyfit.jpg"
     },
     {
       "name": "ProLesok",
@@ -285,7 +290,8 @@
         "Отель",
         "Бронирование"
       ],
-      "top": false
+      "top": false,
+      "img": "/img/cases/prolesok.jpg"
     },
     {
       "name": "ФОРТЕС",
@@ -298,7 +304,8 @@
         "Отопление",
         "Конверсия 4%"
       ],
-      "top": false
+      "top": false,
+      "img": "/img/cases/fortes.jpg"
     },
     {
       "name": "ДВИКС ДОМ",
@@ -311,7 +318,8 @@
         "Стройка",
         "Переработка"
       ],
-      "top": false
+      "top": false,
+      "img": "/img/cases/dvix.jpg"
     },
     {
       "name": "Priority Auto",
@@ -324,7 +332,8 @@
         "Авто",
         "Реклама + SEO"
       ],
-      "top": false
+      "top": false,
+      "img": "/img/cases/priority.jpg"
     },
     {
       "name": "Кровля 138",
@@ -337,7 +346,8 @@
         "Кровля",
         "Новое направление"
       ],
-      "top": false
+      "top": false,
+      "img": null
     },
     {
       "name": "Локо Мотив",
@@ -350,7 +360,8 @@
         "Детский досуг",
         "Переработка"
       ],
-      "top": false
+      "top": false,
+      "img": "/img/cases/loko.jpg"
     }
   ],
   "niches": [
