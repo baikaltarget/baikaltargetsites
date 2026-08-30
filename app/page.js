@@ -61,7 +61,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-visual">
-            <Image src={h.phoneImg} alt="Пример сайта, который мы сделали" width={560} height={620} className="hero-phone" priority />
+            <Image src={h.phoneImg} alt="Пример сайта, который мы сделали" width={600} height={600} className="hero-phone" priority />
             {h.badges.map((b, i) => (
               <span className={'fly fly-' + i} key={i}><span className="fly-i">{b.icon}</span>{b.text}</span>
             ))}

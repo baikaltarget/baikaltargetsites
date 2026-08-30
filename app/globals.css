@@ -252,18 +252,17 @@ footer{background:var(--navy);color:var(--muted-d);padding:58px 0 34px;font-size
 /* hero */
 .hero-over{display:inline-block;font-family:'Montserrat';font-weight:700;font-size:13px;letter-spacing:.02em;color:var(--orange);background:rgba(248,105,60,.14);padding:8px 16px;border-radius:999px;margin-bottom:20px}
 .hero h1{font-size:clamp(30px,4.4vw,50px)}
-.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:520px}
-.hero-phone{width:100%;max-width:440px;height:auto;border-radius:24px;position:relative;z-index:2;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5))}
+.hero-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:600px}
+.hero-phone{width:100%;max-width:600px;height:auto;position:relative;z-index:2;filter:drop-shadow(0 40px 70px rgba(0,0,0,.4))}
 .fly{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.97);color:var(--navy);font-weight:700;font-size:13.5px;padding:10px 15px;border-radius:14px;box-shadow:0 14px 30px -10px rgba(0,0,0,.4);white-space:nowrap;animation:float 4s ease-in-out infinite}
 .fly-i{font-size:16px}
-.fly-0{top:6%;left:-4%;animation-delay:0s}
-.fly-1{top:26%;right:-8%;animation-delay:.6s}
-.fly-2{bottom:30%;left:-8%;animation-delay:1.2s}
-.fly-3{bottom:8%;right:-4%;animation-delay:1.8s}
-.fly-4{top:52%;left:50%;transform:translateX(-50%);animation-delay:2.4s}
+.fly-0{top:2%;left:-2%;animation-delay:0s}
+.fly-1{top:30%;right:-6%;animation-delay:.6s}
+.fly-2{top:46%;left:-7%;animation-delay:1.2s}
+.fly-3{bottom:2%;right:-2%;animation-delay:1.8s}
+.fly-4{bottom:18%;left:-3%;animation-delay:2.4s}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
-.fly-4{animation-name:float-c}
-@keyframes float-c{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-9px)}}
+.fly-4{animation-name:float}
 
 /* зачем сайт / возражения */
 .g2{grid-template-columns:1fr 1fr}
