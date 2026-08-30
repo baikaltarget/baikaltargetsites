@@ -6,8 +6,8 @@ import site from '@/content/site.json';
 
 export const metadata = {
   metadataBase: new URL(site.domain),
-  title: 'Разработка SEO-сайтов под заявки | ' + site.brand,
-  description: 'Быстрые многостраничные сайты на Next.js под локальный SEO: гео-страницы, SEO из коробки, формы в Telegram, готовность к рекламе и ИИ. От 25 000 ₽. Иркутск.',
+  title: 'Разработка сайтов под ключ в Иркутске от 25 000 ₽ — SEO-сайты | ' + site.brand,
+  description: 'Разработка сайтов под ключ в Иркутске и по России от 25 000 ₽. Многостраничные SEO-сайты, которые приводят клиентов из поиска. Запуск от 5 дней.',
   alternates: { canonical: '/' },
   // ВРЕМЕННО: сайт закрыт от индексации на время доработки.
   // Снять перед публикацией: поставить "noindex": false в content/site.json

@@ -23,6 +23,11 @@ export default function Footer() {
             <Link href="/primery">Примеры</Link>
             <Link href="/blog">Блог</Link>
             <Link href="/#steps">Как работаем</Link>
+          </div>
+          <div>
+            <h4>Услуги агентства</h4>
+            <a href="https://baikal-target.ru/services/kontekstnaya-reklama-yandex-direct" target="_blank" rel="noopener">Реклама в Яндекс.Директ ↗</a>
+            <a href="https://baikal-target.ru/services/targetirovannaya-reklama" target="_blank" rel="noopener">Таргетированная реклама ↗</a>
             <a href={site.mainSite} target="_blank" rel="noopener">Основной сайт агентства ↗</a>
           </div>
           <div>
