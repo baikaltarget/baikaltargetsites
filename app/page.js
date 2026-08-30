@@ -162,7 +162,7 @@ export default function Home() {
               ))}
             </div>
             <div className="ps-proof">
-              <Image src={site.pagespeed.img} alt="Оценка Google PageSpeed нашего сайта" width={900} height={163} className="ps-img" />
+              <Image src={site.pagespeed.img} alt="Оценка Google PageSpeed нашего сайта" width={900} height={662} className="ps-img" />
               <p className="ps-note">{site.pagespeed.note}</p>
               <a href={site.pagespeed.url} target="_blank" rel="noopener" className="btn btn-outline">{site.pagespeed.btn} →</a>
             </div>
@@ -189,7 +189,7 @@ export default function Home() {
       <section className="compare on-navy">
         <div className="wrap">
           <div className="sec-head reveal">
-            <span className="eyebrow light">Почему не дёшево</span>
+            <span className="eyebrow light">{site.compareEyebrow}</span>
             <h2>{site.compareTitle}<span className="hl">{site.compareTitleHl}</span></h2>
             <p>{site.compareLead}</p>
           </div>
