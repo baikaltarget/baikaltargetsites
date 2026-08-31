@@ -181,9 +181,9 @@ export default function Home() {
             <p>Под каждую сферу — своя структура и свои страницы: у стройки объекты со сметами, у клининга калькулятор по площади, у клиники лицензии и запись. Не шаблон с заменой слова, а сайт под конкретную задачу.</p>
           </div>
           <div className="niche-links">
-            {site.niches.map((n) => <Link key={n.slug} href={'/nishi/' + n.slug} className="niche-chip"><span className="nchip-i">{NICHE_ICONS[n.slug] || '•'}</span>{n.name}</Link>)}
+            {site.niches.map((n) => <Link key={n.slug} href={'/otrasli/' + n.slug} className="niche-chip"><span className="nchip-i">{NICHE_ICONS[n.slug] || '•'}</span>{n.name}</Link>)}
           </div>
-          <div style={{ marginTop: 26 }}><Link href="/nishi" className="btn btn-outline">Все ниши →</Link></div>
+          <div style={{ marginTop: 26 }}><Link href="/otrasli" className="btn btn-outline">Все ниши →</Link></div>
         </div>
       </section>
 

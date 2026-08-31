@@ -12,7 +12,7 @@ export default function Header() {
           <span className="brand-sub">{site.subBrand}</span>
         </Link>
         <nav className="nav-links">
-          <Link href="/nishi">Ниши</Link>
+          <Link href="/otrasli">Отрасли</Link>
           <Link href="/tarify">Тарифы</Link>
           <Link href="/primery">Примеры</Link>
           <Link href="/blog">Блог</Link>
@@ -27,7 +27,7 @@ export default function Header() {
         </div>
       </div>
       <div className="wrap"><nav id="mnav">
-        <Link href="/nishi">Ниши</Link>
+        <Link href="/otrasli">Отрасли</Link>
         <Link href="/tarify">Тарифы</Link>
         <Link href="/primery">Примеры</Link>
         <Link href="/blog">Блог</Link>
