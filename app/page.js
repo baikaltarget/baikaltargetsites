@@ -162,9 +162,11 @@ export default function Home() {
               ))}
             </div>
             <div className="ps-proof">
-              <Image src={site.pagespeed.img} alt="Оценка Google PageSpeed нашего сайта" width={900} height={662} className="ps-img" />
-              <p className="ps-note">{site.pagespeed.note}</p>
-              <a href={site.pagespeed.url} target="_blank" rel="noopener" className="btn btn-outline">{site.pagespeed.btn} →</a>
+              <Image src="/img/pagespeed-phone.png" alt="Сайт нашего клиента, проверенный в Google PageSpeed" width={255} height={503} className="ps-phone" />
+              <div className="ps-proof-txt">
+                <p className="ps-note">{site.pagespeed.note}</p>
+                <a href={site.pagespeed.url} target="_blank" rel="noopener" className="btn btn-outline">{site.pagespeed.btn} →</a>
+              </div>
             </div>
           </div>
         </div>
