@@ -379,3 +379,23 @@ footer{background:var(--navy);color:var(--muted-d);padding:58px 0 34px;font-size
 .octa p{color:var(--muted-d);font-size:16px;max-width:620px}
 .octa .btn{flex-shrink:0}
 @media(max-width:760px){.octa{flex-direction:column;align-items:flex-start}}
+
+/* otrasli head — скрины веером справа */
+.otrasli-head .oh-inner{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.oh-text{max-width:640px}
+.oh-fan{position:relative;height:400px}
+.oh-fan .fan{position:absolute;border-radius:14px;overflow:hidden;box-shadow:0 30px 60px -22px rgba(0,0,0,.6);border:3px solid rgba(255,255,255,.9);transition:transform .25s}
+.oh-fan .fan img{display:block;width:340px;height:auto}
+.fan-1{top:20px;left:2%;transform:rotate(-7deg);z-index:1}
+.fan-2{top:70px;left:26%;transform:rotate(3deg);z-index:3}
+.fan-3{top:150px;left:12%;transform:rotate(-3deg);z-index:2}
+.oh-fan:hover .fan-1{transform:rotate(-9deg) translateY(-6px)}
+.oh-fan:hover .fan-2{transform:rotate(3deg) translateY(-8px)}
+.oh-fan:hover .fan-3{transform:rotate(-2deg) translateY(-6px)}
+@media(max-width:900px){
+  .otrasli-head .oh-inner{grid-template-columns:1fr}
+  .oh-fan{height:300px;margin-top:10px}
+  .oh-fan .fan img{width:260px}
+  .fan-1{left:0}.fan-2{left:30%}.fan-3{left:14%}
+}
+@media(max-width:560px){.oh-fan{display:none}}

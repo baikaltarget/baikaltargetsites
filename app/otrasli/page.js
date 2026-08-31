@@ -17,12 +17,19 @@ export default function NicheIndex() {
   const p = site.otrasliPage;
   return (
     <>
-      <section className="page-head">
-        <div className="wrap">
-          <span className="eyebrow light">Кому подходит</span>
-          <h1>Сайты под вашу отрасль</h1>
-          <p>{p.lead}</p>
-          <Link href="/kontakty" className="btn btn-primary" style={{ marginTop: 22 }}>Обсудить мой проект →</Link>
+      <section className="page-head otrasli-head">
+        <div className="wrap oh-inner">
+          <div className="oh-text">
+            <span className="eyebrow light">Кому подходит</span>
+            <h1>Сайты под вашу отрасль</h1>
+            <p>{p.lead}</p>
+            <Link href="/kontakty" className="btn btn-primary" style={{ marginTop: 22 }}>Обсудить мой проект →</Link>
+          </div>
+          <div className="oh-fan">
+            <span className="fan fan-1"><img src="/img/cases/dacha38.jpg" alt="Сайт строительной компании" /></span>
+            <span className="fan fan-2"><img src="/img/cases/lisa.jpg" alt="Сайт фитнес-студии" /></span>
+            <span className="fan fan-3"><img src="/img/cases/zoloto.jpg" alt="Сайт-каталог товаров" /></span>
+          </div>
         </div>
       </section>
 
