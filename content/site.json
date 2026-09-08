@@ -27,26 +27,27 @@
     "phoneImg": "/img/hero-phone-circle.png",
     "badges": [
       {
-        "icon": "🔍",
+        "ic": "search",
         "text": "Вас находят в Яндексе и Google"
       },
       {
-        "icon": "📈",
+        "ic": "chart",
         "text": "Заявки из поиска"
       },
       {
-        "icon": "⚡",
+        "ic": "bolt",
         "text": "Запуск от 5 дней"
       },
       {
-        "icon": "💰",
-        "text": "От 25 000 ₽"
+        "ic": "ai",
+        "text": "Найдут даже через ИИ"
       },
       {
-        "icon": "🤖",
-        "text": "Найдут даже через ИИ"
+        "ic": "ruble",
+        "text": "От 25 000 ₽"
       }
-    ]
+    ],
+    "heroImg": "/img/hero-laptop.jpg"
   },
   "features": [
     {
