@@ -68,7 +68,8 @@ export default function Home() {
               <div><b>от 25 000 ₽</b><small>сайт под ключ</small></div>
             </div>
           </div>
-          <div className="hero-visual hero-visual-laptop" style={{ backgroundImage: `url(${h.heroImg})` }}>
+          <div className="hero-visual hero-visual-laptop">
+            <img src={h.heroImg} alt="Пример сайта, который мы сделали" className="hero-laptop" />
             {h.badges.map((b, i) => (
               <span className={'fly fly-' + i} key={i}><span className="fly-i">{BADGE_ICONS[b.ic]}</span>{b.text}</span>
             ))}
