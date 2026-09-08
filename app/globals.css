@@ -271,7 +271,7 @@ footer{background:var(--navy);color:var(--muted-d);padding:58px 0 34px;font-size
 .myth-card p{color:var(--muted);font-size:15px}
 
 /* примеры v2 */
-.case-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .case2{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
 .case2:hover{transform:translateY(-5px);box-shadow:0 26px 44px -26px rgba(25,42,66,.35)}
 .case2-img{display:block;border-bottom:1px solid var(--line)}
@@ -397,3 +397,9 @@ footer{background:var(--navy);color:var(--muted-d);padding:58px 0 34px;font-size
 .why-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;border-top:3px solid var(--orange)}
 .why-num{font-family:'Montserrat';font-weight:800;font-size:22px;color:var(--orange);display:block;margin-bottom:12px}
 .why-card p{color:var(--text);font-size:15.5px;font-weight:500}
+
+/* hero perks — статичная полоса выгод под метриками */
+.perks{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.perk{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid var(--line-d);color:#fff;font-weight:600;font-size:13.5px;padding:9px 14px;border-radius:12px}
+.perk-i{display:inline-flex;color:var(--blue-2)}
+.perk-i svg{width:16px;height:16px}

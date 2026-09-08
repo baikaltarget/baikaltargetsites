@@ -25,7 +25,29 @@
     "ctaPrimary": "Рассчитать стоимость",
     "ctaSecondary": "Смотреть тарифы",
     "phoneImg": "/img/hero-phone-circle.png",
-    "heroImg": "/img/hero-laptop.png"
+    "heroImg": "/img/hero-laptop.png",
+    "perks": [
+      {
+        "ic": "search",
+        "text": "Вас находят в Яндексе и Google"
+      },
+      {
+        "ic": "chart",
+        "text": "Заявки из поиска"
+      },
+      {
+        "ic": "bolt",
+        "text": "Запуск от 5 дней"
+      },
+      {
+        "ic": "ai",
+        "text": "Найдут даже через ИИ"
+      },
+      {
+        "ic": "ruble",
+        "text": "От 25 000 ₽"
+      }
+    ]
   },
   "features": [
     {
@@ -269,21 +291,22 @@
         "Отель",
         "Бронирование"
       ],
-      "top": false,
+      "top": true,
       "img": "/img/cases/prolesok.jpg"
     },
     {
       "name": "ФОРТЕС",
-      "url": "https://xn-----6kcvdobqaehmfhearyufekw7z.xn--p1ai/",
-      "niche": "Монтаж отопления",
+      "url": "https://fortes-group.ru/",
+      "niche": "Инженерные системы для дома",
       "city": "Иркутск",
-      "result": "200 переходов в месяц, конверсия в заявку 4%",
-      "before": "Выделили отопление в отдельное направление фирмы.",
+      "result": "302 страницы под все услуги и запросы · 200 переходов/мес, конверсия в заявку 4%",
+      "before": "Отопление, скважина, вода, канализация, электрика — отдельная страница под каждую услугу.",
       "tags": [
-        "Отопление",
+        "Инженерка",
+        "302 страницы",
         "Конверсия 4%"
       ],
-      "top": false,
+      "top": true,
       "img": "/img/cases/fortes.jpg"
     },
     {
