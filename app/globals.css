@@ -252,7 +252,7 @@ footer{background:var(--navy);color:var(--muted-d);padding:58px 0 34px;font-size
 
 /* ============ ГЛАВНАЯ v2 ============ */
 /* hero */
-.hero-over{display:inline-block;font-family:'Montserrat';font-weight:700;font-size:13px;letter-spacing:.02em;color:#fff;background:var(--orange);padding:9px 16px;border-radius:10px;margin-bottom:20px}
+.hero-over{display:inline-block;font-family:'Montserrat';font-weight:700;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:20px}
 .hero h1{font-size:clamp(30px,4.4vw,50px)}
 .hero-visual{position:relative;display:flex;justify-content:center;align-items:center;min-height:560px}
 .hero-laptop{width:118%;max-width:none;height:auto;display:block;position:relative;z-index:2;margin-right:-14%;filter:drop-shadow(0 40px 70px rgba(0,0,0,.5))}
