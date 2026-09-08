@@ -25,28 +25,6 @@
     "ctaPrimary": "Рассчитать стоимость",
     "ctaSecondary": "Смотреть тарифы",
     "phoneImg": "/img/hero-phone-circle.png",
-    "badges": [
-      {
-        "ic": "search",
-        "text": "Вас находят в Яндексе и Google"
-      },
-      {
-        "ic": "chart",
-        "text": "Заявки из поиска"
-      },
-      {
-        "ic": "bolt",
-        "text": "Запуск от 5 дней"
-      },
-      {
-        "ic": "ai",
-        "text": "Найдут даже через ИИ"
-      },
-      {
-        "ic": "ruble",
-        "text": "От 25 000 ₽"
-      }
-    ],
     "heroImg": "/img/hero-laptop.png"
   },
   "features": [
