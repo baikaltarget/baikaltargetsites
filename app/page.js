@@ -22,15 +22,24 @@ const PERK_ICONS = {
   ruble: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 21V4h6a5 5 0 0 1 0 10H5m0 3h8"/></svg>,
 };
 
+const SVC_ICONS = {
+  key: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="8" cy="15" r="4"/><path d="m10.9 12.1 9.6-9.6M17 6l3 3M14 9l3 3"/></svg>,
+  building: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M16 6h.01M12 6h.01M12 10h.01M12 14h.01M16 10h.01M16 14h.01M8 10h.01M8 14h.01"/></svg>,
+  grid: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>,
+  layers: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m12 2 10 5-10 5L2 7l10-5Z"/><path d="m2 12 10 5 10-5M2 17l10 5 10-5"/></svg>,
+  trend: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M3 3v18h18"/><path d="m7 14 4-4 3 3 5-6"/></svg>,
+};
+
 const NICHE_ICONS = {
   'stroitelnaya-kompaniya': '🏗️', 'proizvodstvo-zavod': '🏭', 'medicinskaya-klinika': '🏥',
   'stomatologiya': '🦷', 'fitnes-klub': '💪', 'klining': '🧹', 'otoplenie-santehnika': '🔧',
   'salon-krasoty': '💇', 'avtoservis': '🚗', 'sayt-katalog-tovarov': '📦',
+  'oteli-bazy-otdyha': '🏨', 'nedvizhimost': '🏢', 'yuridicheskie-uslugi': '⚖️', 'remont-kvartir': '🛠️', 'mebel-na-zakaz': '🛋️', 'okna-dveri': '🚪',
 };
 
 const orgLd = {
   '@context': 'https://schema.org', '@type': 'Service',
-  serviceType: 'Разработка сайтов под ключ',
+  serviceType: 'Создание сайтов под ключ',
   provider: { '@type': 'LocalBusiness', name: site.brand, telephone: '+7-800-101-63-20', email: site.email,
     address: { '@type': 'PostalAddress', streetAddress: 'ул. Байкальская, 295/1', addressLocality: 'Иркутск', addressCountry: 'RU' },
     openingHours: 'Mo-Su 09:00-20:00', url: site.mainSite },
@@ -65,7 +74,7 @@ export default function Home() {
             <div className="trust">
               <div><b>с 2019</b><small>на рынке</small></div>
               <div><b>50+</b><small>сайтов сделали</small></div>
-              <div><b>от 25 000 ₽</b><small>сайт под ключ</small></div>
+              <div><b>от 35 000 ₽</b><small>сайт под ключ</small></div>
             </div>
             <div className="perks">
               {h.perks.map((p, i) => (
@@ -138,6 +147,28 @@ export default function Home() {
             ))}
           </div>
           <div style={{ marginTop: 30 }}><Link href="/primery" className="btn btn-outline">Все примеры работ →</Link></div>
+        </div>
+      </section>
+
+      {/* ===== УСЛУГИ ===== */}
+      <section id="uslugi">
+        <div className="wrap">
+          <div className="sec-head reveal">
+            <span className="eyebrow">Что делаем</span>
+            <h2>Какой сайт <span className="hl">нужен вам</span></h2>
+            <p>Все варианты — многостраничные и под SEO с первого дня. Лендинги и интернет-магазины с корзиной не делаем: наша специализация — сайты, которые приводят клиентов из поиска.</p>
+          </div>
+          <div className="svc-grid">
+            {site.services.map((sv, i) => (
+              <Link href={'/uslugi/' + sv.slug} className="svc reveal" key={i}>
+                <span className="svc-ic">{SVC_ICONS[sv.ic]}</span>
+                <h3>{sv.name}</h3>
+                <p>{sv.short}</p>
+                <div className="svc-meta"><b>{sv.price}</b>{sv.term && <span>· {sv.term}</span>}</div>
+                <span className="svc-more">Подробнее →</span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -238,6 +269,14 @@ export default function Home() {
               </div>
             ))}
           </div>
+          <div className="tariff-extra reveal">
+            {site.tariffExtra.map((t, i) => (
+              <Link href={t.url} className="tx" key={i}>
+                <div><span className="tx-name">{t.name}</span><p>{t.desc}</p></div>
+                <div className="tx-price">{t.price} <span>→</span></div>
+              </Link>
+            ))}
+          </div>
           <div className="note reveal" dangerouslySetInnerHTML={{ __html: site.tariffNote }} />
         </div>
       </section>
@@ -324,7 +363,7 @@ export default function Home() {
               <li>✓ Предложим структуру под ваши запросы</li>
               <li>✓ Назовём точную цену и срок</li>
             </ul>
-            <div className="cta-badges"><span>от 25 000 ₽</span><span>от 5 дней</span><span>бесплатно</span></div>
+            <div className="cta-badges"><span>от 35 000 ₽</span><span>от 5 дней</span><span>бесплатно</span></div>
             <div className="cta-limit">Берём в работу 3–4 проекта в месяц</div>
             <div className="contacts">
               <a href={site.phoneHref}>☎ {site.phone}</a>

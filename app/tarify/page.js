@@ -3,7 +3,7 @@ import site from '@/content/site.json';
 
 export const metadata = {
   title: 'Тарифы на разработку сайтов | ' + site.brand,
-  description: 'Три тарифа на многостраничный SEO-сайт: Старт 25 000 ₽, Стандарт 40 000 ₽, Максимум 80 000 ₽. Плюс поддержка и индивидуальный дизайн.',
+  description: 'Тарифы на многостраничный SEO-сайт: Старт от 35 000 ₽, Стандарт от 60 000 ₽, Максимум от 120 000 ₽. Корпоративный и каталог от 80 000 ₽. Поддержка и индивидуальный дизайн.',
   alternates: { canonical: '/tarify/' },
 };
 
@@ -29,6 +29,14 @@ export default function Tarify() {
                 <ul>{p.items.map((it, j) => <li key={j}><span className="tick">✓</span> {it}</li>)}</ul>
                 <Link href="/kontakty" className={'btn ' + (p.feature ? 'btn-primary' : 'btn-outline')}>Выбрать {p.name}</Link>
               </div>
+            ))}
+          </div>
+          <div className="tariff-extra">
+            {site.tariffExtra.map((t, i) => (
+              <Link href={t.url} className="tx" key={i}>
+                <div><span className="tx-name">{t.name}</span><p>{t.desc}</p></div>
+                <div className="tx-price">{t.price} <span>→</span></div>
+              </Link>
             ))}
           </div>
           <div className="note" dangerouslySetInnerHTML={{ __html: site.tariffNote }} />

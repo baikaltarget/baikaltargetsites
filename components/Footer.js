@@ -18,6 +18,7 @@ export default function Footer() {
           </div>
           <div>
             <h4>Разделы</h4>
+            <Link href="/uslugi">Услуги</Link>
             <Link href="/otrasli">Отрасли</Link>
             <Link href="/tarify">Тарифы</Link>
             <Link href="/primery">Примеры</Link>

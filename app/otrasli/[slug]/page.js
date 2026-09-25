@@ -141,13 +141,13 @@ export default function NichePage({ params }) {
         <div className="wrap cta-inner">
           <div>
             <h2>Сделаем сайт под ваш бизнес</h2>
-            <p>Расскажите про нишу и город — предложим структуру страниц и назовём цену. От 25 000 ₽, запуск от 5 дней.</p>
+            <p>Расскажите про нишу и город — предложим структуру страниц и назовём цену. От 35 000 ₽, запуск от 5 дней.</p>
             <ul className="cta-bullets">
               <li>✓ Разберём вашу нишу и конкурентов</li>
               <li>✓ Предложим структуру под ваши запросы</li>
               <li>✓ Назовём точную цену и срок</li>
             </ul>
-            <div className="cta-badges"><span>от 25 000 ₽</span><span>от 5 дней</span><span>бесплатно</span></div>
+            <div className="cta-badges"><span>от 35 000 ₽</span><span>от 5 дней</span><span>бесплатно</span></div>
             <div className="contacts">
               <a href={site.phoneHref}>☎ {site.phone}</a>
               <a href={site.telegram} target="_blank" rel="noopener">✈ {site.telegramHandle}</a>
@@ -172,7 +172,7 @@ export default function NichePage({ params }) {
       {/* SEO-текст */}
       <section className="seo-text">
         <div className="wrap">
-          <h2>{n.h1} — от 25 000 ₽</h2>
+          <h2>{n.h1} — от 35 000 ₽</h2>
           <p>{n.seo}</p>
         </div>
       </section>
