@@ -632,3 +632,10 @@ a.rv-src:hover{color:var(--blue);border-color:var(--blue)}
 .also{color:var(--muted);font-size:15px;line-height:1.7;max-width:900px}
 .also b{color:var(--navy)}
 .step-card>div p{margin:0}
+.tbl-dark{background:rgba(255,255,255,.03);border-color:var(--line-d);color:var(--muted-d)}
+.tbl-dark th{background:rgba(255,255,255,.06);color:#fff}
+.tbl-dark td{border-color:var(--line-d)}
+.tbl-dark td b{color:#fff}
+.tbl-dark td.p{color:var(--blue-2)}
+.tbl-dark tr.hi td{background:rgba(32,119,255,.14);color:#fff}
+.tbl-dark tr.hi td.p{color:#fff;font-weight:800}
