@@ -547,6 +547,7 @@ a.rv-src:hover{color:var(--blue);border-color:var(--blue)}
 .ads-logos{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .ads-logo{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:110px;height:46px;padding:0 16px;border-radius:12px;background:#fff;color:#000;font-weight:800;font-size:15px;font-family:'Montserrat'}
 .ads-logo img{height:24px;width:auto;display:block}
+.ads-logo img[src*="yandex"]{height:22px}
 
 /* 8. отрасли карточками на главной */
 .niche-grid-home .niche-card p{font-size:14px}
