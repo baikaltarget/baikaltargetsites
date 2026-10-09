@@ -43,7 +43,7 @@ export default function Tarify() {
         </div>
       </section>
 
-      <section>
+      <section id="support">
         <div className="wrap">
           <div className="sec-head">
             <span className="eyebrow">После сдачи</span>
