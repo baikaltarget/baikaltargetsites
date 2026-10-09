@@ -63,7 +63,7 @@ export default function CasePage({ params }) {
           <div className="hero-visual">
             {c.img && (
               <span className="case-laptop">
-                <span className="case-laptop-screen"><img src={c.img} alt={'Сайт ' + c.name} width="800" height="366" /></span>
+                <span className="case-laptop-screen"><img src={c.img} alt={'Сайт ' + c.name} width="1400" height="900" /></span>
                 <span className="case-laptop-base" />
               </span>
             )}
@@ -114,7 +114,7 @@ export default function CasePage({ params }) {
             <div className="sec-head"><span className="eyebrow">Что внутри</span><h2>Страницы, которые <span className="hl">приводят клиентов</span></h2></div>
             <div className="inside">
               <div className="inside-shot">
-                {c.img && <img src={c.img} alt={'Главная страница сайта ' + c.name} width="800" height="366" loading="lazy" />}
+                {c.img && <img src={c.img} alt={'Главная страница сайта ' + c.name} width="1400" height="900" loading="lazy" />}
                 <a href={c.url} target="_blank" rel="noopener" className="btn btn-outline">Открыть сайт ↗</a>
               </div>
               <div className="inside-list">

@@ -9,7 +9,7 @@ export default function CaseCard({ c, className = '' }) {
     <Link href={'/primery/' + c.slug} className={'casex ' + className} aria-label={'Кейс: сайт для ' + c.name}>
       <span className="casex-win">
         <span className="casex-bar"><i /><i /><i /><span className="casex-url">{host(c)}</span></span>
-        {c.img ? <Image src={c.img} alt={'Сайт ' + c.name + ' — ' + c.niche} width={800} height={366} className="casex-shot" /> : <span className="casex-shot casex-noshot"><b>{host(c)}</b><span>{c.niche}</span></span>}
+        {c.img ? <Image src={c.img} alt={'Сайт ' + c.name + ' — ' + c.niche} width={1400} height={900} className="casex-shot" /> : <span className="casex-shot casex-noshot"><b>{host(c)}</b><span>{c.niche}</span></span>}
       </span>
       <span className="casex-body">
         <span className="casex-tag">{c.niche}{c.city && <em> · {c.city}</em>}</span>
