@@ -1,14 +1,18 @@
 import site from '@/content/site.json';
+import LeadForm from '@/components/LeadForm';
+import { localBusiness } from '@/lib/schema';
 
 export const metadata = {
   title: 'Контакты и заявка | ' + site.brand,
-  description: 'Обсудим ваш сайт: телефон, Telegram, WhatsApp. Иркутск, работаем по всей России.',
+  description: 'Студия сайтов Байкал Таргет в Иркутске: ул. Байкальская, 295/1. Телефон, Telegram, WhatsApp, заявка на сайт.',
   alternates: { canonical: '/kontakty/' },
 };
 
 export default function Kontakty() {
+  const ld = { '@context': 'https://schema.org', ...localBusiness() };
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <section className="page-head">
         <div className="wrap">
           <span className="eyebrow light">Контакты</span>
@@ -26,28 +30,10 @@ export default function Kontakty() {
               <a href={site.telegram} target="_blank" rel="noopener">✈ Telegram: {site.telegramHandle}</a>
               <a href={site.whatsapp} target="_blank" rel="noopener">✆ WhatsApp</a>
               <a href={'mailto:' + site.email}>✉ {site.email}</a>
-              <a>📍 {site.address}</a>
+              <a href={site.mapsYandex || undefined} target={site.mapsYandex ? '_blank' : undefined} rel="noopener">📍 {site.address}</a>
             </div>
           </div>
-          <div className="form">
-            <h3>Оставьте заявку</h3>
-            <div className="sub">Свяжемся в течение рабочего дня ({site.hours}).</div>
-            <label htmlFor="f-name">Ваше имя</label>
-            <input id="f-name" type="text" placeholder="Как к вам обращаться" />
-            <label htmlFor="f-phone">Телефон</label>
-            <input id="f-phone" type="tel" placeholder="+7 ___ ___-__-__" />
-            <label htmlFor="f-niche">Ниша и город</label>
-            <input id="f-niche" type="text" placeholder="Напр.: монтаж отопления, Иркутск" />
-            <label htmlFor="f-plan">Интересует тариф</label>
-            <select id="f-plan" defaultValue="Пока не выбрал — нужна консультация">
-              <option>Пока не выбрал — нужна консультация</option>
-              {site.tariffs.map((t, i) => <option key={i}>{t.name} — {t.price}</option>)}
-              <option>Индивидуальный дизайн — от 100 000 ₽</option>
-            </select>
-            <button className="btn btn-orange" id="send">Отправить в Telegram →</button>
-            <div className="fine">Нажимая кнопку, вы соглашаетесь с <a href={site.policy} target="_blank" rel="noopener">политикой конфиденциальности</a></div>
-            <div className="fallback" id="fallback"></div>
-          </div>
+          <LeadForm />
         </div>
       </section>
     </>

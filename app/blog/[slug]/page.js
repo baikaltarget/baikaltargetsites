@@ -1,13 +1,16 @@
 import Link from 'next/link';
 import site from '@/content/site.json';
+import { notFound } from 'next/navigation';
 import { getAllSlugs, getPost } from '@/lib/blog';
+import { author } from '@/lib/schema';
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
 
 export function generateMetadata({ params }) {
-  const { meta } = getPost(params.slug);
+  const { meta, draft } = getPost(params.slug);
+  if (draft) return {};
   return {
     title: meta.title + ' | ' + site.brand,
     description: meta.description,
@@ -17,11 +20,12 @@ export function generateMetadata({ params }) {
 }
 
 export default function Post({ params }) {
-  const { meta, html } = getPost(params.slug);
+  const { meta, html, draft } = getPost(params.slug);
+  if (draft) notFound();
   const ld = {
     '@context': 'https://schema.org', '@type': 'BlogPosting',
     headline: meta.title, description: meta.description, datePublished: meta.date,
-    author: { '@type': 'Organization', name: site.brand },
+    author: author(), dateModified: meta.updated || meta.date,
     publisher: { '@type': 'Organization', name: site.brand },
     mainEntityOfPage: site.domain + '/blog/' + params.slug + '/',
   };
@@ -31,7 +35,7 @@ export default function Post({ params }) {
       <article className="article">
         <span className="eyebrow">{meta.category}</span>
         <h1>{meta.title}</h1>
-        <div className="meta">{new Date(meta.date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+        <div className="meta">{new Date(meta.date).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })} · {author().name}</div>
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </article>
       {meta.related && meta.related.length > 0 && (

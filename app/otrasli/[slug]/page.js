@@ -1,12 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import site from '@/content/site.json';
+import LeadForm from '@/components/LeadForm';
+import CaseCard from '@/components/CaseCard';
+import SeoIncluded from '@/components/SeoIncluded';
+import { localBusiness, breadcrumbs } from '@/lib/schema';
 
 const bySlug = (slug) => site.niches.find((n) => n.slug === slug);
 const caseByName = (name) => site.cases.find((c) => c.name === name);
 
 export function generateStaticParams() {
-  return site.niches.map((n) => ({ slug: n.slug }));
+  return site.niches.filter((n) => !n.hidden).map((n) => ({ slug: n.slug }));
 }
 
 export function generateMetadata({ params }) {
@@ -18,55 +22,27 @@ export function generateMetadata({ params }) {
   };
 }
 
-function LeadForm({ niche }) {
-  return (
-    <div className="form">
-      <h3>Обсудим сайт для вашего бизнеса</h3>
-      <div className="sub">Свяжемся в течение рабочего дня ({site.hours}). Консультация бесплатная.</div>
-      <label htmlFor="f-name">Ваше имя</label>
-      <input id="f-name" type="text" placeholder="Как к вам обращаться" />
-      <label htmlFor="f-phone">Телефон</label>
-      <input id="f-phone" type="tel" placeholder="+7 ___ ___-__-__" />
-      <label htmlFor="f-niche">Ниша и город</label>
-      <input id="f-niche" type="text" placeholder={'Напр.: ' + niche + ', Иркутск'} />
-      <label htmlFor="f-plan">Интересует тариф</label>
-      <select id="f-plan" defaultValue="Пока не выбрал — нужна консультация">
-        <option>Пока не выбрал — нужна консультация</option>
-        {site.tariffs.map((t, i) => <option key={i}>{t.name} — {t.price}</option>)}
-        <option>Индивидуальный дизайн — от 100 000 ₽</option>
-      </select>
-      <button className="btn btn-orange" id="send">Отправить в Telegram →</button>
-      <div className="fine">Нажимая кнопку, вы соглашаетесь с <a href={site.policy} target="_blank" rel="noopener">политикой конфиденциальности</a></div>
-      <div className="fallback" id="fallback"></div>
-    </div>
-  );
-}
-
 export default function NichePage({ params }) {
   const n = bySlug(params.slug);
-  const others = site.niches.filter((x) => x.slug !== n.slug).slice(0, 6);
+  const others = site.niches.filter((x) => x.slug !== n.slug && !x.hidden).slice(0, 6);
   const relCases = (n.cases || []).map(caseByName).filter(Boolean);
 
   const serviceLd = {
     '@context': 'https://schema.org', '@type': 'Service',
     serviceType: n.h1, description: n.description,
-    provider: { '@type': 'LocalBusiness', name: site.brand, telephone: '+7-800-101-63-20', url: site.mainSite },
-    areaServed: 'RU',
-    offers: { '@type': 'Offer', price: '25000', priceCurrency: 'RUB' },
+    provider: localBusiness(),
+    areaServed: [{ '@type': 'City', name: 'Иркутск' }, { '@type': 'Country', name: 'Россия' }],
+    offers: { '@type': 'Offer', price: '35000', priceCurrency: 'RUB' },
   };
-  const crumbsLd = {
-    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Главная', item: site.domain + '/' },
-      { '@type': 'ListItem', position: 2, name: 'Отрасли', item: site.domain + '/otrasli/' },
-      { '@type': 'ListItem', position: 3, name: n.name, item: site.domain + '/otrasli/' + n.slug + '/' },
-    ],
-  };
+  const crumbsLd = breadcrumbs([{ name: 'Главная', path: '/' }, { name: 'Отрасли', path: '/otrasli/' }, { name: n.name, path: '/otrasli/' + n.slug + '/' }]);
+  const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: n.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbsLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
       <section className="page-head">
         <div className="wrap">
@@ -109,21 +85,13 @@ export default function NichePage({ params }) {
           <div className="wrap">
             <div className="sec-head"><span className="eyebrow">Наш кейс</span><h2>Мы уже делали такое</h2></div>
             <div className="case-grid2">
-              {relCases.map((c, i) => (
-                <a href={c.url} target="_blank" rel="noopener" className="case2" key={i}>
-                  {c.img && <span className="case2-img"><Image src={c.img} alt={'Сайт ' + c.name} width={800} height={366} /></span>}
-                  <div className="case2-body">
-                    <div className="case2-top"><span className="case2-niche">{c.niche}</span>{c.city && <span className="case2-city">{c.city}</span>}</div>
-                    <h3>{c.name}</h3>
-                    <div className="case2-result">{c.result}</div>
-                    <span className="case2-link">Открыть сайт ↗</span>
-                  </div>
-                </a>
-              ))}
+              {relCases.map((c) => <CaseCard c={c} key={c.slug} />)}
             </div>
           </div>
         </section>
       )}
+
+      <SeoIncluded />
 
       {/* FAQ */}
       <section className="sec-pale">
@@ -137,8 +105,7 @@ export default function NichePage({ params }) {
 
       {/* форма-CTA */}
       <section id="lead" className="cta">
-        <span className="mesh mesh-cta" dangerouslySetInnerHTML={{ __html: '' }} />
-        <div className="wrap cta-inner">
+                <div className="wrap cta-inner">
           <div>
             <h2>Сделаем сайт под ваш бизнес</h2>
             <p>Расскажите про нишу и город — предложим структуру страниц и назовём цену. От 35 000 ₽, запуск от 5 дней.</p>
@@ -154,7 +121,7 @@ export default function NichePage({ params }) {
               <a href={site.whatsapp} target="_blank" rel="noopener">✆ WhatsApp</a>
             </div>
           </div>
-          <LeadForm niche={n.name.toLowerCase()} />
+          <LeadForm title="Обсудим сайт для вашего бизнеса" nichePlaceholder={'Напр.: ' + n.name.toLowerCase() + ', Иркутск'} />
         </div>
       </section>
 
@@ -172,7 +139,7 @@ export default function NichePage({ params }) {
       {/* SEO-текст */}
       <section className="seo-text">
         <div className="wrap">
-          <h2>{n.h1} — от 35 000 ₽</h2>
+          <h2>{n.name}: сайт в Иркутске от 35 000 ₽</h2>
           <p>{n.seo}</p>
         </div>
       </section>

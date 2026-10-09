@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import site from '@/content/site.json';
+import LeadForm from '@/components/LeadForm';
+import { localBusiness, priceNumber } from '@/lib/schema';
 
 const MESH = `<svg class="mesh" viewBox="0 0 900 560" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><line x1="1" y1="-21" x2="10" y2="86" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="1" y1="-21" x2="144" y2="-13" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="1" y1="-21" x2="84" y2="91" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="10" y1="86" x2="84" y2="91" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="-31" y1="268" x2="-28" y2="366" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="-31" y1="268" x2="88" y2="350" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="-28" y1="366" x2="34" y2="447" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="-28" y1="366" x2="88" y2="350" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="34" y1="447" x2="88" y2="350" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="34" y1="447" x2="91" y2="510" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="144" y1="-13" x2="84" y2="91" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="144" y1="-13" x2="254" y2="-33" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="135" y1="253" x2="88" y2="350" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="135" y1="253" x2="228" y2="280" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="88" y1="350" x2="91" y2="510" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="88" y1="350" x2="228" y2="280" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="91" y1="510" x2="207" y2="513" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="254" y1="-33" x2="272" y2="95" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="254" y1="-33" x2="394" y2="10" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="254" y1="-33" x2="326" y2="108" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="272" y1="95" x2="394" y2="10" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="272" y1="95" x2="326" y2="108" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="228" y1="280" x2="280" y2="394" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="228" y1="280" x2="325" y2="271" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="228" y1="280" x2="337" y2="357" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="280" y1="394" x2="207" y2="513" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="280" y1="394" x2="325" y2="271" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="280" y1="394" x2="337" y2="357" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="280" y1="394" x2="373" y2="458" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="394" y1="10" x2="326" y2="108" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="394" y1="10" x2="509" y2="-25" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="394" y1="10" x2="513" y2="119" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="326" y1="108" x2="325" y2="271" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="325" y1="271" x2="337" y2="357" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="337" y1="357" x2="373" y2="458" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="337" y1="357" x2="453" y2="394" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="373" y1="458" x2="453" y2="394" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="373" y1="458" x2="513" y2="464" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="509" y1="-25" x2="513" y2="119" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="509" y1="-25" x2="607" y2="-28" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="513" y1="119" x2="511" y2="223" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="513" y1="119" x2="630" y2="88" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="513" y1="119" x2="632" y2="207" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="511" y1="223" x2="632" y2="207" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="453" y1="394" x2="513" y2="464" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="513" y1="464" x2="623" y2="508" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="607" y1="-28" x2="630" y2="88" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="607" y1="-28" x2="734" y2="0" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="630" y1="88" x2="632" y2="207" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="630" y1="88" x2="734" y2="0" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="630" y1="88" x2="739" y2="154" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="632" y1="207" x2="639" y2="346" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="632" y1="207" x2="739" y2="154" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="632" y1="207" x2="738" y2="246" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="639" y1="346" x2="623" y2="508" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="639" y1="346" x2="738" y2="246" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="639" y1="346" x2="718" y2="351" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="639" y1="346" x2="703" y2="471" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="623" y1="508" x2="703" y2="471" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="734" y1="0" x2="739" y2="154" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="734" y1="0" x2="810" y2="33" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="739" y1="154" x2="738" y2="246" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="739" y1="154" x2="810" y2="33" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="739" y1="154" x2="838" y2="147" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="739" y1="154" x2="863" y2="243" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="738" y1="246" x2="718" y2="351" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="738" y1="246" x2="838" y2="147" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="738" y1="246" x2="863" y2="243" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="738" y1="246" x2="857" y2="356" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="718" y1="351" x2="703" y2="471" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="718" y1="351" x2="857" y2="356" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="810" y1="33" x2="838" y2="147" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="838" y1="147" x2="863" y2="243" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="863" y1="243" x2="857" y2="356" stroke="rgba(120,170,255,.22)" stroke-width="1"/><line x1="857" y1="356" x2="877" y2="449" stroke="rgba(120,170,255,.22)" stroke-width="1"/><circle cx="1" cy="-21" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="10" cy="86" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="-31" cy="268" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="-28" cy="366" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="34" cy="447" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="144" cy="-13" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="84" cy="91" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="135" cy="253" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="88" cy="350" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="91" cy="510" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="254" cy="-33" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="272" cy="95" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="228" cy="280" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="280" cy="394" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="207" cy="513" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="394" cy="10" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="326" cy="108" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="325" cy="271" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="337" cy="357" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="373" cy="458" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="509" cy="-25" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="513" cy="119" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="511" cy="223" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="453" cy="394" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="513" cy="464" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="607" cy="-28" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="630" cy="88" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="632" cy="207" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="639" cy="346" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="623" cy="508" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="734" cy="0" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="739" cy="154" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="738" cy="246" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="718" cy="351" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="703" cy="471" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="810" cy="33" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="838" cy="147" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="863" cy="243" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="857" cy="356" r="2.2" fill="rgba(150,190,255,.5)"/><circle cx="877" cy="449" r="2.2" fill="rgba(150,190,255,.5)"/></svg>`;
 
@@ -33,18 +35,16 @@ const SVC_ICONS = {
 const NICHE_ICONS = {
   'stroitelnaya-kompaniya': '🏗️', 'proizvodstvo-zavod': '🏭', 'medicinskaya-klinika': '🏥',
   'stomatologiya': '🦷', 'fitnes-klub': '💪', 'klining': '🧹', 'otoplenie-santehnika': '🔧',
-  'salon-krasoty': '💇', 'avtoservis': '🚗', 'sayt-katalog-tovarov': '📦',
+  'salon-krasoty': '💇', 'avtoservis': '🚗',
   'oteli-bazy-otdyha': '🏨', 'nedvizhimost': '🏢', 'yuridicheskie-uslugi': '⚖️', 'remont-kvartir': '🛠️', 'mebel-na-zakaz': '🛋️', 'okna-dveri': '🚪',
 };
 
 const orgLd = {
   '@context': 'https://schema.org', '@type': 'Service',
-  serviceType: 'Создание сайтов под ключ',
-  provider: { '@type': 'LocalBusiness', name: site.brand, telephone: '+7-800-101-63-20', email: site.email,
-    address: { '@type': 'PostalAddress', streetAddress: 'ул. Байкальская, 295/1', addressLocality: 'Иркутск', addressCountry: 'RU' },
-    openingHours: 'Mo-Su 09:00-20:00', url: site.mainSite },
-  areaServed: 'RU',
-  offers: site.tariffs.map(t => ({ '@type': 'Offer', name: t.name, price: t.price.replace(/[^0-9]/g, ''), priceCurrency: 'RUB' })),
+  serviceType: 'Создание сайтов под ключ в Иркутске',
+  provider: localBusiness(),
+  areaServed: [{ '@type': 'City', name: 'Иркутск' }, { '@type': 'Country', name: 'Россия' }],
+  offers: site.tariffs.map(t => ({ '@type': 'Offer', name: t.name, price: priceNumber(t.price), priceCurrency: 'RUB' })),
 };
 const faqLd = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
@@ -54,12 +54,14 @@ const faqLd = {
 export default function Home() {
   const h = site.hero;
   const topCases = site.cases.filter(c => c.top);
+  const niches = site.niches.filter(n => !n.hidden);
+  const reviews = site.reviews.items;
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
-      {/* ===== HERO ===== */}
+      {/* ===== 1. ПЕРВЫЙ ЭКРАН ===== */}
       <section className="hero" style={{ padding: 0 }}>
         <span className="mesh" dangerouslySetInnerHTML={{ __html: MESH }} />
         <div className="wrap hero-inner">
@@ -72,9 +74,7 @@ export default function Home() {
               <Link href="#tariffs" className="btn btn-ghost">{h.ctaSecondary}</Link>
             </div>
             <div className="trust">
-              <div><b>с 2019</b><small>на рынке</small></div>
-              <div><b>50+</b><small>сайтов сделали</small></div>
-              <div><b>от 35 000 ₽</b><small>сайт под ключ</small></div>
+              {h.trust.map((t, i) => <div key={i}><b>{t.b}</b><small>{t.s}</small></div>)}
             </div>
             <div className="perks">
               {h.perks.map((p, i) => (
@@ -83,80 +83,43 @@ export default function Home() {
             </div>
           </div>
           <div className="hero-visual hero-visual-laptop">
-            <img src={h.heroImg} alt="Пример сайта, который мы сделали" className="hero-laptop" />
+            <img src={h.heroImg} alt="Пример сайта, который мы сделали для бизнеса в Иркутске" className="hero-laptop" width="1498" height="1050" fetchPriority="high" />
           </div>
         </div>
       </section>
 
-      {/* ===== ЗАЧЕМ САЙТ ===== */}
-      <section id="why">
-        <div className="wrap">
-          <div className="sec-head reveal">
-            <span className="eyebrow">{site.whyNeed.eyebrow}</span>
-            <h2>{site.whyNeed.title}<span className="hl">{site.whyNeed.titleHl}</span></h2>
-            <p>{site.whyNeed.lead}</p>
-          </div>
-          <div className="grid g2">
-            {site.whyNeed.cards.map((c, i) => (
-              <div className="obj-card reveal" key={i}>
-                <span className="obj-ic">{c.icon}</span>
-                <div><h3>{c.q}</h3><p>{c.a}</p></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== ДОРОГО/СЛОЖНО/ДОЛГО ===== */}
-      <section className="sec-pale">
-        <div className="wrap">
-          <div className="sec-head reveal">
-            <span className="eyebrow">{site.myths.eyebrow}</span>
-            <h2>{site.myths.title}<span className="hl">{site.myths.titleHl}</span></h2>
-          </div>
-          <div className="grid g3">
-            {site.myths.cards.map((c, i) => (
-              <div className="myth-card reveal" key={i}>
-                <span className="myth-ic">{c.icon}</span>
-                <h3>{c.q}</h3><p>{c.a}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== ПРИМЕРЫ ===== */}
+      {/* ===== 2. ПРИМЕРЫ ===== */}
       <section id="primery">
         <div className="wrap">
           <div className="sec-head reveal">
             <span className="eyebrow">Примеры работ</span>
             <h2>Сайты, которые <span className="hl">уже приносят клиентов</span></h2>
-            <p>Реальные проекты с цифрами — стройка, производство, услуги, торговля. У каждого свой результат из поиска.</p>
+            <p>Проекты из Иркутска и других городов — стройка, производство, услуги, торговля. У каждого свой результат из поиска.</p>
           </div>
           <div className="case-grid">
             {topCases.map((c, i) => (
-              <a href={c.url} target="_blank" rel="noopener" className="case2 reveal" key={i}>
+              <Link href={'/primery/' + c.slug} className="case2 reveal" key={i}>
                 {c.img && <span className="case2-img"><Image src={c.img} alt={'Сайт ' + c.name} width={800} height={366} /></span>}
                 <div className="case2-body">
                   <div className="case2-top"><span className="case2-niche">{c.niche}</span>{c.city && <span className="case2-city">{c.city}</span>}</div>
                   <h3>{c.name}</h3>
                   <div className="case2-result">{c.result}</div>
-                  <span className="case2-link">Открыть сайт ↗</span>
+                  <span className="case2-link">Смотреть кейс →</span>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
           <div style={{ marginTop: 30 }}><Link href="/primery" className="btn btn-outline">Все примеры работ →</Link></div>
         </div>
       </section>
 
-      {/* ===== УСЛУГИ ===== */}
-      <section id="uslugi">
+      {/* ===== 3. УСЛУГИ ===== */}
+      <section id="uslugi" className="sec-pale">
         <div className="wrap">
           <div className="sec-head reveal">
             <span className="eyebrow">Что делаем</span>
             <h2>Какой сайт <span className="hl">нужен вам</span></h2>
-            <p>Все варианты — многостраничные и под SEO с первого дня. Лендинги и интернет-магазины с корзиной не делаем: наша специализация — сайты, которые приводят клиентов из поиска.</p>
+            <p>Все варианты — многостраничные, с SEO с первого дня. Лендинги под рекламу делает <a href={site.mainSite + '/services/website-tilda'} target="_blank" rel="noopener" style={{ color: 'var(--blue)', fontWeight: 600 }}>основное агентство</a>, интернет-магазины с корзиной не делаем: наша специализация — сайты под клиентов из поиска.</p>
           </div>
           <div className="svc-grid">
             {site.services.map((sv, i) => (
@@ -172,8 +135,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== ЧТО ВХОДИТ / ФИШКИ ===== */}
-      <section id="value" className="sec-pale">
+      {/* ===== 4. ЧТО ВХОДИТ: фишки + скорость + сравнение ===== */}
+      <section id="value">
         <div className="wrap">
           <div className="sec-head reveal">
             <span className="eyebrow">Что входит</span>
@@ -188,7 +151,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== ОЦЕНКА GOOGLE ===== */}
       <section className="pagespeed">
         <div className="wrap">
           <div className="sec-head reveal" style={{ maxWidth: 720 }}>
@@ -203,7 +165,7 @@ export default function Home() {
               ))}
             </div>
             <div className="ps-proof">
-              <Image src="/img/pagespeed-phone.png" alt="Сайт нашего клиента, проверенный в Google PageSpeed" width={255} height={503} className="ps-phone" />
+              <Image src="/img/pagespeed-phone.webp" alt="Сайт нашего клиента, проверенный в Google PageSpeed" width={255} height={503} className="ps-phone" />
               <div className="ps-proof-txt">
                 <p className="ps-note">{site.pagespeed.note}</p>
                 <a href={site.pagespeed.url} target="_blank" rel="noopener" className="btn btn-outline">{site.pagespeed.btn} →</a>
@@ -213,22 +175,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== НИШИ ===== */}
-      <section id="nishi" className="sec-pale">
-        <div className="wrap">
-          <div className="sec-head reveal">
-            <span className="eyebrow">Кому подходит</span>
-            <h2>Сайты под <span className="hl">вашу нишу</span></h2>
-            <p>Под каждую сферу — своя структура и свои страницы: у стройки объекты со сметами, у клининга калькулятор по площади, у клиники лицензии и запись. Не шаблон с заменой слова, а сайт под конкретную задачу.</p>
-          </div>
-          <div className="niche-links">
-            {site.niches.map((n) => <Link key={n.slug} href={'/otrasli/' + n.slug} className="niche-chip"><span className="nchip-i">{NICHE_ICONS[n.slug] || '•'}</span>{n.name}</Link>)}
-          </div>
-          <div style={{ marginTop: 26 }}><Link href="/otrasli" className="btn btn-outline">Все ниши →</Link></div>
-        </div>
-      </section>
-
-      {/* ===== СРАВНЕНИЕ ===== */}
       <section className="compare on-navy">
         <div className="wrap">
           <div className="sec-head reveal">
@@ -250,13 +196,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== ТАРИФЫ ===== */}
+      {/* ===== 5. ТАРИФЫ ===== */}
       <section id="tariffs" className="sec-pale">
         <div className="wrap">
           <div className="sec-head reveal">
             <span className="eyebrow">Тарифы</span>
             <h2>Три пакета под <span className="hl">задачу и бюджет</span></h2>
-            <p>Отличаются объёмом страниц и проработкой. SEO-база и готовность к рекламе — во всех трёх.</p>
+            <p>Отличаются объёмом страниц и проработкой. SEO-база и готовность к рекламе — во всех трёх. Без обязательных ежемесячных платежей.</p>
           </div>
           <div className="tariffs">
             {site.tariffs.map((p, i) => (
@@ -278,29 +224,34 @@ export default function Home() {
             ))}
           </div>
           <div className="note reveal" dangerouslySetInnerHTML={{ __html: site.tariffNote }} />
+          <div className="reveal" style={{ marginTop: 18 }}><Link href="/tarify" className="btn btn-outline">Подробнее о тарифах и поддержке →</Link></div>
         </div>
       </section>
 
-      {/* ===== ПОДДЕРЖКА ===== */}
-      <section id="support">
+      {/* ===== 6. ОТЗЫВЫ ===== */}
+      <section id="otzyvy">
         <div className="wrap">
           <div className="sec-head reveal">
-            <span className="eyebrow">После сдачи</span>
-            <h2>Правки и ведение — <span className="hl">по желанию</span></h2>
-            <p dangerouslySetInnerHTML={{ __html: site.supportIntro }} />
+            <span className="eyebrow">{site.reviews.eyebrow}</span>
+            <h2>{site.reviews.title}<span className="hl">{site.reviews.titleHl}</span></h2>
+            <p>{site.reviews.lead}</p>
           </div>
-          <div className="reveal" style={{ overflowX: 'auto' }}>
-            <table className="tbl">
-              <thead><tr>{site.support.head.map((c, i) => <th key={i}>{c}</th>)}</tr></thead>
-              <tbody>{site.support.rows.map((r, i) => (
-                <tr key={i}>{r.map((c, j) => <td key={j} className={i === 0 && j > 0 ? 'p' : ''}>{c}</td>)}</tr>
-              ))}</tbody>
-            </table>
+          <div className="grid g3">
+            {reviews.slice(0, 3).map((r, i) => (
+              <blockquote className="review reveal" key={i}>
+                <p className="review-text">{r.text}</p>
+                <footer>
+                  <b>{r.name}</b><span>{r.company}</span>
+                  {r.url ? <a href={r.url} target="_blank" rel="noopener nofollow" className="review-src">{r.source} ↗</a> : <span className="review-src">{r.source}</span>}
+                </footer>
+              </blockquote>
+            ))}
           </div>
+          <div style={{ marginTop: 26 }}><Link href="/otzyvy" className="btn btn-outline">Все отзывы →</Link></div>
         </div>
       </section>
 
-      {/* ===== КАК РАБОТАЕМ ===== */}
+      {/* ===== 7. КАК РАБОТАЕМ + СРОКИ ===== */}
       <section id="steps" className="compare on-navy">
         <div className="wrap">
           <div className="sec-head reveal">
@@ -316,7 +267,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== СРОКИ ===== */}
       <section id="faq-timing" className="sec-pale">
         <div className="wrap">
           <div className="sec-head reveal">
@@ -336,12 +286,28 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== FAQ ===== */}
-      <section id="faq">
+      {/* ===== 8. ОТРАСЛИ ===== */}
+      <section id="nishi">
+        <div className="wrap">
+          <div className="sec-head reveal">
+            <span className="eyebrow">Кому подходит</span>
+            <h2>Сайты под <span className="hl">вашу нишу</span></h2>
+            <p>Под каждую сферу — своя структура и свои страницы: у стройки объекты со сметами, у отеля номера и бронирование, у автосервиса услуги с ценами. Не шаблон с заменой слова, а сайт под конкретную задачу.</p>
+          </div>
+          <div className="niche-links">
+            {niches.map((n) => <Link key={n.slug} href={'/otrasli/' + n.slug} className="niche-chip"><span className="nchip-i">{NICHE_ICONS[n.slug] || '•'}</span>{n.name}</Link>)}
+          </div>
+          <div style={{ marginTop: 26 }}><Link href="/otrasli" className="btn btn-outline">Все отрасли →</Link></div>
+        </div>
+      </section>
+
+      {/* ===== 9. FAQ (вопросы + возражения) ===== */}
+      <section id="faq" className="sec-pale">
         <div className="wrap">
           <div className="sec-head reveal">
             <span className="eyebrow">Частые вопросы</span>
             <h2>Отвечаем <span className="hl">коротко и честно</span></h2>
+            <p>Цены, сроки, «а нужен ли мне сайт вообще» — всё, что обычно спрашивают до первого звонка.</p>
           </div>
           <div className="faq-grid">
             {site.faq.map((f, i) => (
@@ -351,7 +317,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== ФОРМА ===== */}
+      {/* ===== 10. ЗАЯВКА ===== */}
       <section id="lead" className="cta">
         <span className="mesh mesh-cta" dangerouslySetInnerHTML={{ __html: MESH }} />
         <div className="wrap cta-inner">
@@ -359,7 +325,7 @@ export default function Home() {
             <h2>Обсудим ваш сайт</h2>
             <p>Расскажите про нишу и город — предложим структуру и назовём цену. Консультация бесплатная и ни к чему не обязывает.</p>
             <ul className="cta-bullets">
-              <li>✓ Разберём нишу и конкурентов</li>
+              <li>✓ Разберём нишу и конкурентов в вашем городе</li>
               <li>✓ Предложим структуру под ваши запросы</li>
               <li>✓ Назовём точную цену и срок</li>
             </ul>
@@ -371,33 +337,22 @@ export default function Home() {
               <a href={site.whatsapp} target="_blank" rel="noopener">✆ WhatsApp</a>
             </div>
           </div>
-          <div className="form reveal">
-            <h3>Оставьте заявку</h3>
-            <div className="sub">Свяжемся в течение рабочего дня ({site.hours}).</div>
-            <label htmlFor="f-name">Ваше имя</label>
-            <input id="f-name" type="text" placeholder="Как к вам обращаться" />
-            <label htmlFor="f-phone">Телефон</label>
-            <input id="f-phone" type="tel" placeholder="+7 ___ ___-__-__" />
-            <label htmlFor="f-niche">Ниша и город</label>
-            <input id="f-niche" type="text" placeholder="Напр.: монтаж отопления, Иркутск" />
-            <label htmlFor="f-plan">Интересует тариф</label>
-            <select id="f-plan" defaultValue="Пока не выбрал — нужна консультация">
-              <option>Пока не выбрал — нужна консультация</option>
-              {site.tariffs.map((t, i) => <option key={i}>{t.name} — {t.price}</option>)}
-              <option>Индивидуальный дизайн — от 100 000 ₽</option>
-            </select>
-            <button className="btn btn-orange" id="send">Отправить в Telegram →</button>
-            <div className="fine">Нажимая кнопку, вы соглашаетесь с <a href={site.policy} target="_blank" rel="noopener">политикой конфиденциальности</a></div>
-            <div className="fallback" id="fallback"></div>
-          </div>
+          <LeadForm className="form reveal" />
         </div>
       </section>
 
-      {/* ===== SEO-ТЕКСТ ===== */}
-      <section className="seo-text">
-        <div className="wrap">
-          <h2>{site.seoText.title}</h2>
-          <p>{site.seoText.text}</p>
+      {/* ===== СТУДИЯ В ИРКУТСКЕ (вместо SEO-текста) ===== */}
+      <section className="studio">
+        <div className="wrap studio-inner">
+          <div className="reveal">
+            <span className="eyebrow">{site.studio.eyebrow}</span>
+            <h2>{site.studio.title}<span className="hl">{site.studio.titleHl}</span></h2>
+            <p>{site.studio.text}</p>
+            <Link href={site.studio.url} className="btn btn-outline" style={{ marginTop: 18 }}>{site.studio.btn} →</Link>
+          </div>
+          <div className="studio-facts reveal">
+            {site.studio.facts.map((f, i) => <div className="sf" key={i}><b>{f.b}</b><span>{f.s}</span></div>)}
+          </div>
         </div>
       </section>
     </>

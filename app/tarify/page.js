@@ -2,7 +2,7 @@ import Link from 'next/link';
 import site from '@/content/site.json';
 
 export const metadata = {
-  title: 'Тарифы на разработку сайтов | ' + site.brand,
+  title: 'Тарифы на разработку сайтов в Иркутске — от 35 000 ₽ | ' + site.brand,
   description: 'Тарифы на многостраничный SEO-сайт: Старт от 35 000 ₽, Стандарт от 60 000 ₽, Максимум от 120 000 ₽. Корпоративный и каталог от 80 000 ₽. Поддержка и индивидуальный дизайн.',
   alternates: { canonical: '/tarify/' },
 };
@@ -47,7 +47,8 @@ export default function Tarify() {
         <div className="wrap">
           <div className="sec-head">
             <span className="eyebrow">После сдачи</span>
-            <h2>Правки и ведение</h2>
+            <h2>Правки и ведение — <span className="hl">по желанию</span></h2>
+            <p dangerouslySetInnerHTML={{ __html: site.supportIntro }} />
           </div>
           <div style={{ overflowX: 'auto' }}>
             <table className="tbl">
