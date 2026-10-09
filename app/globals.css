@@ -623,3 +623,6 @@ a.rv-src:hover{color:var(--blue);border-color:var(--blue)}
 .casex-noshot{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;aspect-ratio:16/10;background:linear-gradient(135deg,#1b2a44,#0f1a2c);color:#fff;border-radius:8px 8px 0 0}
 .casex-noshot b{font-family:'Montserrat';font-size:18px}
 .casex-noshot span{color:var(--muted-d);font-size:13px}
+
+/* тёмные скруглённые блоки не стыкуются вплотную */
+.compare + .cta,.cta + .compare,.compare + .compare{margin-top:24px}

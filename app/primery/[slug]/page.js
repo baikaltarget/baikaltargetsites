@@ -125,15 +125,15 @@ export default function CasePage({ params }) {
       )}
 
       {/* что получил клиент — база всех наших сайтов */}
-      <section className="compare on-navy">
+      <section className="sec-pale">
         <div className="wrap">
-          <div className="sec-head"><span className="eyebrow light">В комплекте</span><h2>Что ещё получил <span className="hl">клиент</span></h2><p>Это входит в каждый наш сайт — и в этот тоже.</p></div>
+          <div className="sec-head"><span className="eyebrow">В комплекте</span><h2>Что ещё получил <span className="hl">клиент</span></h2><p>Это входит в каждый наш сайт — и в этот тоже.</p></div>
           <div className="grid g3">
             {site.features.slice(0, 6).map((f, i) => (
-              <div className="feat feat-dark" key={i}><h3>{f.h}</h3><p>{f.p}</p></div>
+              <div className="niche-block" key={i}><h3>{f.h}</h3><p>{f.p}</p></div>
             ))}
           </div>
-          {niche && <div style={{ marginTop: 28 }}><Link href={'/otrasli/' + niche.slug} className="btn btn-ghost">Сайты для: {niche.name.toLowerCase()} →</Link></div>}
+          {niche && <div style={{ marginTop: 28 }}><Link href={'/otrasli/' + niche.slug} className="btn btn-outline">Сайты для: {niche.name.toLowerCase()} →</Link></div>}
         </div>
       </section>
 
