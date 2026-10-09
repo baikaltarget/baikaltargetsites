@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-const host = (url) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; } };
+const host = (url) => { try { const h = new URL(url).hostname.replace(/^www\./, ''); return /(^|\.)xn--/.test(h) ? decodeURI(new URL('http://' + h).hostname) : h; } catch { return ''; } };
 
 // Карточка кейса в виде «окна браузера»: скрин в своих пропорциях, под ним тёмная панель с результатом.
 export default function CaseCard({ c, className = '' }) {

@@ -565,3 +565,16 @@ a.rv-src:hover{color:var(--blue);border-color:var(--blue)}
 .faq-d[open] .faq-x{transform:rotate(45deg)}
 .faq-d p{color:var(--muted);font-size:15px;padding:0 0 18px}
 @media(max-width:900px){.faq-acc{grid-template-columns:1fr}}
+
+/* ===== страница кейса: hero + ноутбук ===== */
+.case-hero .hero-inner{padding-bottom:70px}
+.case-hero .crumbs{margin-bottom:18px}
+.case-hero .lead{font-size:17px}
+.case-hero .trust b{font-size:24px}
+.case-laptop{display:block;position:relative;width:100%;max-width:560px;margin:0 auto;filter:drop-shadow(0 40px 70px rgba(0,0,0,.5))}
+.case-laptop-screen{display:block;background:#0b1424;border:10px solid #1c2435;border-bottom-width:14px;border-radius:18px 18px 6px 6px;overflow:hidden}
+.case-laptop-screen img{display:block;width:100%;height:auto}
+.case-laptop-base{display:block;height:14px;margin:0 -5%;background:linear-gradient(180deg,#3a4458,#1c2435);border-radius:0 0 16px 16px}
+.case-laptop-base::after{content:"";display:block;width:16%;height:4px;margin:0 auto;background:#0b1424;border-radius:0 0 6px 6px}
+.case-page .case-cols{grid-template-columns:1.5fr 1fr}
+.case-done li{font-size:15.5px;line-height:1.6}
