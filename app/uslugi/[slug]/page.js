@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import site from '@/content/site.json';
-import LeadForm from '@/components/LeadForm';
+import CtaBlock from '@/components/CtaBlock';
 import CaseCard from '@/components/CaseCard';
 import SeoIncluded from '@/components/SeoIncluded';
 import { localBusiness, breadcrumbs, priceNumber } from '@/lib/schema';
@@ -105,17 +105,7 @@ export default function ServicePage({ params }) {
         </div>
       </section>
 
-      <section id="lead" className="cta">
-        <div className="wrap cta-inner">
-          <div>
-            <h2>Обсудим ваш сайт</h2>
-            <p>Расскажите про нишу и город — предложим структуру и назовём точную цену. Консультация бесплатная.</p>
-            <ul className="cta-bullets"><li>✓ Разберём нишу и конкурентов</li><li>✓ Предложим структуру под ваши запросы</li><li>✓ Назовём точную цену и срок</li></ul>
-            <div className="contacts"><a href={site.phoneHref}>☎ {site.phone}</a><a href={site.telegram} target="_blank" rel="noopener">✈ {site.telegramHandle}</a><a href={site.whatsapp} target="_blank" rel="noopener">✆ WhatsApp</a></div>
-          </div>
-          <LeadForm />
-        </div>
-      </section>
+      <CtaBlock title="Обсудим ваш сайт" text="Расскажите про нишу и город — предложим структуру и назовём точную цену. Консультация бесплатная." />
 
       <section>
         <div className="wrap">

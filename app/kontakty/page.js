@@ -1,5 +1,6 @@
 import site from '@/content/site.json';
-import LeadForm from '@/components/LeadForm';
+import CtaBlock from '@/components/CtaBlock';
+import PageHero from '@/components/PageHero';
 import { localBusiness } from '@/lib/schema';
 
 export const metadata = {
@@ -13,29 +14,19 @@ export default function Kontakty() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
-      <section className="page-head">
-        <div className="wrap">
-          <span className="eyebrow light">Контакты</span>
-          <h1>Обсудим ваш сайт</h1>
-          <p>Расскажите про нишу и город — предложим структуру страниц и тариф под задачу. Консультация бесплатная.</p>
+      <PageHero
+        crumbs={[{ name: 'Главная', href: '/' }, { name: 'Контакты' }]}
+        eyebrow="Контакты · Иркутск" title="Обсудим" titleHl="ваш сайт"
+        lead="Расскажите про нишу и город — предложим структуру страниц и тариф под задачу. Консультация бесплатная. Офис на Байкальской, 295/1 — можно приехать.">
+        <div className="contacts" style={{ marginTop: 22 }}>
+          <a href={site.phoneHref}>☎ {site.phone}</a>
+          <a href={site.telegram} target="_blank" rel="noopener">✈ Telegram: {site.telegramHandle}</a>
+          <a href={site.whatsapp} target="_blank" rel="noopener">✆ WhatsApp</a>
+          <a href={'mailto:' + site.email}>✉ {site.email}</a>
+          <a href={site.mapsYandex || undefined} target={site.mapsYandex ? '_blank' : undefined} rel="noopener">📍 {site.address} · {site.hours}</a>
         </div>
-      </section>
-      <section id="lead" className="cta" style={{ marginTop: 40 }}>
-        <div className="wrap cta-inner">
-          <div>
-            <h2>Как с нами связаться</h2>
-            <p>Ответим в течение рабочего дня. Приём заявок: {site.hours}.</p>
-            <div className="contacts">
-              <a href={site.phoneHref}>☎ {site.phone}</a>
-              <a href={site.telegram} target="_blank" rel="noopener">✈ Telegram: {site.telegramHandle}</a>
-              <a href={site.whatsapp} target="_blank" rel="noopener">✆ WhatsApp</a>
-              <a href={'mailto:' + site.email}>✉ {site.email}</a>
-              <a href={site.mapsYandex || undefined} target={site.mapsYandex ? '_blank' : undefined} rel="noopener">📍 {site.address}</a>
-            </div>
-          </div>
-          <LeadForm />
-        </div>
-      </section>
+      </PageHero>
+      <CtaBlock title="Оставьте заявку" text="Ответим в течение рабочего дня. Если удобнее — звоните или пишите в мессенджер, контакты выше." formTitle="Заявка на сайт" />
     </>
   );
 }

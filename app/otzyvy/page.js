@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import site from '@/content/site.json';
-import LeadForm from '@/components/LeadForm';
+import CtaBlock from '@/components/CtaBlock';
+import PageHero from '@/components/PageHero';
 import ReviewCard from '@/components/ReviewCard';
 import { breadcrumbs } from '@/lib/schema';
 
@@ -20,18 +21,17 @@ export default function Otzyvy() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
-      <section className="page-head">
-        <div className="wrap">
-          <nav className="crumbs"><Link href="/">Главная</Link> → <span>Отзывы</span></nav>
-          <span className="eyebrow light">{r.eyebrow}</span>
-          <h1>Отзывы клиентов о наших сайтах</h1>
-          <p>{r.lead}</p>
-          <div className="contacts" style={{ marginTop: 22 }}>
-            {site.mapsYandex && <a href={site.mapsYandex} target="_blank" rel="noopener nofollow">Яндекс Карты ↗</a>}
-            {site.maps2gis && <a href={site.maps2gis} target="_blank" rel="noopener nofollow">2ГИС ↗</a>}
-          </div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ name: 'Главная', href: '/' }, { name: 'Отзывы' }]}
+        eyebrow={r.eyebrow} title="Отзывы клиентов" titleHl="о наших сайтах"
+        lead={r.lead}
+        primary={{ href: '#lead', text: 'Стать следующим кейсом →' }} secondary={{ href: '/primery', text: 'Примеры работ' }}
+        visual={site.cases[2].laptop} visualAlt={'Сайт ' + site.cases[2].name}>
+        {(site.mapsYandex || site.maps2gis) && <div className="contacts" style={{ marginTop: 22 }}>
+          {site.mapsYandex && <a href={site.mapsYandex} target="_blank" rel="noopener nofollow">Яндекс Карты ↗</a>}
+          {site.maps2gis && <a href={site.maps2gis} target="_blank" rel="noopener nofollow">2ГИС ↗</a>}
+        </div>}
+      </PageHero>
 
       <section>
         <div className="wrap">
@@ -42,20 +42,7 @@ export default function Otzyvy() {
         </div>
       </section>
 
-      <section id="lead" className="cta">
-        <div className="wrap cta-inner">
-          <div>
-            <h2>Станьте следующим кейсом</h2>
-            <p>Расскажите про нишу и город — предложим структуру сайта и назовём цену. Консультация бесплатная.</p>
-            <div className="contacts">
-              <a href={site.phoneHref}>☎ {site.phone}</a>
-              <a href={site.telegram} target="_blank" rel="noopener">✈ {site.telegramHandle}</a>
-              <a href={site.whatsapp} target="_blank" rel="noopener">✆ WhatsApp</a>
-            </div>
-          </div>
-          <LeadForm />
-        </div>
-      </section>
+      <CtaBlock title="Станьте следующим кейсом" />
     </>
   );
 }

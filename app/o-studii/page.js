@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import site from '@/content/site.json';
-import LeadForm from '@/components/LeadForm';
+import CtaBlock from '@/components/CtaBlock';
+import PageHero from '@/components/PageHero';
 import { localBusiness, breadcrumbs } from '@/lib/schema';
 
 export const metadata = {
@@ -26,14 +27,13 @@ export default function About() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
 
-      <section className="page-head">
-        <div className="wrap">
-          <nav className="crumbs"><Link href="/">Главная</Link> → <span>О студии</span></nav>
-          <span className="eyebrow light">О студии · Иркутск</span>
-          <h1>{a.h1}</h1>
-          <p>{a.lead}</p>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ name: 'Главная', href: '/' }, { name: 'О студии' }]}
+        eyebrow="О студии · Иркутск" title={a.h1}
+        lead={a.lead}
+        primary={{ href: '#komanda', text: 'Команда →' }} secondary={{ href: '/primery', text: 'Что мы сделали' }}>
+        <div className="trust">{site.studio.facts.slice(0, 3).map((f, i) => <div key={i}><b>{f.b}</b><small>{f.s}</small></div>)}</div>
+      </PageHero>
 
       <section>
         <div className="wrap">
@@ -87,20 +87,7 @@ export default function About() {
         </div>
       </section>
 
-      <section id="lead" className="cta">
-        <div className="wrap cta-inner">
-          <div>
-            <h2>Обсудим ваш сайт</h2>
-            <p>Расскажите про нишу и город — предложим структуру и назовём цену. Можно приехать в офис или созвониться.</p>
-            <div className="contacts">
-              <a href={site.phoneHref}>☎ {site.phone}</a>
-              <a href={site.telegram} target="_blank" rel="noopener">✈ {site.telegramHandle}</a>
-              <a href={site.whatsapp} target="_blank" rel="noopener">✆ WhatsApp</a>
-            </div>
-          </div>
-          <LeadForm />
-        </div>
-      </section>
+      <CtaBlock title="Обсудим ваш сайт" text="Расскажите про нишу и город — предложим структуру и назовём цену. Можно приехать в офис или созвониться." />
     </>
   );
 }

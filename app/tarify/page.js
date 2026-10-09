@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import site from '@/content/site.json';
-import LeadForm from '@/components/LeadForm';
+import CtaBlock from '@/components/CtaBlock';
+import PageHero from '@/components/PageHero';
 import { breadcrumbs, priceNumber } from '@/lib/schema';
 
 export const metadata = {
@@ -21,14 +22,15 @@ export default function Tarify() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(offersLd) }} />
-      <section className="page-head">
-        <div className="wrap">
-          <nav className="crumbs"><Link href="/">Главная</Link> → <span>Тарифы</span></nav>
-          <span className="eyebrow light">Тарифы</span>
-          <h1>Сколько стоит сайт: цены на создание сайта в Иркутске</h1>
-          <p>Многостраничный сайт под ключ стоит от 35 000 ₽ и делается от 5 рабочих дней. Цена зависит от количества страниц: Старт 20–30 страниц, Стандарт 40–60, Максимум — без ограничений. SEO-база, формы и готовность к рекламе входят в каждый тариф, ежемесячных платежей нет.</p>
+      <PageHero
+        crumbs={[{ name: 'Главная', href: '/' }, { name: 'Тарифы' }]}
+        eyebrow="Тарифы" title="Сколько стоит сайт:" titleHl="цены на создание сайта в Иркутске"
+        lead="Многостраничный сайт под ключ стоит от 35 000 ₽ и делается от 5 рабочих дней. Цена зависит от количества страниц: Старт 20–30 страниц, Стандарт 40–60, Максимум — без ограничений. SEO-база, формы и готовность к рекламе входят в каждый тариф, ежемесячных платежей нет."
+        primary={{ href: '#lead', text: 'Рассчитать стоимость →' }} secondary={{ href: '#support', text: 'Поддержка после сдачи' }}>
+        <div className="trust">
+          {site.tariffs.map((t, i) => <div key={i}><b>{t.price}</b><small>{t.name} · {t.term.split(' · ')[1] || t.term}</small></div>)}
         </div>
-      </section>
+      </PageHero>
 
       <section className="sec-pale">
         <div className="wrap">
@@ -119,20 +121,7 @@ export default function Tarify() {
         </div>
       </section>
 
-      <section id="lead" className="cta">
-        <div className="wrap cta-inner">
-          <div>
-            <h2>Назовём точную цену</h2>
-            <p>Расскажите про нишу, услуги и районы — посчитаем страницы и скажем цену и срок. 15 минут, бесплатно.</p>
-            <div className="contacts">
-              <a href={site.phoneHref}>☎ {site.phone}</a>
-              <a href={site.telegram} target="_blank" rel="noopener">✈ {site.telegramHandle}</a>
-              <a href={site.whatsapp} target="_blank" rel="noopener">✆ WhatsApp</a>
-            </div>
-          </div>
-          <LeadForm title="Рассчитать стоимость" />
-        </div>
-      </section>
+      <CtaBlock title="Назовём точную цену" text="Расскажите про нишу, услуги и районы — посчитаем страницы и скажем цену и срок. 15 минут, бесплатно." formTitle="Рассчитать стоимость" bullets={['Посчитаем, сколько страниц нужно под ваши запросы', 'Скажем, какой тариф подходит, без навязывания', 'Назовём цену и срок — они не изменятся в процессе']} />
     </>
   );
 }

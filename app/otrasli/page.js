@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import site from '@/content/site.json';
+import CtaBlock from '@/components/CtaBlock';
+import PageHero from '@/components/PageHero';
 import CaseCard from '@/components/CaseCard';
-import LeadForm from '@/components/LeadForm';
 import { breadcrumbs } from '@/lib/schema';
 
 const NICHE_ICONS = {
@@ -30,22 +31,12 @@ export default function NicheIndex() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
-      <section className="page-head otrasli-head">
-        <div className="wrap oh-inner">
-          <div className="oh-text">
-            <nav className="crumbs"><Link href="/">Главная</Link> → <span>Отрасли</span></nav>
-            <span className="eyebrow light">Кому подходит</span>
-            <h1>Сайты под вашу отрасль</h1>
-            <p>{p.lead} Работаем с бизнесом Иркутска и других городов — удалённо, приезжать не нужно.</p>
-            <Link href="/kontakty" className="btn btn-primary" style={{ marginTop: 22 }}>Обсудить мой проект →</Link>
-          </div>
-          <div className="oh-fan">
-            <span className="fan fan-1"><img src="/img/cases/dacha38.jpg" alt="Сайт строительной компании" loading="lazy" /></span>
-            <span className="fan fan-2"><img src="/img/cases/lisa.jpg" alt="Сайт фитнес-студии" loading="lazy" /></span>
-            <span className="fan fan-3"><img src="/img/cases/zoloto.jpg" alt="Сайт-каталог товаров" loading="lazy" /></span>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ name: 'Главная', href: '/' }, { name: 'Отрасли' }]}
+        eyebrow="Кому подходит" title="Сайты под" titleHl="вашу отрасль"
+        lead={p.lead + ' Работаем с бизнесом Иркутска и других городов — удалённо, приезжать не нужно.'}
+        primary={{ href: '#lead', text: 'Обсудить мой проект →' }} secondary={{ href: '/primery', text: 'Примеры работ' }}
+        visual={(site.cases.find((c) => c.slug === 'fortes') || site.cases[0]).laptop} visualAlt="Сайт под отрасль: инженерные системы" />
 
       <section>
         <div className="wrap">
@@ -109,20 +100,7 @@ export default function NicheIndex() {
         </div>
       </section>
 
-      <section id="lead" className="cta">
-        <div className="wrap cta-inner">
-          <div>
-            <h2>Сделаем сайт под ваш бизнес</h2>
-            <p>Расскажите про нишу и город — предложим структуру страниц и назовём цену. От 35 000 ₽, запуск от 5 дней.</p>
-            <div className="contacts">
-              <a href={site.phoneHref}>☎ {site.phone}</a>
-              <a href={site.telegram} target="_blank" rel="noopener">✈ {site.telegramHandle}</a>
-              <a href={site.whatsapp} target="_blank" rel="noopener">✆ WhatsApp</a>
-            </div>
-          </div>
-          <LeadForm title="Обсудим сайт для вашей отрасли" />
-        </div>
-      </section>
+      <CtaBlock title="Сделаем сайт под ваш бизнес" text="Расскажите про нишу и город — предложим структуру страниц и назовём цену. От 35 000 ₽, запуск от 5 дней." formTitle="Обсудим сайт для вашей отрасли" />
     </>
   );
 }

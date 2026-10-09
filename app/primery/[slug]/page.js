@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import site from '@/content/site.json';
-import LeadForm from '@/components/LeadForm';
+import CtaBlock from '@/components/CtaBlock';
 import CaseCard from '@/components/CaseCard';
 import { breadcrumbs, author } from '@/lib/schema';
 
@@ -137,20 +137,7 @@ export default function CasePage({ params }) {
         </div>
       </section>
 
-      <section id="lead" className="cta">
-        <div className="wrap cta-inner">
-          <div>
-            <h2>Хотите такой же результат?</h2>
-            <p>Расскажите про нишу и город — покажем, какие страницы нужны вашему бизнесу, и назовём цену. От 35 000 ₽, запуск от 5 дней.</p>
-            <div className="contacts">
-              <a href={site.phoneHref}>☎ {site.phone}</a>
-              <a href={site.telegram} target="_blank" rel="noopener">✈ {site.telegramHandle}</a>
-              <a href={site.whatsapp} target="_blank" rel="noopener">✆ WhatsApp</a>
-            </div>
-          </div>
-          <LeadForm nichePlaceholder={'Напр.: ' + c.niche.toLowerCase() + ', Иркутск'} />
-        </div>
-      </section>
+      <CtaBlock title="Хотите такой же результат?" text="Расскажите про нишу и город — покажем, какие страницы нужны вашему бизнесу, и назовём цену. От 35 000 ₽, запуск от 5 дней." nichePlaceholder={'Напр.: ' + c.niche.toLowerCase() + ', Иркутск'} />
 
       <section>
         <div className="wrap">

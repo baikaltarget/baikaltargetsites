@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import site from '@/content/site.json';
+import PageHero from '@/components/PageHero';
 import { getAllPosts } from '@/lib/blog';
 
 const posts = getAllPosts();
@@ -14,13 +15,10 @@ export const metadata = {
 export default function Blog() {
   return (
     <>
-      <section className="page-head">
-        <div className="wrap">
-          <span className="eyebrow light">Блог</span>
-          <h1>О сайтах, SEO и заявках</h1>
-          <p>Как устроены сайты, которые приносят клиентов из поиска. Про рекламу и аналитику — в <a href={site.mainSiteBlog} target="_blank" rel="noopener" style={{ color: '#5899ff', fontWeight: 600 }}>блоге агентства</a>.</p>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ name: 'Главная', href: '/' }, { name: 'Блог' }]}
+        eyebrow="Блог" title="О сайтах, SEO" titleHl="и заявках"
+        lead="Как устроены сайты, которые приносят клиентов из поиска. Про рекламу и аналитику — в блоге агентства." />
       <section>
         <div className="wrap">
           {posts.length === 0 && <p style={{ color: 'var(--muted)', fontSize: 17 }}>Статьи готовятся. Пока почитайте <a href={site.mainSiteBlog} target="_blank" rel="noopener" style={{ color: 'var(--blue)', fontWeight: 600 }}>блог агентства</a> про рекламу и аналитику.</p>}

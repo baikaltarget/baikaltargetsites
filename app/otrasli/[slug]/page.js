@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import site from '@/content/site.json';
-import LeadForm from '@/components/LeadForm';
+import CtaBlock from '@/components/CtaBlock';
 import CaseCard from '@/components/CaseCard';
 import SeoIncluded from '@/components/SeoIncluded';
 import { localBusiness, breadcrumbs } from '@/lib/schema';
@@ -104,26 +104,7 @@ export default function NichePage({ params }) {
       </section>
 
       {/* форма-CTA */}
-      <section id="lead" className="cta">
-                <div className="wrap cta-inner">
-          <div>
-            <h2>Сделаем сайт под ваш бизнес</h2>
-            <p>Расскажите про нишу и город — предложим структуру страниц и назовём цену. От 35 000 ₽, запуск от 5 дней.</p>
-            <ul className="cta-bullets">
-              <li>✓ Разберём вашу нишу и конкурентов</li>
-              <li>✓ Предложим структуру под ваши запросы</li>
-              <li>✓ Назовём точную цену и срок</li>
-            </ul>
-            <div className="cta-badges"><span>от 35 000 ₽</span><span>от 5 дней</span><span>бесплатно</span></div>
-            <div className="contacts">
-              <a href={site.phoneHref}>☎ {site.phone}</a>
-              <a href={site.telegram} target="_blank" rel="noopener">✈ {site.telegramHandle}</a>
-              <a href={site.whatsapp} target="_blank" rel="noopener">✆ WhatsApp</a>
-            </div>
-          </div>
-          <LeadForm title="Обсудим сайт для вашего бизнеса" nichePlaceholder={'Напр.: ' + n.name.toLowerCase() + ', Иркутск'} />
-        </div>
-      </section>
+      <CtaBlock title="Сделаем сайт под ваш бизнес" text="Расскажите про нишу и город — предложим структуру страниц и назовём цену. От 35 000 ₽, запуск от 5 дней." formTitle="Обсудим сайт для вашего бизнеса" nichePlaceholder={'Напр.: ' + n.name.toLowerCase() + ', Иркутск'} />
 
       {/* другие ниши */}
       <section>

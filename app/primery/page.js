@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import site from '@/content/site.json';
+import CtaBlock from '@/components/CtaBlock';
+import PageHero from '@/components/PageHero';
 import CaseCard from '@/components/CaseCard';
 
 export const metadata = {
@@ -11,25 +13,24 @@ export const metadata = {
 export default function Primery() {
   return (
     <>
-      <section className="page-head">
-        <div className="wrap">
-          <nav className="crumbs"><Link href="/">Главная</Link> → <span>Примеры работ</span></nav>
-          <span className="eyebrow light">Примеры работ</span>
-          <h1>Сайты, которые мы сделали</h1>
-          <p>Проекты из Иркутска и других городов с цифрами результата из поиска. Открывайте кейс — внутри что было, что сделали и что получилось.</p>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ name: 'Главная', href: '/' }, { name: 'Примеры работ' }]}
+        eyebrow="Примеры работ" title="Сайты, которые" titleHl="мы сделали"
+        lead="Проекты из Иркутска и других городов с цифрами результата из поиска. Открывайте кейс — внутри что было, что сделали и что получилось."
+        primary={{ href: '#lead', text: 'Хочу такой сайт →' }}
+        visual={site.cases[0].laptop} visualAlt={'Сайт ' + site.cases[0].name}>
+        <div className="trust"><div><b>{site.cases.length}</b><small>кейсов с цифрами</small></div><div><b>50+</b><small>сайтов с 2019 года</small></div></div>
+      </PageHero>
 
       <section>
         <div className="wrap">
           <div className="case-grid2">
             {site.cases.map((c) => <CaseCard c={c} key={c.slug} />)}
           </div>
-          <div style={{ marginTop: 34 }}>
-            <Link href="/kontakty" className="btn btn-primary">Хочу такой сайт →</Link>
-          </div>
         </div>
       </section>
+
+      <CtaBlock title="Хотите такой же результат?" formTitle="Хочу такой сайт" />
     </>
   );
 }

@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import site from '@/content/site.json';
+import CtaBlock from '@/components/CtaBlock';
+import PageHero from '@/components/PageHero';
 import { SVC_ICONS } from '@/components/ServiceIcons';
 import SeoIncluded from '@/components/SeoIncluded';
 import CaseCard from '@/components/CaseCard';
-import LeadForm from '@/components/LeadForm';
 import { breadcrumbs } from '@/lib/schema';
 
 export const metadata = {
@@ -24,20 +25,19 @@ export default function Uslugi() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
-      <section className="page-head">
-        <div className="wrap">
-          <nav className="crumbs"><Link href="/">Главная</Link> → <span>Услуги</span></nav>
-          <span className="eyebrow light">Услуги</span>
-          <h1>Какой сайт нужен вашему бизнесу</h1>
-          <p>{p.lead}</p>
-        </div>
-      </section>
+      <PageHero
+        crumbs={[{ name: 'Главная', href: '/' }, { name: 'Услуги' }]}
+        eyebrow="Услуги веб-студии" title="Какой сайт нужен" titleHl="вашему бизнесу"
+        lead={p.lead}
+        primary={{ href: '#lead', text: 'Подобрать формат →' }} secondary={{ href: '/tarify', text: 'Смотреть цены' }}
+        visual={site.cases[0].laptop} visualAlt="Сайт, который мы сделали" />
 
       <section>
         <div className="wrap">
           <div className="svc-grid">
             {items.map((sv, i) => (
-              <Link href={sv.url} className="svc svc-wide" key={i}>
+              <Link href={sv.url} className="svc svc-wide svc-img" key={i}>
+                {(() => { const k = site.cases.find((c) => (sv.cases || []).includes(c.name)); return k && k.img ? <span className="svc-thumb"><img src={k.img} alt={'Пример: ' + k.name} loading="lazy" /></span> : null; })()}
                 <span className="svc-ic">{SVC_ICONS[sv.ic]}</span>
                 <span className="svc-txt">
                   <h3>{sv.name}</h3>
@@ -101,20 +101,7 @@ export default function Uslugi() {
         </div>
       </section>
 
-      <section id="lead" className="cta">
-        <div className="wrap cta-inner">
-          <div>
-            <h2>Не знаете, какой нужен? Обсудим</h2>
-            <p>Расскажите про нишу и город — скажем, какой формат подойдёт, и назовём цену. Консультация бесплатная.</p>
-            <div className="contacts">
-              <a href={site.phoneHref}>☎ {site.phone}</a>
-              <a href={site.telegram} target="_blank" rel="noopener">✈ {site.telegramHandle}</a>
-              <a href={site.whatsapp} target="_blank" rel="noopener">✆ WhatsApp</a>
-            </div>
-          </div>
-          <LeadForm />
-        </div>
-      </section>
+      <CtaBlock title="Не знаете, какой нужен? Обсудим" text="Расскажите про нишу и город — скажем, какой формат подойдёт, и назовём цену. Консультация бесплатная." formTitle="Подобрать формат сайта" />
     </>
   );
 }
