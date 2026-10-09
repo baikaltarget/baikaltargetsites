@@ -6,9 +6,8 @@ import { breadcrumbs, author } from '@/lib/schema';
 
 const bySlug = (slug) => site.cases.find((c) => c.slug === slug);
 const nicheBySlug = (slug) => site.niches.find((n) => n.slug === slug);
-// Кириллический домен показываем читаемо (punycode → unicode)
-const host = (url) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; } };
-const prettyHost = (url) => { const h = host(url); try { return h.startsWith('xn--') || h.includes('.xn--') ? decodeURI(new URL('http://' + h).hostname) : h; } catch { return h; } };
+// Кириллический домен задаётся читаемо через hostLabel в content/site.json
+const prettyHost = (c) => { if (c.hostLabel) return c.hostLabel; try { return new URL(c.url).hostname.replace(/^www\./, ''); } catch { return ''; } };
 
 export function generateStaticParams() { return site.cases.map((c) => ({ slug: c.slug })); }
 
@@ -54,7 +53,7 @@ export default function CasePage({ params }) {
             <h1>{h1}</h1>
             <p className="lead">{c.task}</p>
             <div className="hero-cta">
-              <a href={c.url} target="_blank" rel="noopener" className="btn btn-primary">Открыть {prettyHost(c.url)} ↗</a>
+              <a href={c.url} target="_blank" rel="noopener" className="btn btn-primary">Открыть {prettyHost(c)} ↗</a>
               <Link href="#lead" className="btn btn-ghost">Хочу такой же</Link>
             </div>
             <div className="trust">
