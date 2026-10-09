@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import site from '@/content/site.json';
+import LeadForm from '@/components/LeadForm';
+import CaseCard from '@/components/CaseCard';
+import SeoIncluded from '@/components/SeoIncluded';
+import { localBusiness, breadcrumbs, priceNumber } from '@/lib/schema';
 
 const bySlug = (slug) => site.services.find((s) => s.slug === slug);
 const caseByName = (name) => site.cases.find((c) => c.name === name);
@@ -18,17 +22,18 @@ export default function ServicePage({ params }) {
   const relCases = (s.cases || []).map(caseByName).filter(Boolean);
   const ld = {
     '@context': 'https://schema.org', '@type': 'Service', serviceType: s.name, description: s.description,
-    provider: { '@type': 'LocalBusiness', name: site.brand, telephone: '+7-800-101-63-20', url: site.mainSite },
-    areaServed: 'RU', offers: { '@type': 'Offer', price: (s.price.match(/\d[\d ]*/) || ['35 000'])[0].replace(/ /g, ''), priceCurrency: 'RUB' },
+    provider: localBusiness(),
+    areaServed: [{ '@type': 'City', name: 'Иркутск' }, { '@type': 'Country', name: 'Россия' }],
+    offers: { '@type': 'Offer', price: priceNumber(s.price), priceCurrency: 'RUB' },
   };
-  const crumbs = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Главная', item: site.domain + '/' },
-    { '@type': 'ListItem', position: 2, name: 'Услуги', item: site.domain + '/uslugi/' },
-    { '@type': 'ListItem', position: 3, name: s.name, item: site.domain + '/uslugi/' + s.slug + '/' } ] };
+  const crumbs = breadcrumbs([{ name: 'Главная', path: '/' }, { name: 'Услуги', path: '/uslugi/' }, { name: s.name, path: '/uslugi/' + s.slug + '/' }]);
+  const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: s.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(crumbs) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
       <section className="page-head">
         <div className="wrap">
@@ -72,7 +77,7 @@ export default function ServicePage({ params }) {
             <div className="ps-wrap">
               <div className="ps-scores">{site.pagespeed.scores.map((sc, i) => <div className="ps-score" key={i}><div className="ps-ring">{sc.n}</div><span>{sc.l}</span></div>)}</div>
               <div className="ps-proof">
-                <Image src="/img/pagespeed-phone.png" alt="Сайт клиента в Google PageSpeed" width={255} height={503} className="ps-phone" />
+                <Image src="/img/pagespeed-phone.webp" alt="Сайт клиента в Google PageSpeed" width={255} height={503} className="ps-phone" />
                 <div className="ps-proof-txt"><p className="ps-note">{site.pagespeed.note}</p><a href={site.pagespeed.url} target="_blank" rel="noopener" className="btn btn-outline">{site.pagespeed.btn} →</a></div>
               </div>
             </div>
@@ -85,16 +90,13 @@ export default function ServicePage({ params }) {
           <div className="wrap">
             <div className="sec-head"><span className="eyebrow">Примеры</span><h2>Мы уже делали такое</h2></div>
             <div className="case-grid2">
-              {relCases.map((c, i) => (
-                <a href={c.url} target="_blank" rel="noopener" className="case2" key={i}>
-                  {c.img && <span className="case2-img"><Image src={c.img} alt={'Сайт ' + c.name} width={800} height={366} /></span>}
-                  <div className="case2-body"><div className="case2-top"><span className="case2-niche">{c.niche}</span>{c.city && <span className="case2-city">{c.city}</span>}</div><h3>{c.name}</h3><div className="case2-result">{c.result}</div><span className="case2-link">Открыть сайт ↗</span></div>
-                </a>
-              ))}
+              {relCases.map((c) => <CaseCard c={c} key={c.slug} />)}
             </div>
           </div>
         </section>
       )}
+
+      <SeoIncluded />
 
       <section>
         <div className="wrap" style={{ maxWidth: 820 }}>
@@ -111,18 +113,7 @@ export default function ServicePage({ params }) {
             <ul className="cta-bullets"><li>✓ Разберём нишу и конкурентов</li><li>✓ Предложим структуру под ваши запросы</li><li>✓ Назовём точную цену и срок</li></ul>
             <div className="contacts"><a href={site.phoneHref}>☎ {site.phone}</a><a href={site.telegram} target="_blank" rel="noopener">✈ {site.telegramHandle}</a><a href={site.whatsapp} target="_blank" rel="noopener">✆ WhatsApp</a></div>
           </div>
-          <div className="form">
-            <h3>Оставьте заявку</h3>
-            <div className="sub">Свяжемся в течение рабочего дня ({site.hours}).</div>
-            <label htmlFor="f-name">Ваше имя</label><input id="f-name" type="text" placeholder="Как к вам обращаться" />
-            <label htmlFor="f-phone">Телефон</label><input id="f-phone" type="tel" placeholder="+7 ___ ___-__-__" />
-            <label htmlFor="f-niche">Ниша и город</label><input id="f-niche" type="text" placeholder="Напр.: монтаж отопления, Иркутск" />
-            <label htmlFor="f-plan">Интересует</label>
-            <select id="f-plan" defaultValue={s.name}><option>{s.name}</option>{site.tariffs.map((t, i) => <option key={i}>{t.name} — {t.price}</option>)}<option>Пока не выбрал — нужна консультация</option></select>
-            <button className="btn btn-orange" id="send">Отправить в Telegram →</button>
-            <div className="fine">Нажимая кнопку, вы соглашаетесь с <a href={site.policy} target="_blank" rel="noopener">политикой конфиденциальности</a></div>
-            <div className="fallback" id="fallback"></div>
-          </div>
+          <LeadForm />
         </div>
       </section>
 

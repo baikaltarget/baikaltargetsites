@@ -2,14 +2,16 @@ import Link from 'next/link';
 import site from '@/content/site.json';
 import { getAllPosts } from '@/lib/blog';
 
+const posts = getAllPosts();
+
 export const metadata = {
   title: 'Блог о сайтах и SEO | ' + site.brand,
   description: 'Статьи про разработку сайтов, SEO, гео-страницы, скорость и заявки. Полезное для локального бизнеса.',
   alternates: { canonical: '/blog/' },
+  robots: posts.length ? undefined : { index: false, follow: true },
 };
 
 export default function Blog() {
-  const posts = getAllPosts();
   return (
     <>
       <section className="page-head">
@@ -21,6 +23,7 @@ export default function Blog() {
       </section>
       <section>
         <div className="wrap">
+          {posts.length === 0 && <p style={{ color: 'var(--muted)', fontSize: 17 }}>Статьи готовятся. Пока почитайте <a href={site.mainSiteBlog} target="_blank" rel="noopener" style={{ color: 'var(--blue)', fontWeight: 600 }}>блог агентства</a> про рекламу и аналитику.</p>}
           <div className="post-grid">
             {posts.map((p) => (
               <Link href={'/blog/' + p.slug} className="post-card" key={p.slug}>

@@ -4,13 +4,13 @@ import site from '@/content/site.json';
 const NICHE_ICONS = {
   'stroitelnaya-kompaniya': '🏗️', 'proizvodstvo-zavod': '🏭', 'medicinskaya-klinika': '🏥',
   'stomatologiya': '🦷', 'fitnes-klub': '💪', 'klining': '🧹', 'otoplenie-santehnika': '🔧',
-  'salon-krasoty': '💇', 'avtoservis': '🚗', 'sayt-katalog-tovarov': '📦',
+  'salon-krasoty': '💇', 'avtoservis': '🚗',
   'oteli-bazy-otdyha': '🏨', 'nedvizhimost': '🏢', 'yuridicheskie-uslugi': '⚖️', 'remont-kvartir': '🛠️', 'mebel-na-zakaz': '🛋️', 'okna-dveri': '🚪',
 };
 
 export const metadata = {
-  title: 'Сайты под отрасль — для строительства, клиник, фитнеса и других | ' + site.brand,
-  description: 'Разработка сайтов под конкретную отрасль: строительство, производство, медицина, фитнес, клининг, автосервис, каталоги товаров. Многостраничные SEO-сайты от 35 000 ₽.',
+  title: 'Сайты под отрасль в Иркутске — стройка, производство, фитнес, отели, автосервис | ' + site.brand,
+  description: 'Разработка сайтов под конкретную отрасль в Иркутске: строительство, производство, фитнес, отопление и инженерия, автосервис, отели. Многостраничные SEO-сайты от 35 000 ₽.',
   alternates: { canonical: '/otrasli/' },
 };
 
@@ -27,9 +27,9 @@ export default function NicheIndex() {
             <Link href="/kontakty" className="btn btn-primary" style={{ marginTop: 22 }}>Обсудить мой проект →</Link>
           </div>
           <div className="oh-fan">
-            <span className="fan fan-1"><img src="/img/cases/dacha38.jpg" alt="Сайт строительной компании" /></span>
-            <span className="fan fan-2"><img src="/img/cases/lisa.jpg" alt="Сайт фитнес-студии" /></span>
-            <span className="fan fan-3"><img src="/img/cases/zoloto.jpg" alt="Сайт-каталог товаров" /></span>
+            <span className="fan fan-1"><img src="/img/cases/dacha38.jpg" alt="Сайт строительной компании" loading="lazy" /></span>
+            <span className="fan fan-2"><img src="/img/cases/lisa.jpg" alt="Сайт фитнес-студии" loading="lazy" /></span>
+            <span className="fan fan-3"><img src="/img/cases/zoloto.jpg" alt="Сайт-каталог товаров" loading="lazy" /></span>
           </div>
         </div>
       </section>
@@ -37,7 +37,7 @@ export default function NicheIndex() {
       <section>
         <div className="wrap">
           <div className="niche-grid">
-            {site.niches.map((n) => (
+            {site.niches.filter((n) => !n.hidden).map((n) => (
               <Link href={'/otrasli/' + n.slug} className="niche-card" key={n.slug}>
                 <span className="niche-card-ic">{NICHE_ICONS[n.slug] || '•'}</span>
                 <h3>{n.name}</h3>

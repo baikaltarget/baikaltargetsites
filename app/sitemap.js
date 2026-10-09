@@ -3,13 +3,17 @@ import { getAllSlugs } from '@/lib/blog';
 
 export default function sitemap() {
   const base = site.domain;
-  const stat = ['', '/uslugi', '/otrasli', '/tarify', '/primery', '/blog', '/kontakty'].map((p) => ({
-    url: base + p + (p ? '/' : '/'), lastModified: new Date(), changeFrequency: 'monthly', priority: p === '' ? 1 : 0.8,
-  }));
-  const services = site.services.map((sv) => ({ url: base + '/uslugi/' + sv.slug + '/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 }));
-  const niches = site.niches.map((n) => ({ url: base + '/otrasli/' + n.slug + '/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 }));
-  const posts = getAllSlugs().map((slug) => ({
-    url: base + '/blog/' + slug + '/', lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6,
-  }));
-  return [...stat, ...services, ...niches, ...posts];
+  const now = new Date();
+  const page = (p, priority, changeFrequency = 'monthly') => ({ url: base + p, lastModified: now, changeFrequency, priority });
+
+  const stat = [page('/', 1, 'weekly'), page('/uslugi/', 0.8), page('/otrasli/', 0.7), page('/tarify/', 0.8),
+    page('/primery/', 0.8), page('/otzyvy/', 0.6), page('/o-studii/', 0.6), page('/kontakty/', 0.6)];
+  const posts = getAllSlugs();
+  if (posts.length) stat.push(page('/blog/', 0.6, 'weekly'));
+
+  const services = site.services.map((sv) => page('/uslugi/' + sv.slug + '/', 0.9));
+  const niches = site.niches.filter((n) => !n.hidden).map((n) => page('/otrasli/' + n.slug + '/', 0.7));
+  const cases = site.cases.filter((c) => !c.placeholder).map((c) => page('/primery/' + c.slug + '/', 0.6));
+  const blog = posts.map((slug) => page('/blog/' + slug + '/', 0.6));
+  return [...stat, ...services, ...niches, ...cases, ...blog];
 }

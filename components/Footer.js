@@ -1,15 +1,17 @@
 import Link from 'next/link';
 import site from '@/content/site.json';
+import { getAllPosts } from '@/lib/blog';
 
 export default function Footer() {
+  const hasBlog = getAllPosts().length > 0;
   return (
     <>
     <footer>
       <div className="wrap">
         <div className="foot-grid">
           <div>
-            <h4>{site.brand} · Разработка сайтов</h4>
-            <p style={{ maxWidth: 340, color: 'var(--muted-d)' }}>Digital-агентство с 2019 года. Делаем сайты как инструмент под заявки: быстрые, SEO-оптимизированные, готовые к рекламе.</p>
+            <h4>{site.brand} · Разработка сайтов в Иркутске</h4>
+            <p style={{ maxWidth: 340, color: 'var(--muted-d)' }}>Студия сайтов digital-агентства Байкал Таргет, Иркутск, с 2019 года. Сайты как инструмент под заявки: быстрые, с SEO с первого дня, готовые к рекламе.</p>
             <div className="socials">
               <a href={site.telegram} target="_blank" rel="noopener" aria-label="Telegram">TG</a>
               <a href={site.whatsapp} target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
@@ -22,7 +24,9 @@ export default function Footer() {
             <Link href="/otrasli">Отрасли</Link>
             <Link href="/tarify">Тарифы</Link>
             <Link href="/primery">Примеры</Link>
-            <Link href="/blog">Блог</Link>
+            <Link href="/otzyvy">Отзывы</Link>
+            <Link href="/o-studii">О студии</Link>
+            {hasBlog && <Link href="/blog">Блог</Link>}
             <Link href="/#steps">Как работаем</Link>
           </div>
           <div>
@@ -35,7 +39,7 @@ export default function Footer() {
             <h4>Контакты</h4>
             <a href={site.phoneHref}>{site.phone}</a>
             <a href={'mailto:' + site.email}>{site.email}</a>
-            <a>{site.address}</a>
+            <a href={site.mapsYandex || undefined} target={site.mapsYandex ? '_blank' : undefined} rel="noopener">{site.address}</a>
             <a>Приём заявок: {site.hours}</a>
           </div>
         </div>
