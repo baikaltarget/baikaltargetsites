@@ -51,7 +51,7 @@ export default function CasePage({ params }) {
             <nav className="crumbs"><Link href="/">Главная</Link> → <Link href="/primery">Примеры работ</Link> → <span>{c.name}</span></nav>
             <span className="hero-over">{c.niche}{c.city && ' · ' + c.city}</span>
             <h1>{h1}</h1>
-            <p className="lead">{c.task}</p>
+            <p className="lead">{c.before} {c.result}.</p>
             <div className="hero-cta">
               <a href={c.url} target="_blank" rel="noopener" className="btn btn-primary">Открыть {prettyHost(c)} ↗</a>
               <Link href="#lead" className="btn btn-ghost">Хочу такой же</Link>
@@ -71,37 +71,74 @@ export default function CasePage({ params }) {
         </div>
       </section>
 
+      {c.draft && <div className="wrap" style={{ marginTop: 24 }}><div className="note" style={{ borderColor: 'var(--orange)' }}><b>Черновик кейса.</b> Цифры и дату запуска нужно подтвердить, пометки «[ЗАПОЛНИТЬ]» в content/site.json заменить. Пока страница закрыта от индексации.</div></div>}
+
+      {/* было → стало */}
       <section>
-        <div className="wrap case-page">
-          {c.draft && <div className="note" style={{ marginBottom: 26, borderColor: 'var(--orange)' }}><b>Черновик кейса.</b> Цифры и дату запуска нужно подтвердить, пометки «[ЗАПОЛНИТЬ]» в content/site.json заменить. Пока страница закрыта от индексации.</div>}
-          <div className="case-cols">
-            <div>
-              <div className="sec-head" style={{ marginBottom: 20 }}><span className="eyebrow">Решение</span><h2>Что сделали</h2></div>
-              <ul className="case-done">{done.map((d, i) => <li key={i}><span className="tick">✓</span> {d}</li>)}</ul>
+        <div className="wrap">
+          <div className="sec-head"><span className="eyebrow">Задача</span><h2>С чем пришёл клиент — <span className="hl">и что изменилось</span></h2></div>
+          <div className="bw">
+            <div className="bw-col bw-before">
+              <span className="bw-label">Было</span>
+              <p>{c.task}</p>
             </div>
-            <aside className="case-side">
-              <div className="case-metrics">
-                <span className="eyebrow">Результат</span>
-                <div className="case-main-result">{c.result}</div>
-                {metrics.map((m, i) => <div className="cm" key={i}><b>{m.v}</b><span>{m.k}</span></div>)}
-                {c.period && <div className="case-period">Запуск: {c.period}</div>}
+            <div className="bw-arrow" aria-hidden="true">→</div>
+            <div className="bw-col bw-after">
+              <span className="bw-label">Стало</span>
+              <div className="bw-result">{c.result}</div>
+              <div className="bw-metrics">
+                {metrics.map((m, i) => <div key={i}><b>{m.v}</b><span>{m.k}</span></div>)}
               </div>
-              {niche && <Link href={'/otrasli/' + niche.slug} className="btn btn-outline" style={{ width: '100%', justifyContent: 'center' }}>Сайт для: {niche.name.toLowerCase()} →</Link>}
-            </aside>
+              {c.period && <div className="bw-period">Запуск: {c.period}</div>}
+            </div>
           </div>
         </div>
       </section>
 
+      {/* что сделали — шаги */}
+      <section className="sec-pale">
+        <div className="wrap">
+          <div className="sec-head"><span className="eyebrow">Решение</span><h2>Что сделали</h2><p>Не «красивый сайт», а набор страниц под то, как ищут эту услугу, плюс техническая база, чтобы поиск их показывал.</p></div>
+          <div className="grid g2">
+            {done.map((d, i) => (
+              <div className="step-card" key={i}><span className="step-num">0{i + 1}</span><p>{d}</p></div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* что внутри: большой скрин + страницы */}
       {c.pages && c.pages.length > 0 && (
-        <section className="sec-pale">
+        <section>
           <div className="wrap">
-            <div className="sec-head"><span className="eyebrow">Что внутри</span><h2>Страницы, которые <span className="hl">приводят клиентов</span></h2><p>Не одна витрина, а страницы под то, как ищут эту услугу. Вот ключевые.</p></div>
-            <div className="grid g2">
-              {c.pages.map((p, i) => <div className="niche-block" key={i}><h3>{p.h}</h3><p>{p.p}</p></div>)}
+            <div className="sec-head"><span className="eyebrow">Что внутри</span><h2>Страницы, которые <span className="hl">приводят клиентов</span></h2></div>
+            <div className="inside">
+              <div className="inside-shot">
+                {c.img && <img src={c.img} alt={'Главная страница сайта ' + c.name} width="800" height="366" loading="lazy" />}
+                <a href={c.url} target="_blank" rel="noopener" className="btn btn-outline">Открыть сайт ↗</a>
+              </div>
+              <div className="inside-list">
+                {c.pages.map((p, i) => (
+                  <div className="inside-item" key={i}><span className="inside-ic">{i + 1}</span><div><h3>{p.h}</h3><p>{p.p}</p></div></div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
       )}
+
+      {/* что получил клиент — база всех наших сайтов */}
+      <section className="compare on-navy">
+        <div className="wrap">
+          <div className="sec-head"><span className="eyebrow light">В комплекте</span><h2>Что ещё получил <span className="hl">клиент</span></h2><p>Это входит в каждый наш сайт — и в этот тоже.</p></div>
+          <div className="grid g3">
+            {site.features.slice(0, 6).map((f, i) => (
+              <div className="feat feat-dark" key={i}><h3>{f.h}</h3><p>{f.p}</p></div>
+            ))}
+          </div>
+          {niche && <div style={{ marginTop: 28 }}><Link href={'/otrasli/' + niche.slug} className="btn btn-ghost">Сайты для: {niche.name.toLowerCase()} →</Link></div>}
+        </div>
+      </section>
 
       <section id="lead" className="cta">
         <div className="wrap cta-inner">
