@@ -261,15 +261,17 @@ export default function Home() {
           </div>
           <div className="ads-callout reveal">
             <div><h3>{site.adsCallout.title}</h3><p dangerouslySetInnerHTML={{ __html: site.adsCallout.text }} /></div>
-            <div className="ads-logos" aria-label="Рекламные системы, с которыми работаем">
-              {(site.adsCallout.logos || []).map((l, i) => (
-                <span className="ads-logo" key={i} title={l.name}>
-                  {l.src ? <img src={l.src} alt={l.name} loading="lazy" /> : null}
-                  {(l.label || !l.src) && <span>{l.label || l.name}</span>}
-                </span>
-              ))}
+            <div className="ads-side">
+              <div className="ads-logos" aria-label="Рекламные системы, с которыми работаем">
+                {(site.adsCallout.logos || []).map((l, i) => (
+                  <span className="ads-logo" key={i} title={l.name}>
+                    {l.src ? <img src={l.src} alt={l.name} loading="lazy" /> : null}
+                    {(l.label || !l.src) && <span>{l.label || l.name}</span>}
+                  </span>
+                ))}
+              </div>
+              <a href={site.adsCallout.url} target="_blank" rel="noopener" className="btn btn-orange">{site.adsCallout.btn} →</a>
             </div>
-            <a href={site.adsCallout.url} target="_blank" rel="noopener" className="btn btn-orange">{site.adsCallout.btn} →</a>
           </div>
         </div>
       </section>
