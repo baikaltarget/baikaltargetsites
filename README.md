@@ -95,3 +95,10 @@ npm install       # поставить зависимости
 npm run dev       # локальный просмотр на localhost:3000
 npm run build     # сборка (папка out/ — статика)
 ```
+
+## Скрины кейсов и ноутбук
+
+Скрин сайта (первый экран, ширина ~1400 px, можно выше 16:10) кладётся в `public/img/cases/<slug>.webp`.
+Картинка «сайт в ноутбуке» для страницы кейса генерируется скриптом:
+`python3 scripts/laptop.py public/img/cases/<slug>.webp public/img/cases/laptop/<slug>.webp`
+и прописывается в `content/site.json` → `cases[].laptop`.

@@ -275,7 +275,8 @@
       ],
       "nicheSlug": "stroitelnaya-kompaniya",
       "draft": true,
-      "imgTall": true
+      "imgTall": true,
+      "laptop": "/img/cases/laptop/dacha38.webp"
     },
     {
       "name": "Дарасун CO₂",
@@ -335,7 +336,8 @@
         }
       ],
       "nicheSlug": "proizvodstvo-zavod",
-      "draft": true
+      "draft": true,
+      "laptop": "/img/cases/laptop/darasun-co2.webp"
     },
     {
       "name": "LISA Fitness",
@@ -394,7 +396,8 @@
         }
       ],
       "nicheSlug": "fitnes-klub",
-      "draft": true
+      "draft": true,
+      "laptop": "/img/cases/laptop/lisa-fitness.webp"
     },
     {
       "name": "Золото Камчатки",
@@ -455,7 +458,8 @@
       ],
       "nicheSlug": null,
       "draft": true,
-      "hostLabel": "золото-камчатки.рф"
+      "hostLabel": "золото-камчатки.рф",
+      "laptop": "/img/cases/laptop/zoloto-kamchatki.webp"
     },
     {
       "name": "Energy Fit",
@@ -514,7 +518,8 @@
         }
       ],
       "nicheSlug": "fitnes-klub",
-      "draft": true
+      "draft": true,
+      "laptop": "/img/cases/laptop/energy-fit.webp"
     },
     {
       "name": "ProLesok",
@@ -573,7 +578,8 @@
         }
       ],
       "nicheSlug": "oteli-bazy-otdyha",
-      "draft": true
+      "draft": true,
+      "laptop": "/img/cases/laptop/prolesok.webp"
     },
     {
       "name": "ФОРТЕС",
@@ -633,7 +639,8 @@
         }
       ],
       "nicheSlug": "otoplenie-santehnika",
-      "draft": true
+      "draft": true,
+      "laptop": "/img/cases/laptop/fortes.webp"
     },
     {
       "name": "ДВИКС ДОМ",
@@ -692,7 +699,8 @@
         }
       ],
       "nicheSlug": "stroitelnaya-kompaniya",
-      "draft": true
+      "draft": true,
+      "laptop": "/img/cases/laptop/dviks-dom.webp"
     },
     {
       "name": "Priority Auto",
@@ -751,7 +759,8 @@
         }
       ],
       "nicheSlug": "avtoservis",
-      "draft": true
+      "draft": true,
+      "laptop": "/img/cases/laptop/priority-auto.webp"
     },
     {
       "name": "Кровля 138",
@@ -869,7 +878,8 @@
         }
       ],
       "nicheSlug": null,
-      "draft": true
+      "draft": true,
+      "laptop": "/img/cases/laptop/loko-motiv.webp"
     }
   ],
   "niches": [

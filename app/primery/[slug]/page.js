@@ -60,13 +60,10 @@ export default function CasePage({ params }) {
               {metrics.slice(0, 3).map((m, i) => <div key={i}><b>{m.v}</b><small>{m.k}</small></div>)}
             </div>
           </div>
-          <div className="hero-visual">
-            {c.img && (
-              <span className="case-laptop">
-                <span className="case-laptop-screen"><img src={c.img} alt={'Сайт ' + c.name} width="1400" height="900" /></span>
-                <span className="case-laptop-base" />
-              </span>
-            )}
+          <div className="hero-visual hero-visual-laptop">
+            {c.laptop
+              ? <img src={c.laptop} alt={'Сайт ' + c.name + ' на экране ноутбука'} className="hero-laptop" width="1498" height="1050" fetchPriority="high" />
+              : c.img && <span className="case-laptop"><span className="case-laptop-screen"><img src={c.img} alt={'Сайт ' + c.name} width="1400" height="900" /></span><span className="case-laptop-base" /></span>}
           </div>
         </div>
       </section>
