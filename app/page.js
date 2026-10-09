@@ -113,7 +113,7 @@ export default function Home() {
           <div className="sec-head reveal">
             <span className="eyebrow">Что делаем</span>
             <h2>Какой сайт <span className="hl">нужен вам</span></h2>
-            <p>Все варианты — многостраничные, с SEO с первого дня. Лендинги под рекламу делает <a href={site.mainSite + '/services/website-tilda'} target="_blank" rel="noopener" style={{ color: 'var(--blue)', fontWeight: 600 }}>основное агентство</a>, интернет-магазины с корзиной не делаем: наша специализация — сайты под клиентов из поиска.</p>
+            <p>Все варианты — многостраничные, с SEO с первого дня. Интернет-магазины — под заявку, без корзины. Лендинги под рекламу делает <a href={site.mainSite + "/services/website-tilda"} target="_blank" rel="noopener" style={{ color: "var(--blue)", fontWeight: 600 }}>основное агентство</a>.</p>
           </div>
           <div className="svc-grid">
             {site.services.map((sv, i) => (
