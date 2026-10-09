@@ -1363,18 +1363,18 @@
     "logos": [
       {
         "name": "Яндекс Директ",
-        "src": ""
+        "src": "/img/logos/yandex-direct.png",
+        "label": "Директ"
       },
       {
         "name": "VK Реклама",
-        "src": ""
+        "src": "/img/logos/vk-ads.png"
       },
       {
         "name": "Авито",
-        "src": ""
+        "src": "/img/logos/avito.png"
       }
-    ],
-    "logosNote": "src заполнить путём к файлу в /img/logos/, когда положите официальные логотипы (см. public/img/logos/README.txt)"
+    ]
   },
   "pagespeed": {
     "eyebrow": "Проверено Google",

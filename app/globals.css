@@ -545,8 +545,8 @@ a.rv-src:hover{color:var(--blue);border-color:var(--blue)}
 .ads-callout{flex-wrap:wrap}
 .ads-callout>div:first-child{flex:1 1 380px}
 .ads-logos{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.ads-logo{display:inline-flex;align-items:center;justify-content:center;min-width:120px;height:44px;padding:0 16px;border:1px solid var(--line-d);border-radius:12px;background:rgba(255,255,255,.04);color:#fff;font-weight:700;font-size:13.5px;opacity:.9}
-.ads-logo img{height:22px;width:auto;display:block;filter:brightness(0) invert(1);opacity:.9}
+.ads-logo{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-width:110px;height:46px;padding:0 16px;border-radius:12px;background:#fff;color:#000;font-weight:800;font-size:15px;font-family:'Montserrat'}
+.ads-logo img{height:24px;width:auto;display:block}
 
 /* 8. отрасли карточками на главной */
 .niche-grid-home .niche-card p{font-size:14px}

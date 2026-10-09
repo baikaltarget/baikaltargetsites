@@ -264,7 +264,8 @@ export default function Home() {
             <div className="ads-logos" aria-label="Рекламные системы, с которыми работаем">
               {(site.adsCallout.logos || []).map((l, i) => (
                 <span className="ads-logo" key={i} title={l.name}>
-                  {l.src ? <img src={l.src} alt={l.name} loading="lazy" /> : <span>{l.name}</span>}
+                  {l.src ? <img src={l.src} alt={l.name} loading="lazy" /> : null}
+                  {(l.label || !l.src) && <span>{l.label || l.name}</span>}
                 </span>
               ))}
             </div>
