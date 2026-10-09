@@ -1,14 +1,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
 
-// Карточка кейса: скрин сайта фоном, текст на тёмном градиенте снизу.
-// Ведёт на внутреннюю страницу /primery/[slug] — там цифры и ссылка на сам сайт.
+const host = (url) => { try { return new URL(url).hostname.replace(/^www\./, ''); } catch { return ''; } };
+
+// Карточка кейса в виде «окна браузера»: скрин в своих пропорциях, под ним тёмная панель с результатом.
 export default function CaseCard({ c, className = '' }) {
   return (
     <Link href={'/primery/' + c.slug} className={'casex ' + className} aria-label={'Кейс: сайт для ' + c.name}>
-      {c.img && <Image src={c.img} alt={'Сайт ' + c.name + ' — ' + c.niche} width={800} height={366} className="casex-bg" />}
-      <span className="casex-tag">{c.niche}{c.city && <em> · {c.city}</em>}</span>
+      <span className="casex-win">
+        <span className="casex-bar"><i /><i /><i /><span className="casex-url">{host(c.url)}</span></span>
+        {c.img && <Image src={c.img} alt={'Сайт ' + c.name + ' — ' + c.niche} width={800} height={366} className="casex-shot" />}
+      </span>
       <span className="casex-body">
+        <span className="casex-tag">{c.niche}{c.city && <em> · {c.city}</em>}</span>
         <span className="casex-name">{c.name}</span>
         <span className="casex-res">{c.result}</span>
         <span className="casex-link">Смотреть кейс →</span>
