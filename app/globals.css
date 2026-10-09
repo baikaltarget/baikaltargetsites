@@ -629,3 +629,6 @@ a.rv-src:hover{color:var(--blue);border-color:var(--blue)}
 .tbl-choose td{vertical-align:top;font-size:14.5px}
 .tbl-choose td:last-child{color:var(--muted)}
 #support{scroll-margin-top:90px}
+.also{color:var(--muted);font-size:15px;line-height:1.7;max-width:900px}
+.also b{color:var(--navy)}
+.step-card>div p{margin:0}
