@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import site from '@/content/site.json';
 import LeadForm from '@/components/LeadForm';
+import ReviewCard from '@/components/ReviewCard';
 import { breadcrumbs } from '@/lib/schema';
 
 const hasReal = site.reviews.items.some((r) => !r.placeholder);
@@ -36,15 +37,7 @@ export default function Otzyvy() {
         <div className="wrap">
           {!hasReal && <div className="note" style={{ marginBottom: 26, borderColor: 'var(--orange)' }}><b>Черновик.</b> Ниже заглушки — заменить реальными отзывами в content/site.json → reviews.items. Страница закрыта от индексации, пока заглушки не заменены.</div>}
           <div className="grid g2">
-            {r.items.map((it, i) => (
-              <blockquote className="review" key={i}>
-                <p className="review-text">{it.text}</p>
-                <footer>
-                  <b>{it.name}</b><span>{it.company}</span>
-                  {it.url ? <a href={it.url} target="_blank" rel="noopener nofollow" className="review-src">{it.source} ↗</a> : <span className="review-src">{it.source}</span>}
-                </footer>
-              </blockquote>
-            ))}
+            {r.items.map((it, i) => <ReviewCard r={it} key={i} />)}
           </div>
         </div>
       </section>
