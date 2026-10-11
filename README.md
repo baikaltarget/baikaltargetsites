@@ -102,3 +102,8 @@ npm run build     # сборка (папка out/ — статика)
 Картинка «сайт в ноутбуке» для страницы кейса генерируется скриптом:
 `python3 scripts/laptop.py public/img/cases/<slug>.webp public/img/cases/laptop/<slug>.webp`
 и прописывается в `content/site.json` → `cases[].laptop`.
+
+## Скрины Метрики в кейсе
+
+В `content/site.json` у кейса добавить `"proofs": [{ "img": "/img/cases/proofs/dacha38-metrika.webp", "caption": "Визиты из поиска, март–август 2026", "source": "Яндекс Метрика" }]`.
+Файлы класть в `public/img/cases/proofs/`. Блок «Цифры из Метрики» появляется автоматически.

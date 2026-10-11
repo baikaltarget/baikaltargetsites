@@ -92,6 +92,23 @@ export default function CasePage({ params }) {
         </div>
       </section>
 
+      {/* доказательства: скрины Метрики / Вебмастера. cases[].proofs: [{ img, caption, source }] */}
+      {c.proofs && c.proofs.length > 0 && (
+        <section className="sec-pale">
+          <div className="wrap">
+            <div className="sec-head"><span className="eyebrow">Доказательства</span><h2>Цифры <span className="hl">из Метрики</span></h2><p>Скриншоты из кабинетов клиента. Период и источник указаны под каждым.</p></div>
+            <div className={'proofs' + (c.proofs.length === 1 ? ' proofs-1' : '')}>
+              {c.proofs.map((pr, i) => (
+                <figure className="proof" key={i}>
+                  <img src={pr.img} alt={pr.caption} loading="lazy" />
+                  <figcaption><b>{pr.source}</b> · {pr.caption}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* что сделали — шаги */}
       <section className="sec-pale">
         <div className="wrap">
