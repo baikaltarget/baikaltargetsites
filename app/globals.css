@@ -642,7 +642,7 @@ a.rv-src:hover{color:var(--blue);border-color:var(--blue)}
 
 /* ===== внутренние первые экраны ===== */
 .page-hero .hero-inner{padding-top:34px;padding-bottom:40px;grid-template-columns:1.15fr .85fr;gap:30px}
-.page-hero .hero-inner-solo{grid-template-columns:1fr;max-width:none;padding-bottom:40px}
+.page-hero .hero-inner-solo{grid-template-columns:1fr;padding-bottom:40px}
 .page-hero .hero-inner-solo>div{max-width:820px}
 .page-hero .crumbs{margin-bottom:12px}
 .page-hero h1{font-size:clamp(26px,3.3vw,38px);margin:6px 0 12px}
