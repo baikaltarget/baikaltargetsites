@@ -6,6 +6,7 @@ import CaseCard from '@/components/CaseCard';
 import ReviewCard from '@/components/ReviewCard';
 import { SVC_ICONS } from '@/components/ServiceIcons';
 import { MESH } from '@/components/Mesh';
+import NicheIcon from '@/components/NicheIcons';
 import { localBusiness, priceNumber } from '@/lib/schema';
 
 
@@ -29,12 +30,6 @@ const PERK_ICONS = {
 };
 
 
-const NICHE_ICONS = {
-  'stroitelnaya-kompaniya': '🏗️', 'proizvodstvo-zavod': '🏭', 'medicinskaya-klinika': '🏥',
-  'stomatologiya': '🦷', 'fitnes-klub': '💪', 'klining': '🧹', 'otoplenie-santehnika': '🔧',
-  'salon-krasoty': '💇', 'avtoservis': '🚗',
-  'oteli-bazy-otdyha': '🏨', 'nedvizhimost': '🏢', 'yuridicheskie-uslugi': '⚖️', 'remont-kvartir': '🛠️', 'mebel-na-zakaz': '🛋️', 'okna-dveri': '🚪',
-};
 
 const orgLd = {
   '@context': 'https://schema.org', '@type': 'Service',
@@ -111,8 +106,8 @@ export default function Home() {
             <p>Все варианты — многостраничные, с SEO с первого дня. Интернет-магазины — под заявку, без корзины. Лендинги под рекламу делает <a href={site.mainSite + "/services/website-tilda"} target="_blank" rel="noopener" style={{ color: "var(--blue)", fontWeight: 600 }}>основное агентство</a>.</p>
           </div>
           <div className="svc-grid">
-            {site.services.map((sv, i) => (
-              <Link href={'/uslugi/' + sv.slug} className="svc svc-wide reveal" key={i}>
+            {[...site.services.map((x) => ({ ...x, url: '/uslugi/' + x.slug })), ...site.uslugiPage.extra].map((sv, i) => (
+              <Link href={sv.url} className="svc svc-wide reveal" key={i}>
                 <span className="svc-ic">{SVC_ICONS[sv.ic]}</span>
                 <span className="svc-txt">
                   <h3>{sv.name}</h3>
@@ -275,8 +270,8 @@ export default function Home() {
       <section id="nishi">
         <div className="wrap">
           <div className="sec-head reveal">
-            <span className="eyebrow">Кому подходит</span>
-            <h2>Сайты под <span className="hl">вашу нишу</span></h2>
+            <span className="eyebrow">Кому делаем</span>
+            <h2>Сайты для <span className="hl">вашего бизнеса</span></h2>
             <p>Под каждую сферу — своя структура и свои страницы: у стройки объекты со сметами, у отеля номера и бронирование, у автосервиса услуги с ценами. Не шаблон с заменой слова, а сайт под конкретную задачу.</p>
           </div>
           <div className="niche-grid niche-grid-home">
@@ -284,7 +279,7 @@ export default function Home() {
               const kase = (n.cases || []).map((nm) => site.cases.find((c) => c.name === nm)).find(Boolean);
               return (
                 <Link key={n.slug} href={'/otrasli/' + n.slug} className="niche-card reveal">
-                  <span className="niche-card-ic">{NICHE_ICONS[n.slug] || '•'}</span>
+                  <NicheIcon slug={n.slug} className="niche-card-ic nicon" />
                   <h3>{n.name}</h3>
                   {n.tag && <span className="niche-card-tag">{n.tag}</span>}
                   <p>{n.pain}</p>
@@ -293,7 +288,7 @@ export default function Home() {
               );
             })}
           </div>
-          <div style={{ marginTop: 26 }}><Link href="/otrasli" className="btn btn-outline">Все отрасли →</Link></div>
+          <div style={{ marginTop: 26 }}><Link href="/otrasli" className="btn btn-outline">Все сферы →</Link></div>
         </div>
       </section>
 
@@ -322,9 +317,9 @@ export default function Home() {
         <div className="wrap cta-inner">
           <div className="reveal">
             <h2>Обсудим ваш сайт</h2>
-            <p>Расскажите про нишу и город — предложим структуру и назовём цену. Консультация бесплатная и ни к чему не обязывает.</p>
+            <p>Расскажите про бизнес и город — предложим структуру и назовём цену. Консультация бесплатная и ни к чему не обязывает.</p>
             <ul className="cta-bullets">
-              <li>✓ Разберём нишу и конкурентов в вашем городе</li>
+              <li>✓ Разберём ваш бизнес и конкурентов в городе</li>
               <li>✓ Предложим структуру под ваши запросы</li>
               <li>✓ Назовём точную цену и срок</li>
             </ul>

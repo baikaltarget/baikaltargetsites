@@ -641,16 +641,20 @@ a.rv-src:hover{color:var(--blue);border-color:var(--blue)}
 .tbl-dark tr.hi td.p{color:#fff;font-weight:800}
 
 /* ===== внутренние первые экраны ===== */
-.page-hero .hero-inner{padding-top:56px;padding-bottom:64px;grid-template-columns:1.1fr .9fr}
-.page-hero .hero-inner-solo{grid-template-columns:1fr;max-width:860px;margin:0 auto}
-.page-hero .crumbs{margin-bottom:18px}
-.page-hero h1{font-size:clamp(28px,3.8vw,44px)}
-.page-hero .lead{font-size:17px}
-.page-hero .hero-laptop{width:118%;margin-right:-14%}
+.page-hero .hero-inner{padding-top:34px;padding-bottom:40px;grid-template-columns:1.15fr .85fr;gap:30px}
+.page-hero .hero-inner-solo{grid-template-columns:1fr;max-width:none;padding-bottom:40px}
+.page-hero .hero-inner-solo>div{max-width:820px}
+.page-hero .crumbs{margin-bottom:12px}
+.page-hero h1{font-size:clamp(26px,3.3vw,38px);margin:6px 0 12px}
+.page-hero .lead{font-size:16.5px;margin-bottom:18px;max-width:600px}
+.page-hero .hero-laptop{width:112%;margin-right:-10%;margin-bottom:-60px}
+.page-hero .hero-visual{min-height:0;align-self:end}
 .page-hero .contacts{display:flex;flex-direction:column;gap:10px;font-weight:700;font-size:15px}
 .page-hero .contacts a{color:#fff;display:inline-flex;gap:8px;align-items:center}
 .page-hero .contacts a:hover{color:var(--blue-2)}
-.page-hero .trust{margin-top:28px}
+.page-hero .trust{margin-top:22px}
+.page-hero .trust b{font-size:22px}
+.page-hero .hero-cta{margin-top:0}
 @media(max-width:900px){.page-hero .hero-inner{grid-template-columns:1fr}.page-hero .hero-visual{min-height:0}.page-hero .hero-laptop{width:100%;margin:0}}
 
 /* карточка услуги с превью кейса */
@@ -661,3 +665,41 @@ a.rv-src:hover{color:var(--blue);border-color:var(--blue)}
 .svc-img .svc-ic{margin:22px 0 0 24px}
 .svc-img .svc-txt{padding:22px 24px 24px 0;flex:1;min-width:0}
 @media(max-width:560px){.svc-img .svc-ic{margin:18px 0 0 18px}.svc-img .svc-txt{padding:12px 18px 20px 18px}}
+
+/* иконки сфер (SVG вместо эмодзи) */
+.nicon{display:inline-grid;place-items:center;color:var(--blue)}
+.nicon svg{width:26px;height:26px}
+.niche-card-ic.nicon{width:48px;height:48px;border-radius:14px;background:var(--blue-pale);margin-bottom:16px;font-size:0}
+.nchip-i.nicon svg{width:16px;height:16px}
+
+/* о студии v2 */
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.team .person{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.team .person-photo{width:100%;height:auto;aspect-ratio:1/1;border-radius:0;margin:0;object-fit:cover}
+.team .person-ph{font-size:48px;background:linear-gradient(135deg,var(--navy-2),var(--blue));display:grid;place-items:center}
+.person-body{padding:22px 24px 24px}
+.about-cols{grid-template-columns:1fr 1fr;gap:40px}
+.about-story .case-p{font-size:16px}
+.about-principles{display:flex;flex-direction:column;gap:14px}
+.pr{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 20px}
+.pr-num{flex-shrink:0;font-family:'Montserrat';font-weight:800;font-size:18px;color:var(--orange)}
+.pr h3{font-family:'Montserrat';font-weight:700;font-size:16px;color:var(--navy);margin-bottom:4px}
+.pr p{color:var(--muted);font-size:14.5px}
+.studio-facts-row{grid-template-columns:repeat(4,1fr)}
+.about-legal{margin-top:22px;color:var(--muted);font-size:13.5px}
+@media(max-width:900px){.team{grid-template-columns:1fr}.studio-facts-row{grid-template-columns:1fr 1fr}}
+
+/* контакты v2 */
+.contact-hero .hero-inner{grid-template-columns:1fr 1fr;gap:46px;padding-top:40px;padding-bottom:56px;align-items:start}
+.contact-hero h1{font-size:clamp(28px,3.6vw,42px)}
+.contact-list{display:flex;flex-direction:column;gap:12px;margin-top:26px}
+.contact-list a{display:flex;align-items:center;gap:14px;color:#fff;background:rgba(255,255,255,.05);border:1px solid var(--line-d);border-radius:14px;padding:12px 16px;transition:border-color .15s,background .15s}
+.contact-list a:hover{border-color:var(--blue-2);background:rgba(255,255,255,.08)}
+.contact-list i{font-style:normal;width:36px;height:36px;border-radius:50%;background:var(--blue);display:grid;place-items:center;flex-shrink:0;font-size:16px}
+.contact-list b{display:block;font-size:15px}
+.contact-list small{display:block;color:var(--muted-d);font-size:12.5px;margin-top:2px}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.map-ph{background:var(--blue-pale);border:1px dashed var(--line);border-radius:var(--r);min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:24px;color:var(--muted)}
+.map-ph b{color:var(--navy);font-family:'Montserrat'}
+.contact-grid .socials a{color:var(--navy);border-color:var(--line)}
+@media(max-width:900px){.contact-hero .hero-inner,.contact-grid{grid-template-columns:1fr}}

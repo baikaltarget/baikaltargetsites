@@ -19,7 +19,7 @@ export default function Interactions() {
 
     const handler = async () => {
       const name = g('f-name'), phone = g('f-phone'), niche = g('f-niche'), plan = g('f-plan');
-      if (!phone && !niche) { say('Заполните хотя бы телефон или нишу — и мы свяжемся.'); return; }
+      if (!phone && !niche) { say('Заполните хотя бы телефон или чем занимаетесь — и мы свяжемся.'); return; }
       send.disabled = true; say('Отправляем…');
       try {
         // Основной путь: серверный роут → Telegram-бот (токен хранится в переменных окружения Vercel)

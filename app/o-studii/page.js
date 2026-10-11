@@ -35,59 +35,51 @@ export default function About() {
         <div className="trust">{site.studio.facts.slice(0, 3).map((f, i) => <div key={i}><b>{f.b}</b><small>{f.s}</small></div>)}</div>
       </PageHero>
 
-      <section>
-        <div className="wrap">
-          <div className="about-cols">
-            <div>
-              <div className="sec-head" style={{ marginBottom: 20 }}><span className="eyebrow">Как мы к этому пришли</span><h2>Сначала реклама, потом сайты</h2></div>
-              {a.story.map((p, i) => <p className="case-p" key={i}>{p}</p>)}
-            </div>
-            <div className="studio-facts">
-              {site.studio.facts.map((f, i) => <div className="sf" key={i}><b>{f.b}</b><span>{f.s}</span></div>)}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="sec-pale" id="komanda">
+      {/* команда — сразу после первого экрана: это то, за чем сюда приходят */}
+      <section id="komanda">
         <div className="wrap">
           <div className="sec-head"><span className="eyebrow">Команда</span><h2>Кто будет делать <span className="hl">ваш сайт</span></h2><p>{site.teamNote}</p></div>
-          <div className="grid g3">
+          <div className="team">
             {site.team.map((t, i) => (
               <div className="person" key={i}>
-                {t.photo ? <img src={t.photo} alt={t.name} className="person-photo" width="96" height="96" loading="lazy" /> : <span className="person-photo person-ph" aria-hidden="true">{initials(t.name)}</span>}
-                <h3>{t.name}</h3>
-                <span className="person-role">{t.role}</span>
-                <p>{t.text}</p>
+                {t.photo ? <img src={t.photo} alt={t.name} className="person-photo" width="320" height="320" loading="lazy" /> : <span className="person-photo person-ph" aria-hidden="true">{initials(t.name)}</span>}
+                <div className="person-body">
+                  <h3>{t.name}</h3>
+                  <span className="person-role">{t.role}</span>
+                  <p>{t.text}</p>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section>
-        <div className="wrap">
-          <div className="sec-head"><span className="eyebrow">Принципы</span><h2>Как мы работаем</h2></div>
-          <div className="grid g2">
-            {a.principles.map((p, i) => <div className="niche-block" key={i}><h3>{p.h}</h3><p>{p.p}</p></div>)}
-          </div>
-        </div>
-      </section>
-
+      {/* история + принципы в одном блоке: слева рассказ, справа 4 принципа */}
       <section className="sec-pale">
         <div className="wrap">
-          <div className="sec-head"><span className="eyebrow">Где мы</span><h2>Офис в Иркутске</h2></div>
-          <div className="contacts" style={{ color: 'var(--text)' }}>
-            <a href={site.mapsYandex || undefined} target={site.mapsYandex ? '_blank' : undefined} rel="noopener">📍 {site.address}</a>
-            <a href={site.phoneHref}>☎ {site.phone}</a>
-            <a href={'mailto:' + site.email}>✉ {site.email}</a>
-            <a>🕘 {site.hours}</a>
+          <div className="sec-head"><span className="eyebrow">Как мы работаем</span><h2>Сначала реклама, <span className="hl">потом сайты</span></h2></div>
+          <div className="about-cols">
+            <div className="about-story">
+              {a.story.map((p, i) => <p className="case-p" key={i}>{p}</p>)}
+            </div>
+            <div className="about-principles">
+              {a.principles.map((p, i) => <div className="pr" key={i}><span className="pr-num">0{i + 1}</span><div><h3>{p.h}</h3><p>{p.p}</p></div></div>)}
+            </div>
           </div>
-          <p style={{ color: 'var(--muted)', marginTop: 14, fontSize: 14 }}>{site.legal}</p>
         </div>
       </section>
 
-      <CtaBlock title="Обсудим ваш сайт" text="Расскажите про нишу и город — предложим структуру и назовём цену. Можно приехать в офис или созвониться." />
+      <section>
+        <div className="wrap">
+          <div className="sec-head"><span className="eyebrow">Цифры</span><h2>Студия <span className="hl">в цифрах</span></h2></div>
+          <div className="studio-facts studio-facts-row">
+            {site.studio.facts.map((f, i) => <div className="sf" key={i}><b>{f.b}</b><span>{f.s}</span></div>)}
+          </div>
+          <p className="about-legal">{site.address} · {site.hours} · {site.legal}</p>
+        </div>
+      </section>
+
+      <CtaBlock title="Обсудим ваш сайт" text="Расскажите про бизнес и город — предложим структуру и назовём цену. Можно приехать в офис или созвониться." />
     </>
   );
 }

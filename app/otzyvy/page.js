@@ -25,8 +25,7 @@ export default function Otzyvy() {
         crumbs={[{ name: 'Главная', href: '/' }, { name: 'Отзывы' }]}
         eyebrow={r.eyebrow} title="Отзывы клиентов" titleHl="о наших сайтах"
         lead={r.lead}
-        primary={{ href: '#lead', text: 'Стать следующим кейсом →' }} secondary={{ href: '/primery', text: 'Примеры работ' }}
-        visual={site.cases[2].laptop} visualAlt={'Сайт ' + site.cases[2].name}>
+        primary={{ href: '#lead', text: 'Стать следующим кейсом →' }} secondary={{ href: '/primery', text: 'Примеры работ' }}>
         {(site.mapsYandex || site.maps2gis) && <div className="contacts" style={{ marginTop: 22 }}>
           {site.mapsYandex && <a href={site.mapsYandex} target="_blank" rel="noopener nofollow">Яндекс Карты ↗</a>}
           {site.maps2gis && <a href={site.maps2gis} target="_blank" rel="noopener nofollow">2ГИС ↗</a>}

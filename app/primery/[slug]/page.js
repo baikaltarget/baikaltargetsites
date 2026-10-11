@@ -133,11 +133,11 @@ export default function CasePage({ params }) {
               <div className="niche-block" key={i}><h3>{f.h}</h3><p>{f.p}</p></div>
             ))}
           </div>
-          {niche && <div style={{ marginTop: 28 }}><Link href={'/otrasli/' + niche.slug} className="btn btn-outline">Сайты для: {niche.name.toLowerCase()} →</Link></div>}
+          {niche && <div style={{ marginTop: 28 }}><Link href={'/otrasli/' + niche.slug} className="btn btn-outline">Сайт для: {niche.name.toLowerCase()} →</Link></div>}
         </div>
       </section>
 
-      <CtaBlock title="Хотите такой же результат?" text="Расскажите про нишу и город — покажем, какие страницы нужны вашему бизнесу, и назовём цену. От 35 000 ₽, запуск от 5 дней." nichePlaceholder={'Напр.: ' + c.niche.toLowerCase() + ', Иркутск'} />
+      <CtaBlock title="Хотите такой же результат?" text="Расскажите про бизнес и город — покажем, какие страницы нужны вашему бизнесу, и назовём цену. От 35 000 ₽, запуск от 5 дней." nichePlaceholder={'Напр.: ' + c.niche.toLowerCase() + ', Иркутск'} />
 
       <section>
         <div className="wrap">

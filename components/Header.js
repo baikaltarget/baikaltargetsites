@@ -15,7 +15,7 @@ export default function Header() {
         </Link>
         <nav className="nav-links">
           <Link href="/uslugi">Услуги</Link>
-          <Link href="/otrasli">Отрасли</Link>
+          <Link href="/otrasli">Сайты для бизнеса</Link>
           <Link href="/tarify">Тарифы</Link>
           <Link href="/primery">Примеры</Link>
           <Link href="/otzyvy">Отзывы</Link>
@@ -32,7 +32,7 @@ export default function Header() {
       </div>
       <div className="wrap"><nav id="mnav">
         <Link href="/uslugi">Услуги</Link>
-        <Link href="/otrasli">Отрасли</Link>
+        <Link href="/otrasli">Сайты для бизнеса</Link>
         <Link href="/tarify">Тарифы</Link>
         <Link href="/primery">Примеры</Link>
         <Link href="/otzyvy">Отзывы</Link>

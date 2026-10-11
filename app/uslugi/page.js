@@ -30,14 +30,13 @@ export default function Uslugi() {
         eyebrow="Услуги веб-студии" title="Какой сайт нужен" titleHl="вашему бизнесу"
         lead={p.lead}
         primary={{ href: '#lead', text: 'Подобрать формат →' }} secondary={{ href: '/tarify', text: 'Смотреть цены' }}
-        visual={site.cases[0].laptop} visualAlt="Сайт, который мы сделали" />
+        visual={(site.cases.find((c) => c.slug === 'darasun-co2') || site.cases[0]).laptop} visualAlt="Сайт, который мы сделали" />
 
       <section>
         <div className="wrap">
           <div className="svc-grid">
             {items.map((sv, i) => (
-              <Link href={sv.url} className="svc svc-wide svc-img" key={i}>
-                {(() => { const k = site.cases.find((c) => (sv.cases || []).includes(c.name)); return k && k.img ? <span className="svc-thumb"><img src={k.img} alt={'Пример: ' + k.name} loading="lazy" /></span> : null; })()}
+              <Link href={sv.url} className="svc svc-wide" key={i}>
                 <span className="svc-ic">{SVC_ICONS[sv.ic]}</span>
                 <span className="svc-txt">
                   <h3>{sv.name}</h3>
@@ -101,7 +100,7 @@ export default function Uslugi() {
         </div>
       </section>
 
-      <CtaBlock title="Не знаете, какой нужен? Обсудим" text="Расскажите про нишу и город — скажем, какой формат подойдёт, и назовём цену. Консультация бесплатная." formTitle="Подобрать формат сайта" />
+      <CtaBlock title="Не знаете, какой нужен? Обсудим" text="Расскажите про бизнес и город — скажем, какой формат подойдёт, и назовём цену. Консультация бесплатная." formTitle="Подобрать формат сайта" />
     </>
   );
 }

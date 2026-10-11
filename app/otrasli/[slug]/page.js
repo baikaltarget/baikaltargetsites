@@ -34,7 +34,7 @@ export default function NichePage({ params }) {
     areaServed: [{ '@type': 'City', name: 'Иркутск' }, { '@type': 'Country', name: 'Россия' }],
     offers: { '@type': 'Offer', price: '35000', priceCurrency: 'RUB' },
   };
-  const crumbsLd = breadcrumbs([{ name: 'Главная', path: '/' }, { name: 'Отрасли', path: '/otrasli/' }, { name: n.name, path: '/otrasli/' + n.slug + '/' }]);
+  const crumbsLd = breadcrumbs([{ name: 'Главная', path: '/' }, { name: 'Сайты для бизнеса', path: '/otrasli/' }, { name: n.name, path: '/otrasli/' + n.slug + '/' }]);
   const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage',
     mainEntity: n.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 
@@ -46,8 +46,8 @@ export default function NichePage({ params }) {
 
       <section className="page-head">
         <div className="wrap">
-          <nav className="crumbs"><Link href="/">Главная</Link> → <Link href="/otrasli">Отрасли</Link> → <span>{n.name}</span></nav>
-          <span className="eyebrow light">Разработка сайтов · {n.name}</span>
+          <nav className="crumbs"><Link href="/">Главная</Link> → <Link href="/otrasli">Сайты для бизнеса</Link> → <span>{n.name}</span></nav>
+          <span className="eyebrow light">Сайт для бизнеса · {n.name}</span>
           <h1>{n.h1}</h1>
           <p>{n.intro}</p>
           <Link href="#lead" className="btn btn-primary" style={{ marginTop: 22 }}>Обсудить проект →</Link>
@@ -57,7 +57,7 @@ export default function NichePage({ params }) {
       {/* почему нужен такой сайт */}
       <section>
         <div className="wrap">
-          <div className="sec-head"><span className="eyebrow">Зачем это вам</span><h2>Что даёт сайт под вашу нишу</h2></div>
+          <div className="sec-head"><span className="eyebrow">Зачем это вам</span><h2>Что даёт сайт под вашу сферу</h2></div>
           <p style={{ fontSize: 17, color: 'var(--muted)', maxWidth: 820, marginTop: -20, marginBottom: 34 }}>{n.pain}</p>
           <div className="grid g3">
             {n.why.map((w, i) => (
@@ -67,10 +67,10 @@ export default function NichePage({ params }) {
         </div>
       </section>
 
-      {/* что делаем под нишу */}
+      {/* что делаем под сферу */}
       <section className="sec-pale">
         <div className="wrap">
-          <div className="sec-head"><span className="eyebrow">Что делаем под нишу</span><h2>Страницы и блоки, которые нужны именно тут</h2></div>
+          <div className="sec-head"><span className="eyebrow">Что делаем под эту сферу</span><h2>Страницы и блоки, которые нужны именно тут</h2></div>
           <div className="grid g2niche">
             {n.blocks.map((b, i) => (
               <div className="niche-block" key={i}><h3>{b.h}</h3><p>{b.p}</p></div>
@@ -104,16 +104,16 @@ export default function NichePage({ params }) {
       </section>
 
       {/* форма-CTA */}
-      <CtaBlock title="Сделаем сайт под ваш бизнес" text="Расскажите про нишу и город — предложим структуру страниц и назовём цену. От 35 000 ₽, запуск от 5 дней." formTitle="Обсудим сайт для вашего бизнеса" nichePlaceholder={'Напр.: ' + n.name.toLowerCase() + ', Иркутск'} />
+      <CtaBlock title="Сделаем сайт под ваш бизнес" text="Расскажите про бизнес и город — предложим структуру страниц и назовём цену. От 35 000 ₽, запуск от 5 дней." formTitle="Обсудим сайт для вашего бизнеса" nichePlaceholder={'Напр.: ' + n.name.toLowerCase() + ', Иркутск'} />
 
-      {/* другие ниши */}
+      {/* другие сферы */}
       <section>
         <div className="wrap">
-          <div className="sec-head"><span className="eyebrow">Другие отрасли</span><h2>Делаем сайты и для этих сфер</h2></div>
+          <div className="sec-head"><span className="eyebrow">Другие сферы</span><h2>Делаем сайты и для этих сфер</h2></div>
           <div className="niche-links">
             {others.map((o) => <Link key={o.slug} href={'/otrasli/' + o.slug} className="niche-chip">{o.name}</Link>)}
           </div>
-          <div style={{ marginTop: 20 }}><Link href="/otrasli" className="btn btn-outline">Все отрасли →</Link></div>
+          <div style={{ marginTop: 20 }}><Link href="/otrasli" className="btn btn-outline">Все сферы →</Link></div>
         </div>
       </section>
 

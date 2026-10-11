@@ -17,8 +17,7 @@ export default function Primery() {
         crumbs={[{ name: 'Главная', href: '/' }, { name: 'Примеры работ' }]}
         eyebrow="Примеры работ" title="Сайты, которые" titleHl="мы сделали"
         lead="Проекты из Иркутска и других городов с цифрами результата из поиска. Открывайте кейс — внутри что было, что сделали и что получилось."
-        primary={{ href: '#lead', text: 'Хочу такой сайт →' }}
-        visual={site.cases[0].laptop} visualAlt={'Сайт ' + site.cases[0].name}>
+        primary={{ href: '#lead', text: 'Хочу такой сайт →' }}>
         <div className="trust"><div><b>{site.cases.length}</b><small>кейсов с цифрами</small></div><div><b>50+</b><small>сайтов с 2019 года</small></div></div>
       </PageHero>
 
