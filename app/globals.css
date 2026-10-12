@@ -770,3 +770,6 @@ a.rv-src:hover{color:var(--blue);border-color:var(--blue)}
 .post-authorbox p{color:var(--muted);font-size:14.5px;margin:8px 0}
 .post-authorbox a{color:var(--blue);font-weight:700;font-size:14px}
 @media(max-width:900px){.post-cols{grid-template-columns:1fr}.post-side{position:static}.post-grid{grid-template-columns:1fr}}
+.form .fallback.ok{color:#16a34a;font-size:14px}
+.form .fallback.ok b{color:#16a34a}
+.form .btn:disabled{opacity:.6;cursor:wait}
