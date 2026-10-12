@@ -272,7 +272,9 @@
         }
       ],
       "nicheSlug": null,
-      "period": ""
+      "period": "",
+      "img": "/img/cases/spa-samsara.webp",
+      "laptop": "/img/cases/laptop/spa-samsara.webp"
     },
     {
       "name": "Байкал Трэвэл Компани",
@@ -330,7 +332,9 @@
         }
       ],
       "nicheSlug": "oteli-bazy-otdyha",
-      "period": ""
+      "period": "",
+      "img": "/img/cases/btctour.webp",
+      "laptop": "/img/cases/laptop/btctour.webp"
     },
     {
       "name": "Дача38",
@@ -934,7 +938,9 @@
         }
       ],
       "nicheSlug": null,
-      "period": ""
+      "period": "",
+      "img": "/img/cases/multihall-patriot.webp",
+      "laptop": "/img/cases/laptop/multihall-patriot.webp"
     },
     {
       "name": "Чистые Пруды",
@@ -987,7 +993,9 @@
         }
       ],
       "nicheSlug": null,
-      "period": ""
+      "period": "",
+      "img": "/img/cases/chistye-prudy.webp",
+      "laptop": "/img/cases/laptop/chistye-prudy.webp"
     },
     {
       "name": "Локо Мотив",

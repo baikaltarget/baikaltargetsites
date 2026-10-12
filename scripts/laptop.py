@@ -20,9 +20,12 @@ def main(src, out):
     mock = Image.open(MOCK).convert('RGBA')
     shot = Image.open(src).convert('RGB')
     w = shot.width; h = round(w * 10 / 16)
-    shot = shot.crop((0, 0, w, min(h, shot.height)))
-    if shot.height < h:  # низкий скрин — дотягиваем тёмным фоном
-        pad = Image.new('RGB', (w, h), (11, 20, 36)); pad.paste(shot, (0, 0)); shot = pad
+    if shot.height >= h:          # высокий скрин — берём верх 16:10
+        shot = shot.crop((0, 0, w, h))
+    else:                         # широкий скрин: половину лишнего срезаем с боков, остаток сжимаем (5–8%, незаметно)
+        r = (w / shot.height + 1.6) / 2
+        nw = round(shot.height * r); x0 = (w - nw) // 2
+        shot = shot.crop((x0, 0, x0 + nw, shot.height))
     shot = shot.resize((1600, 1000), Image.LANCZOS)
     # коэффициенты: из координат мокапа → в координаты скрина
     c = coeffs(QUAD, [(0, 0), (1600, 0), (1600, 1000), (0, 1000)])
