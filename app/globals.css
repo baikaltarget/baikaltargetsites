@@ -821,3 +821,15 @@ body{font-variant-emoji:text}
   .burger{width:40px;height:40px;color:#111}
 }
 @media(max-width:370px){.brand-sub{display:none}}
+/* согласие в форме */
+.form .agree{display:flex;gap:10px;align-items:flex-start;margin:18px 0 0;font-size:13px;font-weight:500;color:var(--muted);line-height:1.45;cursor:pointer}
+.form .agree input{width:18px;height:18px;flex:0 0 18px;margin-top:1px;padding:0;accent-color:var(--blue);background:#fff}
+.form .agree a{color:var(--blue)}
+/* плашка cookie */
+.cookie{position:fixed;left:16px;bottom:16px;z-index:80;max-width:440px;background:#fff;color:var(--text);border:1px solid var(--line);border-radius:16px;padding:16px 18px;box-shadow:0 20px 50px -20px rgba(25,42,66,.45);display:flex;gap:14px;align-items:center}
+.cookie p{font-size:13.5px;line-height:1.5;margin:0}
+.cookie a{color:var(--blue)}
+.cookie .btn{padding:10px 18px;font-size:14px;white-space:nowrap}
+@media(max-width:520px){.cookie{left:10px;right:10px;bottom:10px;max-width:none}}
+.legal-text{max-width:820px}
+.legal-text h2{font-size:22px}

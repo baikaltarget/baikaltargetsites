@@ -8,7 +8,7 @@ export default function sitemap() {
   const page = (p, priority, changeFrequency = 'monthly') => ({ url: base + p, lastModified: now, changeFrequency, priority });
 
   const stat = [page('/', 1, 'weekly'), page('/uslugi/', 0.8), page('/otrasli/', 0.7), page('/tarify/', 0.8),
-    page('/primery/', 0.8), page('/o-studii/', 0.6), page('/kontakty/', 0.6)];
+    page('/primery/', 0.8), page('/o-studii/', 0.6), page('/kontakty/', 0.6), page('/politika/', 0.2, 'yearly'), page('/soglasie/', 0.2, 'yearly')];
   if (site.reviews.items.some((r) => !r.placeholder)) stat.push(page('/otzyvy/', 0.6));
   const posts = getAllSlugs();
   if (posts.length) stat.push(page('/blog/', 0.6, 'weekly'));

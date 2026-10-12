@@ -29,6 +29,8 @@ async function submit(btn) {
   const name = g('f-name'), phone = g('f-phone'), niche = g('f-niche'), plan = g('f-plan');
   if (!phone && !niche) { say('Заполните хотя бы телефон или чем занимаетесь — и мы свяжемся.'); return; }
   if (phone && phone.replace(/\D/g, '').length < 11) { say('Проверьте телефон: нужно 10 цифр после +7.'); return; }
+  const agree = q('f-agree');
+  if (agree && !agree.checked) { say('Отметьте согласие на обработку персональных данных — без него мы не можем принять заявку.'); agree.focus(); return; }
 
   btn.disabled = true; say('Отправляем…');
   const ctrl = new AbortController(); const timer = setTimeout(() => ctrl.abort(), 12000);
@@ -41,6 +43,7 @@ async function submit(btn) {
     if (!r.ok) throw new Error('lead api ' + r.status);
     say('<b>Спасибо, заявка у нас!</b> Свяжемся в течение рабочего дня. Если срочно — <a href="' + site.phoneHref + '">' + site.phone + '</a>.');
     ['f-name', 'f-phone', 'f-niche'].forEach((id) => { const el = q(id); if (el) el.value = ''; });
+    if (agree) agree.checked = false;
     if (fb) fb.classList.add('ok');
     if (typeof window.ym === 'function' && site.metrikaId) window.ym(Number(site.metrikaId), 'reachGoal', 'lead');
   } catch (e) {

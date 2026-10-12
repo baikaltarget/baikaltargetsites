@@ -46,7 +46,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="legal">
-          {site.legal} · <a href={site.policy} target="_blank" rel="noopener">Политика конфиденциальности</a><br/>
+          {site.legal} · <a href={site.policy}>Политика обработки персональных данных</a> · <a href={site.consent}>Согласие на обработку</a><br/>
           © {site.brand}. Все права защищены.
         </div>
       </div>

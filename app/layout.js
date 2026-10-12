@@ -3,6 +3,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Interactions from '@/components/Interactions';
 import Metrika from '@/components/Metrika';
+import CookieBanner from '@/components/CookieBanner';
 import site from '@/content/site.json';
 
 export const metadata = {
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
         <Footer />
         <Interactions />
         <Metrika />
+        <CookieBanner />
       </body>
     </html>
   );
