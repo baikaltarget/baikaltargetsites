@@ -87,13 +87,23 @@ export default function Tarify() {
             <h2>Правки и ведение — <span className="hl">по желанию</span></h2>
             <p dangerouslySetInnerHTML={{ __html: site.supportIntro }} />
           </div>
-          <div style={{ overflowX: 'auto' }}>
+          <div className="support-table" style={{ overflowX: 'auto' }}>
             <table className="tbl">
               <thead><tr>{site.support.head.map((c, i) => <th key={i}>{c}</th>)}</tr></thead>
               <tbody>{site.support.rows.map((r, i) => (
                 <tr key={i}>{r.map((c, j) => <td key={j} data-label={j > 0 ? site.support.head[j] : undefined} className={i === 0 && j > 0 ? 'p' : ''}>{c}</td>)}</tr>
               ))}</tbody>
             </table>
+          </div>
+          {/* на мобильных — карточка на каждый вариант вместо таблицы */}
+          <div className="support-cards">
+            {site.support.head.slice(1).map((h, k) => (
+              <div className="support-card" key={k}>
+                <div className="support-card-h">{h}</div>
+                <div className="support-card-p">{site.support.rows[0][k + 1]}</div>
+                {site.support.rows.slice(1).map((r, i) => <p key={i}><span>{r[0]}</span>{r[k + 1]}</p>)}
+              </div>
+            ))}
           </div>
         </div>
       </section>
