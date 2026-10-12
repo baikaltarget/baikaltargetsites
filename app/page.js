@@ -40,6 +40,10 @@ const orgLd = {
   areaServed: [{ '@type': 'City', name: 'Иркутск' }, { '@type': 'Country', name: 'Россия' }],
   offers: site.tariffs.map(t => ({ '@type': 'Offer', name: t.name, price: priceNumber(t.price), priceCurrency: 'RUB' })),
 };
+const siteLd = {
+  '@context': 'https://schema.org', '@type': 'WebSite', '@id': site.domain + '/#website',
+  name: 'Байкал Таргет · Сайты', url: site.domain, inLanguage: 'ru-RU', publisher: { '@id': site.domain + '/#business' },
+};
 const faqLd = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: site.faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
@@ -53,6 +57,7 @@ export default function Home() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
       {/* ===== 1. ПЕРВЫЙ ЭКРАН ===== */}

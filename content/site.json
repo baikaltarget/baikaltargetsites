@@ -2608,5 +2608,9 @@
   "phone2": "+7 950 121-90-66",
   "phone2Href": "tel:+79501219066",
   "phone2Label": "Светлана, менеджер проектов",
-  "max": "https://max.ru/u/f9LHodD0cOJD6rxd0IQa3Jw3LBmg_UhA8zkK-VF_OXcaVHXIemCIb821Dh4"
+  "max": "https://max.ru/u/f9LHodD0cOJD6rxd0IQa3Jw3LBmg_UhA8zkK-VF_OXcaVHXIemCIb821Dh4",
+  "verification": {
+    "yandex": "",
+    "google": ""
+  }
 }

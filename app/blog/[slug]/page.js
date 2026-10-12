@@ -33,7 +33,7 @@ export default function Post({ params }) {
   const ld = {
     '@context': 'https://schema.org', '@type': 'Article',
     headline: meta.title, description: meta.description, datePublished: meta.date, dateModified: meta.updated || meta.date,
-    author: { '@type': 'Person', name: author.name, jobTitle: author.role, worksFor: { '@type': 'Organization', name: site.brand }, url: site.domain + '/o-studii/' },
+    author: { '@type': 'Person', name: author.name, jobTitle: author.role, image: author.photo ? site.domain + author.photo : undefined, worksFor: { '@type': 'Organization', name: site.brand }, url: site.domain + '/o-studii/' },
     publisher: { '@type': 'Organization', name: site.brand, url: site.domain },
     mainEntityOfPage: site.domain + '/blog/' + params.slug + '/',
     image: site.domain + (meta.cover || '/img/blog/og/' + params.slug + '.png'),
@@ -57,7 +57,7 @@ export default function Post({ params }) {
           <h1>{meta.title}</h1>
           <p className="lead">{meta.description}</p>
           <div className="post-byline">
-            <span className="post-author"><i>{author.name.split(' ').map((w) => w[0]).join('')}</i><span><b>{author.name}</b><small>{author.role}</small></span></span>
+            <span className="post-author">{author.photo ? <img src={author.photo} alt={author.name} width="30" height="30" /> : <i>{author.name.split(' ').map((w) => w[0]).join('')}</i>}<span><b>{author.name}</b><small>{author.role}</small></span></span>
             <span className="post-dates">{fmt(meta.date)} · {minutes} мин чтения</span>
           </div>
         </div>
@@ -100,7 +100,7 @@ export default function Post({ params }) {
             )}
 
             <div className="post-authorbox">
-              <span className="post-author big"><i>{author.name.split(' ').map((w) => w[0]).join('')}</i></span>
+              <span className="post-author big">{author.photo ? <img src={author.photo} alt={author.name} width="64" height="64" /> : <i>{author.name.split(' ').map((w) => w[0]).join('')}</i>}</span>
               <div>
                 <b>{author.name}</b><span className="person-role">{author.role}</span>
                 <p>{author.text}</p>

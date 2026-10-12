@@ -1,0 +1,55 @@
+# Байкал Таргет · создание сайтов в Иркутске
+
+> Веб-студия внутри digital-агентства «Байкал Таргет» (Иркутск, с 2019 года). Делаем многостраничные сайты под ключ с SEO с первого дня: от 35 000 ₽, запуск от 5 рабочих дней, заявки в Telegram. Офис: г. Иркутск, ул. Байкальская, 295/1. Телефон 8 800 101-63-20.
+
+Коротко о подходе: не лендинг, а 20–30 страниц под то, как ищут услугу (услуга × район × вопрос), техническая база под Яндекс и Google, скорость 90+ по PageSpeed, формы с доставкой заявок в Telegram.
+
+## Основные страницы
+- [Главная](https://sites.baikal-target.ru/): что делаем, тарифы, ответы на вопросы
+- [Услуги и цены](https://sites.baikal-target.ru/uslugi/)
+- [Тарифы](https://sites.baikal-target.ru/tarify/): от 35 000 ₽ сайт под ключ, от 80 000 ₽ корпоративный и интернет-магазин
+- [Примеры работ](https://sites.baikal-target.ru/primery/): 14 кейсов с результатами из поиска
+- [О студии](https://sites.baikal-target.ru/o-studii/): команда, принципы
+- [Контакты](https://sites.baikal-target.ru/kontakty/)
+
+## Услуги
+- [Сайт под ключ](https://sites.baikal-target.ru/uslugi/sayt-pod-klyuch/): От вводных до первых клиентов из поиска. Вы даёте телефон, услуги, цены и фото — остальное делаем мы. — от 35 000 ₽, от 5 дней
+- [Корпоративный сайт](https://sites.baikal-target.ru/uslugi/korporativnyy-sayt/): Направления, объекты, команда, документы, филиалы. Работает на репутацию, тендеры и заявки. — от 80 000 ₽, от 20 дней
+- [Интернет-магазин и сайт-каталог](https://sites.baikal-target.ru/uslugi/sayt-katalog/): Каталог товаров с ценами и заявкой вместо корзины. Каждый товар находят по запросу «купить X в Иркутске». — от 80 000 ₽, от 20 дней
+- [Многостраничный сайт](https://sites.baikal-target.ru/uslugi/mnogostranichnyy-sayt/): Десятки страниц под запросы вместо одного лендинга. Под каждую услугу и район — своя. — от 35 000 ₽, от 5 дней
+- [Доработка и редизайн сайта](https://sites.baikal-target.ru/uslugi/dorabotka-redizayn-sayta/): Сайт есть, но не приносит заявок. Переделаем структуру под поиск, ускорим, обновим дизайн — без переезда с нуля. — от 25 000 ₽, от 5 раб. дней
+
+## Сайты для бизнеса (по сферам)
+- [Строительная компания](https://sites.baikal-target.ru/otrasli/stroitelnaya-kompaniya/)
+- [Производство / завод](https://sites.baikal-target.ru/otrasli/proizvodstvo-zavod/)
+- [Фитнес-клуб](https://sites.baikal-target.ru/otrasli/fitnes-klub/)
+- [Отопление и сантехника](https://sites.baikal-target.ru/otrasli/otoplenie-santehnika/)
+- [Автосервис](https://sites.baikal-target.ru/otrasli/avtoservis/)
+- [Отели и базы отдыха](https://sites.baikal-target.ru/otrasli/oteli-bazy-otdyha/)
+
+## Кейсы
+- [Самсара](https://sites.baikal-target.ru/primery/spa-samsara/): SPA-комплекс, Ангарск — 3–4 заявки в день из поиска через 3–4 месяца после запуска
+- [Байкал Трэвэл Компани](https://sites.baikal-target.ru/primery/btctour/): Туроператор по Байкалу, Иркутск — Первые заявки из поиска через 3 недели после переезда с Tilda
+- [Дача38](https://sites.baikal-target.ru/primery/dacha38/): Строительство домов, Иркутск — ~1800 переходов из поиска за квартал
+- [Дарасун CO₂](https://sites.baikal-target.ru/primery/darasun-co2/): Производство углекислоты, Иркутск · Чита — +30% трафика из Google за первый месяц
+- [ФОРТЕС](https://sites.baikal-target.ru/primery/fortes/): Инженерные системы для дома, Иркутск — 302 страницы под все услуги и запросы · 200 переходов/мес, конверсия в заявку 4%
+- [LISA Fitness](https://sites.baikal-target.ru/primery/lisa-fitness/): Фитнес-студия, Иркутск — +40 заявок в месяц из поиска через 3 месяца
+- [Золото Камчатки](https://sites.baikal-target.ru/primery/zoloto-kamchatki/): Красная икра и морепродукты, Иркутск — 66+ SEO-страниц каталога — заявки из поиска с первой недели
+- [ProLesok](https://sites.baikal-target.ru/primery/prolesok/): Лаунж-отель, Аршан — 300 переходов в месяц + модуль онлайн-бронирования
+- [Energy Fit](https://sites.baikal-target.ru/primery/energy-fit/): Фитнес-клуб, Иркутск — ~1100 переходов из поиска за квартал
+- [ДВИКС ДОМ](https://sites.baikal-target.ru/primery/dviks-dom/): Строительство из газобетона, Иркутск — ~600 переходов из поиска за квартал
+- [Priority Auto](https://sites.baikal-target.ru/primery/priority-auto/): Авто из Японии, Кореи, Китая, Владивосток · Москва — 220 переходов в месяц из поиска
+- [Мультихолл «Патриот»](https://sites.baikal-target.ru/primery/multihall-patriot/): Аренда зала для мероприятий, Иркутск — 2 заявки на аренду за первые 2 недели в узкой нише
+- [Чистые Пруды](https://sites.baikal-target.ru/primery/chistye-prudy/): Коттеджный посёлок, Иркутский район — Сайт запущен, продвижение стартовало
+- [Локо Мотив](https://sites.baikal-target.ru/primery/loko-motiv/): Детские праздники, город профессий, Волгоград · Волжский — 150–200 переходов в месяц из поиска
+
+## Блог
+- [Гео-страницы: как одна услуга превращается в 30 страниц под запросы](https://sites.baikal-target.ru/blog/geo-stranicy-usluga-rayon/)
+- [Почему сайт на конструкторе не растёт в поиске — и что с этим делать](https://sites.baikal-target.ru/blog/pochemu-sayt-na-konstruktore-ne-rastet/)
+- [Сколько стоит сайт в 2026 году: из чего складывается цена и за что вы платите](https://sites.baikal-target.ru/blog/skolko-stoit-sayt-pod-seo/)
+
+## Документы
+- [Политика обработки персональных данных](https://sites.baikal-target.ru/politika/)
+- [Согласие на обработку](https://sites.baikal-target.ru/soglasie/)
+
+Основной сайт агентства: https://baikal-target.ru

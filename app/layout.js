@@ -8,6 +8,8 @@ import site from '@/content/site.json';
 
 export const metadata = {
   metadataBase: new URL(site.domain),
+  // Коды подтверждения: вписать в content/site.json → verification.yandex / verification.google
+  verification: { yandex: site.verification?.yandex || undefined, google: site.verification?.google || undefined },
   title: 'Создание и разработка сайтов в Иркутске — веб-студия от 35 000 ₽ | ' + site.brand,
   description: 'Заказать сайт в Иркутске: веб-студия Байкал Таргет делает многостраничные сайты под ключ с SEO с первого дня. Запуск от 5 рабочих дней, от 35 000 ₽, заявки в Telegram. С 2019 года.',
   alternates: { canonical: '/' },
