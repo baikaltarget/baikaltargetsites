@@ -228,7 +228,6 @@ footer{background:var(--navy);color:var(--muted-d);padding:58px 0 34px;font-size
 .niche-card p{color:var(--muted);font-size:14.5px;flex:1}
 .niche-card .more{margin-top:16px;color:var(--blue);font-weight:700;font-size:14px}
 
-.callbar{display:none}
 #mnav{display:none}
 
 @media(max-width:900px){
@@ -241,10 +240,6 @@ footer{background:var(--navy);color:var(--muted-d);padding:58px 0 34px;font-size
   .burger{display:grid;place-items:center;width:46px;height:46px;border:1px solid var(--line);border-radius:12px;color:var(--navy);background:#fff;cursor:pointer;font-size:20px}
   .exp{grid-template-columns:1fr;gap:6px}
   .compare,.cta{margin:0 8px}
-  .callbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:60;background:#fff;border-top:1px solid var(--line);padding:10px 14px;gap:10px;box-shadow:0 -8px 24px -12px rgba(25,42,66,.25)}
-  .cb-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:9px;background:var(--navy);color:#fff;font-weight:700;font-size:15px;padding:14px;border-radius:12px}
-  .cb-btn svg{width:18px;height:18px}
-  body{padding-bottom:70px}
   #mnav.open{display:flex;flex-direction:column;gap:2px;padding:10px 0 8px}
   #mnav a{color:var(--navy);padding:11px 4px;border-bottom:1px solid var(--line);font-size:15px;font-weight:600}
 }
