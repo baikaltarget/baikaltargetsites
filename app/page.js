@@ -3,6 +3,7 @@ import Image from 'next/image';
 import site from '@/content/site.json';
 import { CASES, TOP_CASES } from '@/lib/cases';
 import LeadForm from '@/components/LeadForm';
+import ContactLinks from '@/components/ContactLinks';
 import CaseCard from '@/components/CaseCard';
 import ReviewCard from '@/components/ReviewCard';
 import { SVC_ICONS } from '@/components/ServiceIcons';
@@ -328,11 +329,7 @@ export default function Home() {
             </ul>
             <div className="cta-badges"><span>от 35 000 ₽</span><span>от 5 дней</span><span>бесплатно</span></div>
             <div className="cta-limit">Берём в работу 3–4 проекта в месяц</div>
-            <div className="contacts">
-              <a href={site.phoneHref}>☎ {site.phone}</a>
-              <a href={site.telegram} target="_blank" rel="noopener">✈ {site.telegramHandle}</a>
-              <a href={site.whatsapp} target="_blank" rel="noopener">✆ WhatsApp</a>
-            </div>
+            <ContactLinks />
           </div>
           <LeadForm className="form reveal" />
         </div>

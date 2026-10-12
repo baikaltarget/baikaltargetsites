@@ -15,7 +15,7 @@ export default function Footer() {
             <p style={{ maxWidth: 340, color: 'var(--muted-d)' }}>Студия сайтов digital-агентства Байкал Таргет, Иркутск, с 2019 года. Сайты как инструмент под заявки: быстрые, с SEO с первого дня, готовые к рекламе.</p>
             <div className="socials">
               <a href={site.telegram} target="_blank" rel="noopener" aria-label="Telegram">TG</a>
-              <a href={site.whatsapp} target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+              {site.max && <a href={site.max} target="_blank" rel="noopener" aria-label="MAX">MAX</a>}
               <a href={site.vk} target="_blank" rel="noopener" aria-label="VK">VK</a>
             </div>
           </div>
@@ -39,7 +39,8 @@ export default function Footer() {
           <div>
             <h4>Контакты</h4>
             <a href={site.phoneHref}>{site.phone}</a>
-            <a href={'mailto:' + site.email}>{site.email}</a>
+            <a href={site.phone2Href}>{site.phone2} · Светлана</a>
+            <a href={site.telegram} target="_blank" rel="noopener">Telegram {site.telegramHandle}</a>
             <a href={site.mapsYandex || undefined} target={site.mapsYandex ? '_blank' : undefined} rel="noopener">{site.address}</a>
             <a>Приём заявок: {site.hours}</a>
           </div>

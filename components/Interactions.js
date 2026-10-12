@@ -47,7 +47,7 @@ async function submit(btn) {
     // Запасной путь: Telegram-ссылка с текстом заявки
     const msg = 'Заявка на сайт%0AИмя: ' + encodeURIComponent(name || '—') + '%0AТелефон: ' + encodeURIComponent(phone || '—') + '%0AБизнес/город: ' + encodeURIComponent(niche || '—') + '%0AТариф: ' + encodeURIComponent(plan);
     window.open(site.telegram + '?text=' + msg, '_blank');
-    say('Не удалось отправить автоматически — открываем Telegram с вашей заявкой. Не открылось? Напишите в <a href="' + site.whatsapp + '" target="_blank" rel="noopener">WhatsApp</a> или позвоните <a href="' + site.phoneHref + '">' + site.phone + '</a>.');
+    say('Не удалось отправить автоматически — открываем Telegram с вашей заявкой. Не открылось? Позвоните <a href="' + site.phoneHref + '">' + site.phone + '</a> или Светлане <a href="' + site.phone2Href + '">' + site.phone2 + '</a>.');
   } finally { clearTimeout(timer); btn.disabled = false; }
 }
 

@@ -7,11 +7,9 @@
   "mainSiteBlog": "https://baikal-target.ru/blogs",
   "phone": "8 800 101-63-20",
   "phoneHref": "tel:88001016320",
-  "telegram": "https://t.me/adreal777",
-  "telegramHandle": "@adreal777",
-  "whatsapp": "https://wa.me/79834446320",
+  "telegram": "https://t.me/Svetlana_irk",
+  "telegramHandle": "@Svetlana_irk",
   "vk": "https://vk.com/targetbaikal",
-  "email": "admin@baikal-target.ru",
   "address": "г. Иркутск, ул. Байкальская, 295/1",
   "hours": "Пн–Вс, 9:00–20:00",
   "legal": "ИП Бурлаков Т.Г. · ИНН 030953705246 · ОГРНИП 318032700040739",
@@ -2343,7 +2341,7 @@
   "metrikaId": "",
   "sameAs": [
     "https://vk.com/targetbaikal",
-    "https://t.me/adreal777"
+    "https://t.me/Svetlana_irk"
   ],
   "mapsYandex": "",
   "maps2gis": "",
@@ -2603,5 +2601,9 @@
         "a": "После 15-минутного разговора про ваш бизнес, услуги и районы. Считаем количество страниц и называем цену и срок. Это бесплатно."
       }
     ]
-  }
+  },
+  "phone2": "+7 950 121-90-66",
+  "phone2Href": "tel:+79501219066",
+  "phone2Label": "Светлана, менеджер проектов",
+  "max": ""
 }
