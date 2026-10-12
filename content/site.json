@@ -272,7 +272,7 @@
       "nicheSlug": null,
       "period": "",
       "img": "/img/cases/spa-samsara.webp",
-      "laptop": "/img/cases/laptop/spa-samsara.webp"
+      "laptop": "/img/cases/laptop/spa-samsara.webp?v=3"
     },
     {
       "name": "Байкал Трэвэл Компани",
@@ -333,7 +333,7 @@
       "nicheSlug": "oteli-bazy-otdyha",
       "period": "",
       "img": "/img/cases/btctour.webp",
-      "laptop": "/img/cases/laptop/btctour.webp"
+      "laptop": "/img/cases/laptop/btctour.webp?v=3"
     },
     {
       "name": "Дача38",
@@ -395,7 +395,7 @@
       "nicheSlug": "stroitelnaya-kompaniya",
       "draft": false,
       "imgTall": true,
-      "laptop": "/img/cases/laptop/dacha38.webp"
+      "laptop": "/img/cases/laptop/dacha38.webp?v=3"
     },
     {
       "name": "Дарасун CO₂",
@@ -456,7 +456,7 @@
       ],
       "nicheSlug": "proizvodstvo-zavod",
       "draft": false,
-      "laptop": "/img/cases/laptop/darasun-co2.webp"
+      "laptop": "/img/cases/laptop/darasun-co2.webp?v=3"
     },
     {
       "name": "ФОРТЕС",
@@ -517,7 +517,7 @@
       ],
       "nicheSlug": "otoplenie-santehnika",
       "draft": false,
-      "laptop": "/img/cases/laptop/fortes.webp"
+      "laptop": "/img/cases/laptop/fortes.webp?v=3"
     },
     {
       "name": "LISA Fitness",
@@ -577,7 +577,7 @@
       ],
       "nicheSlug": "fitnes-klub",
       "draft": false,
-      "laptop": "/img/cases/laptop/lisa-fitness.webp"
+      "laptop": "/img/cases/laptop/lisa-fitness.webp?v=3"
     },
     {
       "name": "Золото Камчатки",
@@ -639,7 +639,7 @@
       "nicheSlug": null,
       "draft": false,
       "hostLabel": "золото-камчатки.рф",
-      "laptop": "/img/cases/laptop/zoloto-kamchatki.webp"
+      "laptop": "/img/cases/laptop/zoloto-kamchatki.webp?v=3"
     },
     {
       "name": "ProLesok",
@@ -699,7 +699,7 @@
       ],
       "nicheSlug": "oteli-bazy-otdyha",
       "draft": false,
-      "laptop": "/img/cases/laptop/prolesok.webp"
+      "laptop": "/img/cases/laptop/prolesok.webp?v=3"
     },
     {
       "name": "Energy Fit",
@@ -759,7 +759,7 @@
       ],
       "nicheSlug": "fitnes-klub",
       "draft": false,
-      "laptop": "/img/cases/laptop/energy-fit.webp"
+      "laptop": "/img/cases/laptop/energy-fit.webp?v=3"
     },
     {
       "name": "ДВИКС ДОМ",
@@ -819,7 +819,7 @@
       ],
       "nicheSlug": "stroitelnaya-kompaniya",
       "draft": false,
-      "laptop": "/img/cases/laptop/dviks-dom.webp"
+      "laptop": "/img/cases/laptop/dviks-dom.webp?v=3"
     },
     {
       "name": "Priority Auto",
@@ -879,7 +879,7 @@
       ],
       "nicheSlug": "avtoservis",
       "draft": false,
-      "laptop": "/img/cases/laptop/priority-auto.webp"
+      "laptop": "/img/cases/laptop/priority-auto.webp?v=3"
     },
     {
       "name": "Мультихолл «Патриот»",
@@ -940,7 +940,7 @@
       "nicheSlug": null,
       "period": "",
       "img": "/img/cases/multihall-patriot.webp",
-      "laptop": "/img/cases/laptop/multihall-patriot.webp"
+      "laptop": "/img/cases/laptop/multihall-patriot.webp?v=3"
     },
     {
       "name": "Чистые Пруды",
@@ -995,7 +995,7 @@
       "nicheSlug": null,
       "period": "",
       "img": "/img/cases/chistye-prudy.webp",
-      "laptop": "/img/cases/laptop/chistye-prudy.webp"
+      "laptop": "/img/cases/laptop/chistye-prudy.webp?v=3"
     },
     {
       "name": "Локо Мотив",
@@ -1055,7 +1055,7 @@
       ],
       "nicheSlug": null,
       "draft": false,
-      "laptop": "/img/cases/laptop/loko-motiv.webp"
+      "laptop": "/img/cases/laptop/loko-motiv.webp?v=3"
     },
     {
       "name": "Кровля 138",
