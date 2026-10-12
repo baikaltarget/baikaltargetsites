@@ -9,7 +9,7 @@ export default function LeadForm({ title = 'Оставьте заявку', nich
       <label htmlFor="f-name">Ваше имя</label>
       <input id="f-name" type="text" placeholder="Как к вам обращаться" autoComplete="name" />
       <label htmlFor="f-phone">Телефон</label>
-      <input id="f-phone" type="tel" placeholder="+7 ___ ___-__-__" autoComplete="tel" />
+      <input id="f-phone" type="tel" placeholder="+7 (___) ___-__-__" inputMode="tel" autoComplete="tel" />
       <label htmlFor="f-niche">Чем занимаетесь и город</label>
       <input id="f-niche" type="text" placeholder={nichePlaceholder} />
       <label htmlFor="f-plan">Интересует тариф</label>
