@@ -44,9 +44,16 @@
 - [Локо Мотив](https://sites.baikal-target.ru/primery/loko-motiv/): Детские праздники, город профессий, Волгоград · Волжский — 150–200 переходов в месяц из поиска
 
 ## Блог
+- [Через сколько сайт выходит в топ: реальные сроки индексации](https://sites.baikal-target.ru/blog/cherez-skolko-sayt-vyhodit-v-top/)
+- [Формы, квизы и калькуляторы: как превратить трафик в заявки](https://sites.baikal-target.ru/blog/formy-kvizy-kalkulyatory-zayavki/)
 - [Гео-страницы: как одна услуга превращается в 30 страниц под запросы](https://sites.baikal-target.ru/blog/geo-stranicy-usluga-rayon/)
+- [Как сайт видят ИИ-ассистенты (Алиса, ChatGPT) и почему конструкторы им «невидимы»](https://sites.baikal-target.ru/blog/kak-sayt-vidyat-ii-assistenty/)
 - [Почему сайт на конструкторе не растёт в поиске — и что с этим делать](https://sites.baikal-target.ru/blog/pochemu-sayt-na-konstruktore-ne-rastet/)
+- [Сайт на Next.js или Tilda: когда что выбирать](https://sites.baikal-target.ru/blog/sayt-na-nextjs-ili-tilda/)
+- [SEO из коробки простыми словами: title, description, микроразметка, sitemap](https://sites.baikal-target.ru/blog/seo-iz-korobki-prostymi-slovami/)
 - [Сколько стоит сайт в 2026 году: из чего складывается цена и за что вы платите](https://sites.baikal-target.ru/blog/skolko-stoit-sayt-pod-seo/)
+- [Почему скорость загрузки влияет на позиции и заявки](https://sites.baikal-target.ru/blog/skorost-zagruzki-pozicii-zayavki/)
+- [Структура сайта под локальный бизнес: услуги, гео, объекты, блог](https://sites.baikal-target.ru/blog/struktura-sayta-pod-lokalnyy-biznes/)
 
 ## Документы
 - [Политика обработки персональных данных](https://sites.baikal-target.ru/politika/)

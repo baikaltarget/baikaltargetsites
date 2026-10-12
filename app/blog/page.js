@@ -40,7 +40,7 @@ export default function Blog() {
                   <span className="post-meta"><span className="cat">{p.category}</span><span>{fmt(p.date)} · {p.minutes} мин</span></span>
                   <h3>{p.title}</h3>
                   <p>{p.description}</p>
-                  <span className="post-author"><i>{p.author.name.split(' ').map((w) => w[0]).join('')}</i>{p.author.name}</span>
+                  <span className="post-author">{p.author.photo ? <img src={p.author.photo} alt={p.author.name} width="30" height="30" loading="lazy" /> : <i>{p.author.name.split(' ').map((w) => w[0]).join('')}</i>}{p.author.name}</span>
                 </span>
               </Link>
             ))}
