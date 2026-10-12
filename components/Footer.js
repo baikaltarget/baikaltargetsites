@@ -4,6 +4,7 @@ import { getAllPosts } from '@/lib/blog';
 
 export default function Footer() {
   const hasBlog = getAllPosts().length > 0;
+  const hasReviews = site.reviews.items.some((r) => !r.placeholder);
   return (
     <>
     <footer>
@@ -24,7 +25,7 @@ export default function Footer() {
             <Link href="/otrasli">Сайты для бизнеса</Link>
             <Link href="/tarify">Тарифы</Link>
             <Link href="/primery">Примеры</Link>
-            <Link href="/otzyvy">Отзывы</Link>
+            {hasReviews && <Link href="/otzyvy">Отзывы</Link>}
             <Link href="/o-studii">О студии</Link>
             {hasBlog && <Link href="/blog">Блог</Link>}
             <Link href="/#steps">Как работаем</Link>

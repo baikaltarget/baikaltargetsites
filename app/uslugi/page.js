@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import site from '@/content/site.json';
+import { CASES, TOP_CASES } from '@/lib/cases';
 import CtaBlock from '@/components/CtaBlock';
 import PageHero from '@/components/PageHero';
 import { SVC_ICONS } from '@/components/ServiceIcons';
@@ -16,7 +17,7 @@ export const metadata = {
 export default function Uslugi() {
   const p = site.uslugiPage;
   const items = [...site.services.map((s) => ({ ...s, url: '/uslugi/' + s.slug })), ...p.extra];
-  const topCases = site.cases.filter((c) => c.top).slice(0, 3);
+  const topCases = TOP_CASES.slice(0, 3);
   const crumbs = breadcrumbs([{ name: 'Главная', path: '/' }, { name: 'Услуги', path: '/uslugi/' }]);
   const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage',
     mainEntity: p.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
@@ -30,7 +31,7 @@ export default function Uslugi() {
         eyebrow="Услуги веб-студии" title="Какой сайт нужен" titleHl="вашему бизнесу"
         lead={p.lead}
         primary={{ href: '#lead', text: 'Подобрать формат →' }} secondary={{ href: '/tarify', text: 'Смотреть цены' }}
-        visual={(site.cases.find((c) => c.slug === 'darasun-co2') || site.cases[0]).laptop} visualAlt="Сайт, который мы сделали" />
+        visual={(CASES.find((c) => c.slug === 'darasun-co2') || CASES[0]).laptop} visualAlt="Сайт, который мы сделали" />
 
       <section>
         <div className="wrap">

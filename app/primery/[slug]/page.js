@@ -1,15 +1,16 @@
 import Link from 'next/link';
 import site from '@/content/site.json';
+import { CASES, TOP_CASES } from '@/lib/cases';
 import CtaBlock from '@/components/CtaBlock';
 import CaseCard from '@/components/CaseCard';
 import { breadcrumbs, author } from '@/lib/schema';
 
-const bySlug = (slug) => site.cases.find((c) => c.slug === slug);
+const bySlug = (slug) => CASES.find((c) => c.slug === slug);
 const nicheBySlug = (slug) => site.niches.find((n) => n.slug === slug);
 // Кириллический домен задаётся читаемо через hostLabel в content/site.json
 const prettyHost = (c) => { if (c.hostLabel) return c.hostLabel; try { return new URL(c.url).hostname.replace(/^www\./, ''); } catch { return ''; } };
 
-export function generateStaticParams() { return site.cases.map((c) => ({ slug: c.slug })); }
+export function generateStaticParams() { return CASES.map((c) => ({ slug: c.slug })); }
 
 export function generateMetadata({ params }) {
   const c = bySlug(params.slug);
@@ -27,9 +28,10 @@ export function generateMetadata({ params }) {
 export default function CasePage({ params }) {
   const c = bySlug(params.slug);
   const h1 = c.h1 || 'Сайт для ' + c.name;
-  const niche = c.nicheSlug ? nicheBySlug(c.nicheSlug) : null;
-  const similar = site.cases.filter((x) => x.slug !== c.slug && c.nicheSlug && x.nicheSlug === c.nicheSlug);
-  const others = [...similar, ...site.cases.filter((x) => x.slug !== c.slug && !similar.includes(x))].slice(0, 3);
+  const nicheRaw = c.nicheSlug ? nicheBySlug(c.nicheSlug) : null;
+  const niche = nicheRaw && !nicheRaw.hidden ? nicheRaw : null;
+  const similar = CASES.filter((x) => x.slug !== c.slug && c.nicheSlug && x.nicheSlug === c.nicheSlug);
+  const others = [...similar, ...CASES.filter((x) => x.slug !== c.slug && !similar.includes(x))].slice(0, 3);
   const metrics = (c.metrics || []).filter((m) => m.v && !/ЗАПОЛНИТЬ/.test(m.v));
   const done = (c.done || []).filter((t) => !/^\[/.test(t));
   const crumbs = breadcrumbs([{ name: 'Главная', path: '/' }, { name: 'Примеры работ', path: '/primery/' }, { name: c.name, path: '/primery/' + c.slug + '/' }]);
@@ -46,7 +48,7 @@ export default function CasePage({ params }) {
 
       {/* первый экран — как на главной */}
       <section className="hero case-hero" style={{ padding: 0 }}>
-        <div className="wrap hero-inner">
+        <div className={'wrap hero-inner' + (c.laptop || c.img ? '' : ' hero-inner-solo')}>
           <div>
             <nav className="crumbs"><Link href="/">Главная</Link> → <Link href="/primery">Примеры работ</Link> → <span>{c.name}</span></nav>
             <span className="hero-over">{c.niche}{c.city && ' · ' + c.city}</span>
@@ -60,11 +62,11 @@ export default function CasePage({ params }) {
               {metrics.slice(0, 3).map((m, i) => <div key={i}><b>{m.v}</b><small>{m.k}</small></div>)}
             </div>
           </div>
-          <div className="hero-visual hero-visual-laptop">
+          {(c.laptop || c.img) && <div className="hero-visual hero-visual-laptop">
             {c.laptop
               ? <img src={c.laptop} alt={'Сайт ' + c.name + ' на экране ноутбука'} className="hero-laptop" width="1498" height="1050" fetchPriority="high" />
               : c.img && <span className="case-laptop"><span className="case-laptop-screen"><img src={c.img} alt={'Сайт ' + c.name} width="1400" height="900" /></span><span className="case-laptop-base" /></span>}
-          </div>
+          </div>}
         </div>
       </section>
 

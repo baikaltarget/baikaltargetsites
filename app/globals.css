@@ -773,3 +773,5 @@ a.rv-src:hover{color:var(--blue);border-color:var(--blue)}
 .form .fallback.ok{color:#16a34a;font-size:14px}
 .form .fallback.ok b{color:#16a34a}
 .form .btn:disabled{opacity:.6;cursor:wait}
+.case-hero .hero-inner-solo{grid-template-columns:1fr}
+.case-hero .hero-inner-solo>div{max-width:820px}

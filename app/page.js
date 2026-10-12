@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import site from '@/content/site.json';
+import { CASES, TOP_CASES } from '@/lib/cases';
 import LeadForm from '@/components/LeadForm';
 import CaseCard from '@/components/CaseCard';
 import ReviewCard from '@/components/ReviewCard';
@@ -45,9 +46,9 @@ const faqLd = {
 
 export default function Home() {
   const h = site.hero;
-  const topCases = site.cases.filter(c => c.top);
+  const topCases = TOP_CASES;
   const niches = site.niches.filter(n => !n.hidden);
-  const reviews = site.reviews.items;
+  const reviews = site.reviews.items.filter((r) => !r.placeholder);
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }} />
@@ -206,7 +207,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== 6. ОТЗЫВЫ ===== */}
+      {/* ===== 6. ОТЗЫВЫ — показываются, когда есть реальные (без placeholder) ===== */}
+      {reviews.length > 0 && (
       <section id="otzyvy">
         <div className="wrap">
           <div className="sec-head reveal">
@@ -220,6 +222,7 @@ export default function Home() {
           <div style={{ marginTop: 26 }}><Link href="/otzyvy" className="btn btn-outline">Все отзывы →</Link></div>
         </div>
       </section>
+      )}
 
       {/* ===== 7. КАК РАБОТАЕМ + СРОКИ ===== */}
       <section id="steps" className="compare on-navy">
@@ -276,7 +279,7 @@ export default function Home() {
           </div>
           <div className="niche-grid niche-grid-home">
             {niches.map((n) => {
-              const kase = (n.cases || []).map((nm) => site.cases.find((c) => c.name === nm)).find(Boolean);
+              const kase = (n.cases || []).map((nm) => CASES.find((c) => c.name === nm)).find(Boolean);
               return (
                 <Link key={n.slug} href={'/otrasli/' + n.slug} className="niche-card reveal">
                   <NicheIcon slug={n.slug} className="niche-card-ic nicon" />

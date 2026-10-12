@@ -6,6 +6,7 @@ const LOGO = `<svg xmlns="http://www.w3.org/2000/svg" width="265" height="117" v
 
 export default function Header() {
   const hasBlog = getAllPosts().length > 0;
+  const hasReviews = site.reviews.items.some((r) => !r.placeholder);
   return (
     <header>
       <div className="wrap nav">
@@ -18,7 +19,7 @@ export default function Header() {
           <Link href="/otrasli">Сайты для бизнеса</Link>
           <Link href="/tarify">Тарифы</Link>
           <Link href="/primery">Примеры</Link>
-          <Link href="/otzyvy">Отзывы</Link>
+          {hasReviews && <Link href="/otzyvy">Отзывы</Link>}
           <Link href="/o-studii">О студии</Link>
           {hasBlog && <Link href="/blog">Блог</Link>}
           <Link href="/kontakty">Контакты</Link>
@@ -35,7 +36,7 @@ export default function Header() {
         <Link href="/otrasli">Сайты для бизнеса</Link>
         <Link href="/tarify">Тарифы</Link>
         <Link href="/primery">Примеры</Link>
-        <Link href="/otzyvy">Отзывы</Link>
+        {hasReviews && <Link href="/otzyvy">Отзывы</Link>}
         <Link href="/o-studii">О студии</Link>
         {hasBlog && <Link href="/blog">Блог</Link>}
         <Link href="/kontakty">Контакты</Link>

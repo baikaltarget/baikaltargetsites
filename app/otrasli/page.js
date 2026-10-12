@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import site from '@/content/site.json';
+import { CASES, TOP_CASES } from '@/lib/cases';
 import CtaBlock from '@/components/CtaBlock';
 import PageHero from '@/components/PageHero';
 import CaseCard from '@/components/CaseCard';
@@ -18,7 +19,7 @@ export default function NicheIndex() {
   const shown = site.niches.filter((n) => !n.hidden);
   const hidden = site.niches.filter((n) => n.hidden);
   const caseNames = new Set(shown.flatMap((n) => n.cases || []));
-  const cases = site.cases.filter((c) => caseNames.has(c.name)).slice(0, 3);
+  const cases = CASES.filter((c) => caseNames.has(c.name) && c.img).slice(0, 3);
   const crumbs = breadcrumbs([{ name: 'Главная', path: '/' }, { name: 'Сайты для бизнеса', path: '/otrasli/' }]);
   const faqLd = { '@context': 'https://schema.org', '@type': 'FAQPage',
     mainEntity: p.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
@@ -31,7 +32,7 @@ export default function NicheIndex() {
         eyebrow="Кому делаем" title="Сайты для вашего бизнеса:" titleHl="строительство, производство, фитнес, отели"
         lead={p.lead}
         primary={{ href: '#lead', text: 'Обсудить мой проект →' }} secondary={{ href: '/primery', text: 'Примеры работ' }}
-        visual={(site.cases.find((c) => c.slug === 'fortes') || site.cases[0]).laptop} visualAlt="Сайт для инженерной компании" />
+        visual={(CASES.find((c) => c.slug === 'fortes') || CASES[0]).laptop} visualAlt="Сайт для инженерной компании" />
 
       <section>
         <div className="wrap">

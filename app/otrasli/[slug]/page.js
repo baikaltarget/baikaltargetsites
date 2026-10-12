@@ -1,13 +1,14 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import site from '@/content/site.json';
+import { CASES, TOP_CASES } from '@/lib/cases';
 import CtaBlock from '@/components/CtaBlock';
 import CaseCard from '@/components/CaseCard';
 import SeoIncluded from '@/components/SeoIncluded';
 import { localBusiness, breadcrumbs } from '@/lib/schema';
 
 const bySlug = (slug) => site.niches.find((n) => n.slug === slug);
-const caseByName = (name) => site.cases.find((c) => c.name === name);
+const caseByName = (name) => CASES.find((c) => c.name === name);
 
 export function generateStaticParams() {
   return site.niches.filter((n) => !n.hidden).map((n) => ({ slug: n.slug }));
