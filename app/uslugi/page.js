@@ -64,10 +64,10 @@ export default function Uslugi() {
                 {site.services.map((s) => (
                   <tr key={s.slug}>
                     <td><Link href={'/uslugi/' + s.slug} style={{ color: 'var(--blue)', fontWeight: 700 }}>{s.name}</Link></td>
-                    <td className="p">{s.price}</td>
-                    <td>{s.term}</td>
-                    <td>{s.volume || '—'}</td>
-                    <td>{s.forWhom}</td>
+                    <td className="p" data-label="Цена">{s.price}</td>
+                    <td data-label="Срок">{s.term}</td>
+                    <td data-label="Объём">{s.volume || '—'}</td>
+                    <td data-label="Кому подходит">{s.forWhom}</td>
                   </tr>
                 ))}
               </tbody>

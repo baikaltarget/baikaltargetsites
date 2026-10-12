@@ -73,7 +73,7 @@ export default function Tarify() {
             <table className="tbl tbl-dark">
               <thead><tr><th>Вариант</th><th>Цена</th><th>Что получаете</th></tr></thead>
               <tbody>{p.market.rows.map((r, i) => (
-                <tr key={i} className={i === p.market.rows.length - 1 ? 'hi' : ''}><td><b>{r[0]}</b></td><td className="p">{r[1]}</td><td>{r[2]}</td></tr>
+                <tr key={i} className={i === p.market.rows.length - 1 ? 'hi' : ''}><td><b>{r[0]}</b></td><td className="p" data-label="Цена">{r[1]}</td><td data-label="Что получаете">{r[2]}</td></tr>
               ))}</tbody>
             </table>
           </div>
@@ -91,7 +91,7 @@ export default function Tarify() {
             <table className="tbl">
               <thead><tr>{site.support.head.map((c, i) => <th key={i}>{c}</th>)}</tr></thead>
               <tbody>{site.support.rows.map((r, i) => (
-                <tr key={i}>{r.map((c, j) => <td key={j} className={i === 0 && j > 0 ? 'p' : ''}>{c}</td>)}</tr>
+                <tr key={i}>{r.map((c, j) => <td key={j} data-label={j > 0 ? site.support.head[j] : undefined} className={i === 0 && j > 0 ? 'p' : ''}>{c}</td>)}</tr>
               ))}</tbody>
             </table>
           </div>
