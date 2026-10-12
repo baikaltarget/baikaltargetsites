@@ -6,8 +6,8 @@ import sys, numpy as np
 from PIL import Image
 
 MOCK = 'public/img/hero-laptop.webp'
-# углы экрана на мокапе 1498×1050: TL, TR, BR, BL (подобраны по сетке)
-QUAD = [(482, 42), (1465, 102), (1398, 745), (435, 652)]
+# углы экрана на мокапе 1498×1050: TL, TR, BR, BL (найдены по краю чёрной рамки)
+QUAD = [(500, 31), (1449, 109), (1389, 743), (438, 638)]
 
 def coeffs(src, dst):
     A = []
