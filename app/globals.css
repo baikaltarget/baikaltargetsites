@@ -810,3 +810,16 @@ body{font-variant-emoji:text}
   .support-card p{font-size:15px;color:var(--text);border-top:1px solid var(--line);padding-top:10px}
   .support-card p span{display:block;font-size:13px;color:var(--muted);margin-bottom:2px}
 }
+/* шапка на мобильных: быстрые кнопки связи рядом с бургером */
+.nav-ico{display:none}
+@media(max-width:900px){
+  .nav-cta{gap:8px}
+  .nav-ico{display:flex;gap:6px}
+  .ni{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;color:#fff}
+  .ni svg{width:19px;height:19px}
+  .ni-phone{background:var(--navy)}
+  .ni-tg{background:#2AABEE}
+  .ni-max{background:linear-gradient(135deg,#3d7bff,#8a3dff);font-family:'Montserrat';font-weight:800;font-size:10.5px;letter-spacing:.02em}
+  .burger{width:40px;height:40px}
+}
+@media(max-width:370px){.brand-sub{display:none}}
