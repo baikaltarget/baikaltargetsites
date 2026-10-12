@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import site from '@/content/site.json';
 import CtaBlock from '@/components/CtaBlock';
 import PageHero from '@/components/PageHero';
@@ -16,6 +17,7 @@ export const metadata = {
 };
 
 export default function Otzyvy() {
+  if (!hasReal) notFound(); // пока нет реальных отзывов — страницы нет
   const r = site.reviews;
   const crumbs = breadcrumbs([{ name: 'Главная', path: '/' }, { name: 'Отзывы', path: '/otzyvy/' }]);
   return (
