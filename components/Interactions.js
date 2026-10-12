@@ -43,7 +43,7 @@ async function submit(btn) {
     if (!r.ok) throw new Error('lead api ' + r.status);
     say('<b>Спасибо, заявка у нас!</b> Свяжемся в течение рабочего дня. Если срочно — <a href="' + site.phoneHref + '">' + site.phone + '</a>.');
     ['f-name', 'f-phone', 'f-niche'].forEach((id) => { const el = q(id); if (el) el.value = ''; });
-    if (agree) agree.checked = false;
+    if (agree) agree.checked = true;
     if (fb) fb.classList.add('ok');
     if (typeof window.ym === 'function' && site.metrikaId) window.ym(Number(site.metrikaId), 'reachGoal', 'lead');
   } catch (e) {

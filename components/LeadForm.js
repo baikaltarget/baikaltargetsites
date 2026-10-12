@@ -18,7 +18,7 @@ export default function LeadForm({ title = 'Оставьте заявку', nich
         {site.tariffs.map((t, i) => <option key={i}>{t.name} — {t.price}</option>)}
         <option>Индивидуальный дизайн — от 100 000 ₽</option>
       </select>
-      <label className="agree" htmlFor="f-agree"><input id="f-agree" type="checkbox" /><span>Даю <a href={site.consent} target="_blank" rel="noopener">согласие на обработку персональных данных</a> и принимаю <a href={site.policy} target="_blank" rel="noopener">политику</a></span></label>
+      <label className="agree" htmlFor="f-agree"><input id="f-agree" type="checkbox" defaultChecked /><span>Даю <a href={site.consent} target="_blank" rel="noopener">согласие на обработку персональных данных</a> и принимаю <a href={site.policy} target="_blank" rel="noopener">политику</a></span></label>
       <button className="btn btn-orange" id="send" type="button">Отправить заявку →</button>
       <div className="fallback" id="fallback" role="status"></div>
     </div>
