@@ -19,7 +19,9 @@ export const metadata = {
     title: 'Создание сайтов в Иркутске, которые приводят клиентов из поиска | ' + site.brand,
     description: 'Многостраничные сайты под ключ с SEO с первого дня. От 35 000 ₽, от 5 дней.',
     url: site.domain,
+    images: [{ url: '/og/main.jpg', width: 1200, height: 630, alt: 'Байкал Таргет — создание сайтов в Иркутске' }],
   },
+  twitter: { card: 'summary_large_image', images: ['/og/main.jpg'] },
 };
 
 export default function RootLayout({ children }) {

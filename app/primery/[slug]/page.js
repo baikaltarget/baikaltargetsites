@@ -21,7 +21,8 @@ export function generateMetadata({ params }) {
     alternates: { canonical: '/primery/' + c.slug + '/' },
     // Пока в кейсе не подтверждены цифры и дата запуска — не индексируем
     robots: c.draft ? { index: false, follow: true } : undefined,
-    openGraph: { type: 'article', title: h1, description: c.result, images: c.img ? [c.img] : undefined },
+    openGraph: { type: 'article', title: h1, description: c.result, images: [{ url: c.laptop ? '/og/case-' + c.slug + '.jpg' : '/og/main.jpg', width: 1200, height: 630 }] },
+    twitter: { card: 'summary_large_image' },
   };
 }
 
