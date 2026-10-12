@@ -111,7 +111,7 @@ export default function Post({ params }) {
             {meta.related && meta.related.length > 0 && (
               <div className="related" style={{ margin: '26px 0 0', maxWidth: 'none' }}>
                 <h4>По теме в блоге агентства</h4>
-                {meta.related.map((r, i) => <a key={i} href={r.url} target="_blank" rel="noopener">{r.text} ↗</a>)}
+                {meta.related.map((r, i) => <a key={i} href={r.url} target="_blank" rel="noopener">{r.text} ↗︎</a>)}
               </div>
             )}
           </div>

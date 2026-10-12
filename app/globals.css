@@ -791,3 +791,12 @@ a.rv-src:hover{color:var(--blue);border-color:var(--blue)}
   .tbl td[data-label]::before{content:attr(data-label);flex:0 0 38%;color:var(--muted);font-weight:500;font-family:'Manrope',system-ui,sans-serif;font-size:13.5px}
   .tbl-dark td[data-label]::before{color:var(--muted-d)}
 }
+/* кейс и контакты на мобильных — в одну колонку, ноутбук под текстом */
+@media(max-width:900px){
+  .case-hero .hero-inner,.contact-hero .hero-inner{grid-template-columns:1fr}
+  .case-hero .hero-visual{min-height:0}
+  .case-hero .hero-laptop{width:100%;max-width:520px;margin:0 auto}
+}
+@media(max-width:520px){.case-hero h1{font-size:28px}.case-hero .lead{font-size:16.5px}}
+/* стрелки ↗ и прочие символы — текстом, а не эмодзи (iOS) */
+body{font-variant-emoji:text}

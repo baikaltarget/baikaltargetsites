@@ -7,7 +7,7 @@ const SRC_ICON = {
 
 export default function ReviewCard({ r }) {
   const src = r.url
-    ? <a href={r.url} target="_blank" rel="noopener nofollow" className="rv-src"><i>{SRC_ICON[r.source] || '↗'}</i>{r.source}</a>
+    ? <a href={r.url} target="_blank" rel="noopener nofollow" className="rv-src"><i>{SRC_ICON[r.source] || '↗︎'}</i>{r.source}</a>
     : <span className="rv-src"><i>{SRC_ICON[r.source] || '•'}</i>{r.source}</span>;
   return (
     <article className={'rv' + (r.placeholder ? ' rv-ph' : '')}>

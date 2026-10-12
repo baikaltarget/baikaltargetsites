@@ -56,7 +56,7 @@ export default function CasePage({ params }) {
             <h1>{h1}</h1>
             <p className="lead">{c.before} {c.result}.</p>
             <div className="hero-cta">
-              <a href={c.url} target="_blank" rel="noopener" className="btn btn-primary">Открыть {prettyHost(c)} ↗</a>
+              <a href={c.url} target="_blank" rel="noopener" className="btn btn-primary">Открыть {prettyHost(c)} ↗︎</a>
               <Link href="#lead" className="btn btn-ghost">Хочу такой же</Link>
             </div>
             <div className="trust">
@@ -132,7 +132,7 @@ export default function CasePage({ params }) {
             <div className="inside">
               <div className="inside-shot">
                 {c.img && <img src={c.img} alt={'Главная страница сайта ' + c.name} width="1400" height="900" loading="lazy" />}
-                <a href={c.url} target="_blank" rel="noopener" className="btn btn-outline">Открыть сайт ↗</a>
+                <a href={c.url} target="_blank" rel="noopener" className="btn btn-outline">Открыть сайт ↗︎</a>
               </div>
               <div className="inside-list">
                 {c.pages.map((p, i) => (

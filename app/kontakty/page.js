@@ -43,7 +43,7 @@ export default function Kontakty() {
                 src={'https://yandex.ru/map-widget/v1/?text=' + encodeURIComponent(site.address) + '&z=16'}
                 loading="lazy" allowFullScreen
               />
-              <a href={site.mapsYandex || 'https://yandex.ru/maps/?text=' + encodeURIComponent(site.address)} target="_blank" rel="noopener" className="map-link">{site.address} · открыть в Яндекс Картах ↗</a>
+              <a href={site.mapsYandex || 'https://yandex.ru/maps/?text=' + encodeURIComponent(site.address)} target="_blank" rel="noopener" className="map-link">{site.address} · открыть в Яндекс Картах ↗︎</a>
             </div>
             <div>
               <div className="sec-head" style={{ marginBottom: 16 }}><span className="eyebrow">Реквизиты</span><h2 style={{ fontSize: 26 }}>Для договора и оплаты</h2></div>
