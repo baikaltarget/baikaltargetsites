@@ -30,7 +30,7 @@ export default function Header() {
           <Link href="/kontakty" className="btn btn-primary">Обсудить проект</Link>
           <span className="nav-ico">
             <a href={site.phoneHref} className="ni ni-phone" aria-label={'Позвонить ' + site.phone}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></a>
-            <a href={site.telegram} target="_blank" rel="noopener" className="ni ni-tg" aria-label="Написать в Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 3.2 2.9 10.4c-1.3.5-1.3 1.2-.2 1.6l4.8 1.5 1.8 5.6c.2.6.1.9.8.9.5 0 .7-.2 1-.5l2.3-2.2 4.8 3.5c.9.5 1.5.2 1.7-.8l3.1-14.8c.3-1.3-.5-1.9-1.4-1.5ZM8.4 13.2l9.8-6.2c.5-.3.9-.1.5.2l-8.1 7.3-.3 3.4-1.9-4.7Z"/></svg></a>
+            <a href={site.telegram} target="_blank" rel="noopener" className="ni ni-tg" aria-label="Написать в Telegram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></a>
             {site.max && <a href={site.max} target="_blank" rel="noopener" className="ni ni-max" aria-label="Написать в MAX">MAX</a>}
           </span>
           <button className="burger" aria-label="Меню" id="burger-btn">☰</button>
