@@ -38,9 +38,12 @@ export default function Kontakty() {
         <div className="wrap">
           <div className="contact-grid">
             <div className="contact-map">
-              {site.mapsYandex
-                ? <a href={site.mapsYandex} target="_blank" rel="noopener" className="btn btn-outline">Открыть в Яндекс Картах ↗</a>
-                : <div className="map-ph"><b>Карта офиса</b><span>появится, когда добавим ссылку на карточку в Яндекс Картах (content/site.json → mapsYandex)</span></div>}
+              <iframe
+                title={'Офис на карте: ' + site.address}
+                src={'https://yandex.ru/map-widget/v1/?text=' + encodeURIComponent(site.address) + '&z=16'}
+                loading="lazy" allowFullScreen
+              />
+              <a href={site.mapsYandex || 'https://yandex.ru/maps/?text=' + encodeURIComponent(site.address)} target="_blank" rel="noopener" className="map-link">{site.address} · открыть в Яндекс Картах ↗</a>
             </div>
             <div>
               <div className="sec-head" style={{ marginBottom: 16 }}><span className="eyebrow">Реквизиты</span><h2 style={{ fontSize: 26 }}>Для договора и оплаты</h2></div>
