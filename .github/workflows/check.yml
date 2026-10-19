@@ -18,14 +18,7 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run build
-      - name: Что получилось (в аннотациях)
+      - name: Метрика в HTML
         run: |
-          r=""
-          for f in .htaccess index.html blog/index.html otzyvy/index.html politika/index.html primery/btctour/index.html; do
-            if [ -e "out/$f" ]; then r="$r | $f: $(wc -c < out/$f)"; else r="$r | $f НЕТ"; fi
-          done
-          echo "::notice title=files2::$r"
-          echo "::notice title=icons::$(grep -o '<link rel="[a-z-]*icon"[^>]*>' out/index.html | tr '\n' ' ')"
-          echo "::notice title=top::$(ls out | tr '\n' ' ')"
-          echo "::notice title=otzyvy::$(grep -o '<title>[^<]*</title>' out/otzyvy/index.html 2>/dev/null) $(grep -o 'noindex' out/otzyvy/index.html 2>/dev/null | head -1)"
-          echo "::notice title=htaccess::$(grep -c . out/.htaccess) строк"
+          echo "::notice title=ym-count::$(grep -o '113670113' out/index.html | wc -l)"
+          echo "::notice title=ym-ctx::$(grep -o '.\{200\}mc.yandex.ru/metrika.\{120\}' out/index.html | head -1 | tr -d '\n' | cut -c1-400)"
