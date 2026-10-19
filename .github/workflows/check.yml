@@ -1,0 +1,31 @@
+# Проверка сборки без выкладки: запускается на любой ветке, кроме main (и вручную).
+name: Проверка сборки
+on:
+  push:
+    branches-ignore: [main]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build
+      - name: Что получилось (в аннотациях)
+        run: |
+          r=""
+          for f in .htaccess index.html blog/index.html otzyvy/index.html politika/index.html primery/btctour/index.html; do
+            if [ -e "out/$f" ]; then r="$r | $f: $(wc -c < out/$f)"; else r="$r | $f НЕТ"; fi
+          done
+          echo "::notice title=files2::$r"
+          echo "::notice title=icons::$(grep -o '<link rel="[a-z-]*icon"[^>]*>' out/index.html | tr '\n' ' ')"
+          echo "::notice title=top::$(ls out | tr '\n' ' ')"
+          echo "::notice title=otzyvy::$(grep -o '<title>[^<]*</title>' out/otzyvy/index.html 2>/dev/null) $(grep -o 'noindex' out/otzyvy/index.html 2>/dev/null | head -1)"
+          echo "::notice title=htaccess::$(grep -c . out/.htaccess) строк"

@@ -35,7 +35,7 @@ async function submit(btn) {
   btn.disabled = true; say('Отправляем…');
   const ctrl = new AbortController(); const timer = setTimeout(() => ctrl.abort(), 12000);
   try {
-    // Основной путь: серверный роут → Telegram-бот (токен в переменных окружения Vercel)
+    // Основной путь: public/api/lead.php на Бегете → Telegram-бот (токен в секретах GitHub, см. publish.yml)
     const r = await fetch('/api/lead', {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ name, phone, niche, plan, page: location.pathname }), signal: ctrl.signal,
