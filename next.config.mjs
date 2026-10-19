@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
+// Хостинг — Бегет (Apache + PHP). Сайт собирается в готовые HTML-файлы (папка out/),
+// GitHub Action .github/workflows/publish.yml выкладывает их по FTP.
+// Заявки с формы принимает public/api/lead.php (на Vercel это был app/api/lead/route.js).
+// После сборки scripts/htaccess.mjs создаёт out/.htaccess.
 const nextConfig = {
-  // Страницы генерируются статически при сборке (SSG), а /api/lead работает как серверная функция Vercel.
-  // Раньше стоял output:'export' — он запрещает API-роуты, поэтому форма не могла слать заявки в бота.
+  output: 'export',
   images: { unoptimized: true },
   trailingSlash: true,
 };

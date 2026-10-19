@@ -1,0 +1,27 @@
+# Проверка сборки без выкладки: запускается на любой ветке, кроме main (и вручную).
+name: Проверка сборки
+on:
+  push:
+    branches-ignore: [main]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      NEXT_TELEMETRY_DISABLED: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - run: npm run build
+      - name: Что получилось
+        run: |
+          find out -maxdepth 2 | sort | head -80
+          echo "html: $(find out -name '*.html' | wc -l)"
+          ls -la out/api out/favicon.ico out/icon.svg out/apple-icon.png out/manifest.webmanifest out/robots.txt out/sitemap.xml out/llms.txt out/404.html
+          head -c 600 out/otzyvy/index.html 2>/dev/null || echo "нет otzyvy"
+          grep -o '<link rel="icon"[^>]*>' out/index.html | head
