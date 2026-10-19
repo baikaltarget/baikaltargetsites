@@ -1,0 +1,36 @@
+name: Проверка живого сайта
+on:
+  push:
+    branches: [mcheck]
+  workflow_dispatch:
+jobs:
+  live:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm i playwright@1.48.2 && npx playwright install --with-deps chromium
+      - name: Открыть сайт
+        run: |
+          cat > t.mjs <<'JS'
+          import { chromium } from 'playwright';
+          const b = await chromium.launch(); const p = await b.newPage();
+          const req = []; const errs = []; const cons = [];
+          p.on('request', r => { const u = r.url(); if (/yandex|mc\.|_next\/static/.test(u)) req.push(r.method() + ' ' + u.slice(0, 110)); });
+          p.on('requestfailed', r => errs.push('FAIL ' + r.url().slice(0, 100) + ' ' + (r.failure()||{}).errorText));
+          p.on('response', r => { if (r.status() >= 400) errs.push(r.status() + ' ' + r.url().slice(0, 100)); });
+          p.on('console', m => cons.push(m.type() + ': ' + m.text().slice(0, 150)));
+          p.on('pageerror', e => errs.push('JSERR ' + String(e).slice(0, 200)));
+          await p.goto('https://sites.baikal-target.ru/?_ym_debug=1', { waitUntil: 'networkidle' });
+          await p.waitForTimeout(4000);
+          const st = await p.evaluate(() => ({ ym: typeof window.ym, scripts: [...document.scripts].map(s => s.src).filter(s => /yandex/.test(s)), cookie: !!document.querySelector('.cookie'), next: !!window.next }));
+          const n = (t, m) => console.log(`::notice title=${t}::${m.replace(/\n/g, ' | ')}`);
+          n('state', JSON.stringify(st));
+          n('yandex-req', req.filter(x => /yandex|mc\./.test(x)).slice(0, 8).join(' || ') || 'нет');
+          n('static-req', String(req.filter(x => /_next/.test(x)).length));
+          n('errors', errs.slice(0, 8).join(' || ') || 'нет');
+          n('console', cons.filter(c => /ym|Metri|error|Яндекс/i.test(c)).slice(0, 8).join(' || ') || 'нет');
+          await b.close();
+          JS
+          node t.mjs
