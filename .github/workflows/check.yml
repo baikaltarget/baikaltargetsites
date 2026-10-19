@@ -18,10 +18,13 @@ jobs:
           cache: npm
       - run: npm ci --no-audit --no-fund
       - run: npm run build
-      - name: Что получилось
+      - name: Что получилось (в аннотациях)
         run: |
-          find out -maxdepth 2 | sort | head -80
-          echo "html: $(find out -name '*.html' | wc -l)"
-          ls -la out/api out/favicon.ico out/icon.svg out/apple-icon.png out/manifest.webmanifest out/robots.txt out/sitemap.xml out/llms.txt out/404.html
-          head -c 600 out/otzyvy/index.html 2>/dev/null || echo "нет otzyvy"
-          grep -o '<link rel="icon"[^>]*>' out/index.html | head
+          n() { echo "::notice title=$1::$2"; }
+          n html "$(find out -name '*.html' | wc -l) страниц"
+          for f in api/lead.php favicon.ico icon.svg apple-icon.png manifest.webmanifest robots.txt sitemap.xml llms.txt 404.html .htaccess index.html blog/index.html otzyvy/index.html politika/index.html; do
+            if [ -e "out/$f" ]; then n file "$f: $(wc -c < out/$f) байт"; else n missing "$f НЕТ"; fi
+          done
+          n icons "$(grep -o '<link rel="[a-z-]*icon"[^>]*>' out/index.html | tr '\n' ' ')"
+          n top "$(ls out | tr '\n' ' ')"
+          n otzyvy "$(grep -o '<title>[^<]*</title>' out/otzyvy/index.html 2>/dev/null) $(grep -o 'noindex' out/otzyvy/index.html 2>/dev/null | head -1)"
