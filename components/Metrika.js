@@ -3,13 +3,14 @@ import site from '@/content/site.json';
 import MetrikaHits from '@/components/MetrikaHits';
 
 // Яндекс Метрика. Номер счётчика — в content/site.json → "metrikaId". Пусто = не подключаем.
+// id скрипта НЕ «ym»: элемент с id="ym" становится window.ym, и код Метрики не создаёт функцию (ошибка «ym is not a function»).
 // Код — как выдаёт Метрика (tag.js?id=, ssr: true). Переходы по меню без перезагрузки считает MetrikaHits.
 export default function Metrika() {
   const id = Number(site.metrikaId);
   if (!id) return null;
   return (
     <>
-      <Script id="ym" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html:
+      <Script id="yandex-metrika" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html:
         `(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();
         for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
