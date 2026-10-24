@@ -8,6 +8,7 @@
 #   TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID — куда слать заявки; по желанию TELEGRAM_API (ретранслятор).
 # Переменные (там же, вкладка Variables):
 #   FORCE_HTTPS = 1 — переадресация на https (только после выпуска SSL в панели Бегета).
+#   REDIRECT_TO_MAIN = 1 — 301 всех страниц на baikal-target.ru (включать в день переключения основного домена на новый сайт).
 name: Сборка и выкладка на Бегет
 
 on:
@@ -54,6 +55,7 @@ jobs:
       - name: Сборка сайта
         env:
           FORCE_HTTPS: ${{ vars.FORCE_HTTPS }}
+          REDIRECT_TO_MAIN: ${{ vars.REDIRECT_TO_MAIN }}
         run: npm run build
 
       - name: Ключи формы заявок
