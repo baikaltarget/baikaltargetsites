@@ -55,7 +55,7 @@ jobs:
       - name: Сборка сайта
         env:
           FORCE_HTTPS: ${{ vars.FORCE_HTTPS }}
-          REDIRECT_TO_MAIN: ${{ vars.REDIRECT_TO_MAIN }}
+          REDIRECT_TO_MAIN: ${{ vars.REDIRECT_TO_MAIN || '1' }}  # основной домен переключён 28.10.2026
         run: npm run build
 
       - name: Ключи формы заявок
